@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    background-color: rgb(255, 251, 247);
+}
+html, body {
+    height: 100%;
+  }
+
+
+.nav {
+    margin: 0;
+    background-color: linen;
+    border-bottom: 3px tan solid;
+    height: 10%;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+}
+
+#nav_logo {
+    font-size: large;
+    display: inline-block;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+#nav_right{
+    float: right;
+    margin-right: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#nav_login, #nav_new, #nav_neww, #nav_personal {
+    float: left;
+    display: flex;
+    background-color: tan;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+}
+
+#nav_personal, #nav_neww {
+    width: 50px;
+    background-color: linen;
+}
+#personal_icon, #new_icon{
+    width: 50px;
+    height: 50px;
+}
+
+.new_page{
+    position: relative;
+    top: 10%;
+    height: 1000px;
+    text-align: center;
+    justify-content: center;
+    
+    display: flex;
+}
+.new_page > ul {
+    list-style:none;
+    padding-left:0px;
+    position: relative;
+    width: 500px;
+}
+.new_page > ul > .topic {
+    height: 50px;
+    background-color: tan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 240px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#proj_name, #proj_explain {
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    resize: none;
+    border: none;
+    border: 2px solid tan;
+    font-family: 고딕,arial;
+    
+}
+#proj_name{
+    height: 30px;
+}
+#proj_explain, #proj_name:focus {
+    outline: none;
+  }
