@@ -5,18 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./new.css">
-    <link rel="stylesheet" href="../banner/banner_in.html">
+    <link rel="stylesheet" href="../banner/ban.css">
+    <script type="text/javascript" src="../new/new.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="nav">
-        <div id="nav_logo" onclick="location.href='../banner/banner_in.html'"><h2 id="nav_lg">TOYPLE</h2></div>
+        <div id="nav_logo" onclick="location.href='../banner/banner_in.html'">
+            <h2 id="nav_lg">TOYPLE</h2>
+        </div>
         <div id ="nav_right">
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'"><img src="../banner/img/plus.png" id="new_icon"></div>
-            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../TOYPLE/src/main/webapp/WEB-INF/views/login/index.html'"><img src="../banner/img/login.png" id="personal_icon"></div>
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                <img src="../img/plus.png" id="new_icon">
+            </div>
+            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                <img src="../img/login.png" id="personal_icon">
+            </div>
         </div>
     </div>
-    
+
+    <div class="back">
+        <img src="../img/back.png" id="go_back_icon" onclick="history.back()">
+    </div>
+
     <div class="new_page">
         <ul>
             <li class="topic"><p>지역</p></li>
@@ -34,14 +45,17 @@
                 </ul> -->
                 지역 선택 영역
             </li>
-            <li class="topic"><p>직무</p></li>
+            <li class="topic"><div>직무</div></li>
             <li>직무 선택 영역</li>
-            <li class="topic"><p>언어</p></li>
+            <li class="topic"><div>언어</div></li>
             <li>언어 선택 영역</li>
-            <li class="topic"><p>프로젝트 제목</p></li>
-            <li><input type="text" id="proj_name" placeholder="입력하세요."></li>
-            <li class="topic"><p>프로젝트 설명</p></li>
-            <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="5"></textarea></li>
+            <li class="topic"><div>프로젝트 제목</div></li>
+            <li><input type="text" id="proj_name" class = "focused"placeholder="입력하세요." spellcheck="false" required></li>
+            <li class="topic"><div>프로젝트 설명</div></li>
+            <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" spellcheck="false"></textarea></li>
+            <li>
+                <div id="new_button" onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div>
+            </li>  
         </ul>
 
     </div>
