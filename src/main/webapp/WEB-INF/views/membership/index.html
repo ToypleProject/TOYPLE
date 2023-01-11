@@ -36,8 +36,7 @@
                                 <label for="pswd2">비밀번호 재확인</label>
                             </h3>
                             <span class="ps_box int_pass_check" id="pswd2Img">
-                                <input type="password" id="pswd2" name="pswd2" aria-describedby="pswd2Blind" class="int" title="비밀번호 재확인 입력" maxlength="20">
-                                <span id="pswd2Blind" class="wa_blind">설정하려는 비밀번호가 맞는지 확인하기 위해 다시 입력해주세요.</span>
+                                <input type="password" id="pswd2" name="pswd2" aria-describedby="pswd2Blind" class="int" title="비밀번호 재확인 입력" maxlength="20" onchange="checking()" onkeydown="input_ing()">
                             </span>
                             <span class="error_next_box" id="pswd2Msg"style="display : none" aria-live="assertive">
                                 비밀번호가 일치하지 않습니다.
@@ -71,5 +70,6 @@
             </div>
         </form>
     </div>
+    <script type =  "text/javascript" src = "membership_password_check.js"></script>
 </body>
 </html>
