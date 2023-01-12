@@ -25,7 +25,7 @@ body {
     justify-content: center;
     display: flex;
 }
-.new_page > ul {
+.new_page ul {
     list-style:none;
     padding-left:0px;
     position: relative;
@@ -33,19 +33,42 @@ body {
     text-align: center;
 }
 
-.new_page > ul > li {
+.new_page ul > li {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
-.new_page > ul > .topic {
+.new_page  ul > .topic {
     height: 50px;
     background-color: tan;
-    
+    cursor: default;
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 20px;
+}
+.new_select {
+    border: 2px solid tan;
+    background-color: white;
+    margin-bottom: 5px;
+    width: 90%;
+    height: 30px;
+    font-family: 고딕,arial;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.place_selected {
+    border: 1px solid tan;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    background-color: rgb(244, 240, 236);
+    height: 20px;
+    font-family: 고딕,arial;
+    display: flex;
+    align-items: center;
+    text-align: left;
 }
 
 #new_button {
@@ -66,7 +89,7 @@ body {
 #proj_name, #proj_explain {
     margin-left: 0;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     width: 90%;
     resize: none;
     border: 2px solid tan;
@@ -92,6 +115,17 @@ body {
   }
 #proj_name{
     height: 30px;
+}
+#response_area {
+    color: red;
+    visibility: hidden; 
+}
+#new_alert{
+    font-size: small;
+    margin-left: 20px;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
 }
 #proj_explain, #proj_name:focus {
     outline: none;
