@@ -8,41 +8,56 @@
     <title>login</title>
 </head>
 <body>
-
     <div id="wrap">
-        <div class="NewProject">
-            <h3>지금! <span>New Project</span>를 만들러 가볼까요?</h3>
-            <input type="button" value="바로가기▶">
+        <div id="header" class="logo">
+            <h1><a href='#' class='h_logo' role="banner">TOYPLE</a></h1>
         </div>
-        <div class="TopMenu">
-            <div class="icon">
-                <h1>TOYPLE</h1>
+        <form id="join_form">
+            <div id="container">
+                <div id="banner"></div>
+                <div id="content">
+                    <!-- 아이디 비밀번호  -->
+                    <div class="row_group">
+                        <div class ="join_row">
+                            <h3 class="join_title">
+                                <label for="id">아이디</lebel>
+                            </h3>
+                            <span class="ps_box int_id">
+                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id">
+                            </span>
+                            <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
+                                필수 입력란입니다.
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="join_row">
+                            <h3 class="join_title">
+                                <label for="pswd1">비밀번호</label>
+                            </h3>
+                            <span class="ps_box int_pass" id="psw1Img">
+                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20">
+                            </span>
+                            <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive">
+                                필수 입력란입니다.
+                            </span>
+                        </div>
+                    </div>
+                    <!-- //아이디 비밀번호 -->
+                    
+                    <!-- 로그인 버튼 -->
+                    <div class="btn_area">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
+                            <span>로그인</span>
+                        </button>
+                    </div>
+                    <!-- //로그인 버튼 -->
+
+                </div>
             </div>
-            <div class="button_login">
-                <nav>
-                    <ul class="menu">
-                        <li><a href="index.html">로그인</a></li>
-                        <li><a href="index.html" class="user_new">회원가입</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="Login">
-            <div class="fhrmdls">
-                <h1><mark>로그인</mark></h1>
-            </div>
-            <div class="id_and_password">
-                <input type="text" name = "userid" placeholder="아이디를 입력해주세요">
-                <input type="password" name = "userpassword" placeholder="비밀번호를 입력해주세요">
-            </div>
-            <div class="id_and_password_button">
-                <input type="button" onclick="location.href='index.html'; return false;" value="로그인">
-                <input type="button" onclick="location.href='index.html'; return false;" value="회원가입">
-            </div>
-        </div>
+        </form>
     </div>
-
-<script src="login.js"></script>
-
+    <script type =  "text/javascript" src = "login.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
