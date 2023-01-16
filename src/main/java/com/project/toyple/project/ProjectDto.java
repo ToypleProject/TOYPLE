@@ -11,12 +11,11 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Setter
 @Builder
 @Entity
-@Table
+@Table(name="project")
 public class ProjectDto {
     @Id //pk 설정
     @GeneratedValue //생성된 값 사용

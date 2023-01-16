@@ -1,6 +1,7 @@
 package com.project.toyple.applicant;
 
 import com.project.toyple.user.UserDto;
+import com.project.toyple.project.ProjectDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +22,6 @@ public class ApplicantDto {
     private int seq;
 
     @OneToOne  // 1:1인지, 1:N인지 까먹었음
-    @MapsId
     @JoinColumn(name="user_id")
     private UserDto userId;  // user 테이블 FK
 

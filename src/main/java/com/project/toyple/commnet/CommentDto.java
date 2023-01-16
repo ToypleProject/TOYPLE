@@ -7,11 +7,10 @@ import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Builder
 @Entity
-@Table
+@Table(name="comment")
 public class CommentDto {
     @Id
     @GeneratedValue //생성된 값 사용
@@ -23,5 +22,5 @@ public class CommentDto {
     @ManyToOne
     @JoinColumn(name = "project_id")
     private ProjectDto project_id;
-    private String commnet;
+    private String comment;
 }
