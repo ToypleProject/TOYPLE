@@ -1,3 +1,20 @@
+let id = document.getElementById('id').value;
+let pwd = document.getElementById('pswd1').value;
+let name = document.getElementById('name').value;
+let mail = document.getElementById('email').value;
+let check_comment = document.getElementById('pswd2Msg');
+let msg1 = document.getElementById('Msg1');
+let msg2 = document.getElementById('Msg2');
+let msg3 = document.getElementById('Msg3');
+let msg4 = document.getElementById('Msg4');
+
+// 오류가 왜 날까....??????
+// 근데 작동에는 문제가 없음.......뭐지????
+//name을 나는 let으로 선언했는데 const가 됨...왜????
+let array = [id, pwd, mail, name];
+let outvalue = [msg1, msg2, msg3, msg4];
+
+
 // 비밀번호와 비밀번호 확인이 일치하는지 확인
 function checking() {
     // console.log('checking start');
@@ -148,21 +165,7 @@ function mail_repeat() {
 }
 
 
-let id = document.getElementById('id').value;
-let pwd = document.getElementById('pswd1').value;
-let name = document.getElementById('name').value;
-let mail = document.getElementById('email').value;
-let check_comment = document.getElementById('pswd2Msg');
-let msg1 = document.getElementById('Msg1');
-let msg2 = document.getElementById('Msg2');
-let msg3 = document.getElementById('Msg3');
-let msg4 = document.getElementById('Msg4');
 
-// 오류가 왜 날까....??????
-// 근데 작동에는 문제가 없음.......뭐지????
-//name을 나는 let으로 선언했는데 const가 됨...왜????
-let array = [id, pwd, mail, name];
-let outvalue = [msg1, msg2, msg3, msg4];
 
 
 // 비밀번호 확인란을 제외하고 focus 되면 바로 하단에 필수 입력이라는 것을 표시해준다.
@@ -176,7 +179,7 @@ function isnullcheck(obj, str) {
 }
 
 // 비밀번호 확인란을 제외하고 출력될 수 있는 키보드 자판이 입력되면 필수 입력이라는 글씨가 사라진다.
-function isnotnullcheck(obj, str) {
+function isnotnullcheck(str) {
     let num = parseInt(str);
     // console.log(obj.value);
     outvalue[num].value = "0";

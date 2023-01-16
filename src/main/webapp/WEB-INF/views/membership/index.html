@@ -22,7 +22,7 @@
                                 <label for="id">아이디</lebel>
                             </h3>
                             <span class="ps_box int_id">
-                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id" onchange="id_repeat()" onfocus="isnullcheck(this,'0')" onkeypress="isnotnullcheck(this, 0)">
+                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id" onchange="id_repeat()" onfocus="isnullcheck(this,'0')" onkeypress="isnotnullcheck(0)">
                             </span>
                             <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -36,7 +36,7 @@
                                 <label for="pswd1">비밀번호</label>
                             </h3>
                             <span class="ps_box int_pass" id="psw1Img">
-                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20" onfocus="isnullcheck(this,'1')" onkeypress="isnotnullcheck(this, 1)">
+                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20" onfocus="isnullcheck(this,'1')" onkeypress="isnotnullcheck(1)">
                             </span>
                             <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -61,7 +61,7 @@
                                 <label for="name">이름</label>
                             </h3>
                             <span class="ps_box  box_right_space">
-                                <input type="text" id="name" name="name" aria-label="이름" class="int" maxlength="100" onfocus="isnullcheck(this,'2')" onkeypress="isnotnullcheck(this, 2)">
+                                <input type="text" id="name" name="name" aria-label="이름" class="int" maxlength="100" onfocus="isnullcheck(this,'2')" onkeypress="isnotnullcheck(2)">
                             </span>
                             <span class="error_next_box" id="Msg3"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -70,7 +70,7 @@
                                 <label for="email">이메일</label>
                             </h3>
                             <span class="ps_box int_email box_right_space">
-                                <input type="text" id="email" name="email" aria-label="이메일" class="int" maxlength="100" onfocus="isnullcheck(this,'3')" onkeypress="isnotnullcheck(this, 3)" onchange="mail_repeat()">
+                                <input type="text" id="email" name="email" aria-label="이메일" class="int" maxlength="100" onfocus="isnullcheck(this,'3')" onkeypress="isnotnullcheck(3)" onchange="mail_repeat()">
                             </span>
                             <span class="error_next_box" id="Msg4"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
