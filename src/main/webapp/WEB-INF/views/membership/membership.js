@@ -91,22 +91,33 @@ function id_repeat() {
     let id_sample = "aa";
     let id = document.getElementById('id').value;
     let msg1_2 = document.getElementById('Msg1_2');
+    // 아이디에는 영어와 숫자만 입력가능하게 조건 걸기
+    const regex = /^[a-z|A-Z|0-9|]+$/;
+    if(regex.test(id)) {
+        if(id_sample != id) {
+            // console.log(id + sample);
+            msg1_2.style.display = 'none';
+            Swal.fire({
+                title : '사용 가능한 아이디입니다.',
+                icon : 'success',
+                showConfirmButton : false,
+                timer : 1000,
+                // confirmButtonColor : '#F5EBE1',
+            })
+        } else if(id != '') {
+            msg1_2.style.display = 'block';
+            // alert('사용 중인 아이디 입니다.');
+            Swal.fire({
+                title : '사용중인 아이디입니다.',
+                icon : 'warning',
+                showConfirmButton : false,
+                timer : 1000,
+            })
+        }
 
-    if(id_sample != id) {
-        // console.log(id + sample);
-        msg1_2.style.display = 'none';
+    } else {
         Swal.fire({
-            title : '사용 가능한 아이디입니다.',
-            icon : 'success',
-            showConfirmButton : false,
-            timer : 1000,
-            // confirmButtonColor : '#F5EBE1',
-        })
-    } else if(id != '') {
-        msg1_2.style.display = 'block';
-        // alert('사용 중인 아이디 입니다.');
-        Swal.fire({
-            title : '사용중인 아이디입니다.',
+            title : '아이디에는 영어 또는 숫자만 입력해주세요.',
             icon : 'warning',
             showConfirmButton : false,
             timer : 1000,

@@ -46,6 +46,22 @@ function button_click() {
     }
 }
 
+// id의 input 값이 바뀔때마다 호출해서 검사하기
+function id_repeat() {
+    // 아이디에는 영어와 숫자만 입력가능하게 조건 걸기
+    const regex = /^[a-z|A-Z|0-9|]+$/;
+    if(regex.test(id)) {
+
+    } else {
+        Swal.fire({
+            title : '아이디에는 영어 또는 숫자만 입력해주세요.',
+            icon : 'warning',
+            showConfirmButton : false,
+            timer : 1000,
+        })
+    }
+}
+
 function checkting() {
     //DB와 입력된 id & password 대조
     let id_ex = 'soojin';
