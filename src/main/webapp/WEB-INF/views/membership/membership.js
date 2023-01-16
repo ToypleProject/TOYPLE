@@ -1,6 +1,6 @@
 // 비밀번호와 비밀번호 확인이 일치하는지 확인
 function checking() {
-    console.log('checking start');
+    // console.log('checking start');
     let check_pw = document.getElementById('pswd2').value;
     let pw = document.getElementById('pswd1').value;
     let check_comment = document.getElementById('pswd2Msg');
@@ -36,13 +36,50 @@ function membership() {
         if(checkvalue == (array.length)) {
             // 비밀번호 확인을 했는지 확인
             if(check_comment.value =="1") {
-                alert('회원가입 완료');
+                // alert('회원가입에 성공하셨습니다!');
+                // (로그인 안된)메인 페이지와 연결하기 or 로그인 화면으로 연결하기
+                // setTimeout(function() {
+                //     location.href = "../login/index.html";
+                // }, 1500);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                  })
+                  
+                  Toast.fire({
+                    icon: 'success',
+                    title: '회원가입 성공',
+                    text : '로그인 화면으로 이동합니다.'
+                  })
+                setTimeout(function() {
+                    location.href = "../login/index.html";
+                }, 2000);
+                // Swal.fire('회원가입이 완료되었습니다.', '', 'success');
             } else {
                 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@회원을 생성해야 함@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                swal('비밀번호 확인 부탁드립니다.');
+                // alert('비밀번호 확인 부탁드립니다.');
+                Swal.fire({
+                    title : '비밀번호 확인 부탁드립니다.',
+                    icon : 'warning',
+                    showConfirmButton : false,
+                    timer : 1000,
+                })
             }
         } else {
-            swal('필수 입력칸을 모두 채워주세요.');
+            // alert('필수 입력칸을 모두 채워주세요.');
+            Swal.fire({
+                title : '필수 입력칸을 모두 채워주세요.',
+                icon : 'warning',
+                showConfirmButton : false,
+                timer : 1000,
+            })
         }
         break;
     }
@@ -58,10 +95,22 @@ function id_repeat() {
     if(id_sample != id) {
         // console.log(id + sample);
         msg1_2.style.display = 'none';
-        swal('사용 가능한 아이디 입니다.');
+        Swal.fire({
+            title : '사용 가능한 아이디입니다.',
+            icon : 'success',
+            showConfirmButton : false,
+            timer : 1000,
+            // confirmButtonColor : '#F5EBE1',
+        })
     } else if(id != '') {
         msg1_2.style.display = 'block';
-        swal('사용 중인 아이디 입니다.');
+        // alert('사용 중인 아이디 입니다.');
+        Swal.fire({
+            title : '사용중인 아이디입니다.',
+            icon : 'warning',
+            showConfirmButton : false,
+            timer : 1000,
+        })
     }
 }
 
@@ -73,7 +122,14 @@ function mail_repeat() {
     let msg4_2 = document.getElementById('Msg4_2');
 
     if(m_sample == mail) {
-        swal('가입 이력이 있는 이메일입니다.');
+        // alert('가입 이력이 있는 이메일입니다.');
+        Swal.fire({
+            title : '가입 이력이 있는 이메일입니다.',
+            text : '아이디 혹은 비밀번호 찾기를 이용해보세요.',
+            icon : 'warning',
+            showConfirmButton : false,
+            timer : 1000,
+        })
         msg4_2.style.display = 'block';
     } else if(mail != '') {
         msg4_2.style.display = 'none';
@@ -101,7 +157,7 @@ let outvalue = [msg1, msg2, msg3, msg4];
 // 비밀번호 확인란을 제외하고 focus 되면 바로 하단에 필수 입력이라는 것을 표시해준다.
 function isnullcheck(obj, str) {
     let num = parseInt(str);
-    console.log(obj.value);
+    // console.log(obj.value);
     if(obj.value == '') {
         outvalue[num].value = "1";
         outvalue[num].style.display = 'block';
@@ -111,7 +167,7 @@ function isnullcheck(obj, str) {
 // 비밀번호 확인란을 제외하고 출력될 수 있는 키보드 자판이 입력되면 필수 입력이라는 글씨가 사라진다.
 function isnotnullcheck(obj, str) {
     let num = parseInt(str);
-    console.log(obj.value);
+    // console.log(obj.value);
     outvalue[num].value = "0";
     outvalue[num].style.display = 'none';
 }
