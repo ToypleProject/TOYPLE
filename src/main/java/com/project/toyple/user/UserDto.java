@@ -1,9 +1,6 @@
 package com.project.toyple.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="user")
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
