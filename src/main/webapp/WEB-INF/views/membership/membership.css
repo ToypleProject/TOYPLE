@@ -242,6 +242,8 @@ Label {
 
 /* 비밀번호 */
 .ps_box.int_pass:after,
+.ps_box.int_pass_check2:after,
+.ps_box.int_pass_check:after,
 .ps_box.int_pass_step1:after,
 .ps_box.int_pass_step2:after,
 .ps_box.int_pass_step3:after,
@@ -258,6 +260,7 @@ Label {
 }
 
 .ps_box.int_pass,
+.ps_box.int_pass_check,
 .ps_box.intPass_check2 {
     padding-right : 40px;
 }
@@ -272,13 +275,13 @@ Label {
     font-size: 0;
 }
 
-/* .error_next_box {
+.error_next_box {
     display: block;
     margin : 9px 0 -2px;
     font-size: 12px;
     line-height: 14px;
     color : red;
-} */
+}
 
 /* 이메일 */
 .row_group+.row_group {
@@ -316,7 +319,7 @@ button {
     background-color: linen;
 }
 
-/* 아이디나 비번을 입력하지 않고 로그인 버튼을 눌렀을 때 */
+/* 아이디나 비번, 이메일을 입력하지 않고 로그인 버튼을 눌렀을 때 */
 .error_next_box {
     display: block;
     margin : 9px 0 -2px;
@@ -333,3 +336,6 @@ button {
     margin-bottom: 28px;
     color : black;
   } */
+
+
+

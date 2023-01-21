@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./new.css">
+    <link rel="stylesheet" href="../banner/ban.css">
+    <script type="text/javascript" src="../new/new.js"></script>
+    <title>TOYPLE_new</title>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <div class="nav">
+        <div id="nav_logo" onclick="location.href='../banner/banner_in.html'">
+            <h2 id="nav_lg">TOYPLE</h2>
+        </div>
+        <div id ="nav_right">
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                <img src="../img/plus.png" id="new_icon" alt="new">
+            </div>
+            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                <img src="../img/envelope.png" id="nav_alarm_icon" alt="envelope">
+            </div>
+            
+            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                <img src="../img/login.png" id="personal_icon" alt="member">
+            </div>
+        </div>
+    </div>
+
+    <div class="back">
+        <img src="../img/back.png" id="go_back_icon" onclick="history.back()">
+    </div>
+
+    <div class="new_page">
+        <form autocomplete="off">
+            <ul>
+                <li class="topic"><p>지역</p></li>
+                <li>
+                    <div class="new_select">
+                        <div>
+                            <div class="place_selected">서울 X</div>
+                            <div class="place_selected">서울 X</div>
+                            <div class="place_selected">서울 X</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic"><div>직무</div></li>
+                <li>
+                    <div class="new_select">
+                        <div>
+                            <div class="job_selected">프론트엔드 X</div>
+                            <div class="job_selected">프론트엔드 X</div>
+                            <div class="job_selected">프론트엔드 X</div>
+                            <div class="job_selected">프론트엔드 X</div>
+                            <div class="job_selected">프론트엔드 X</div>
+                            <div class="job_selected">프론트엔드 X</div>
+                            <div class="job_selected">프론트엔드 X</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic"><div>언어</div></li>
+                <li>
+                    <div class="new_select">
+                        <div class="place_selected">JAVA X</div>
+                    </div>
+                </li>
+                <li class="topic"><div>프로젝트 제목</div></li>
+                <li><input type="text" id="proj_name" class = "focused" placeholder="입력하세요." spellcheck="false" required></li>
+                <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
+                <li class="topic"><div>프로젝트 설명</div></li>
+                <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" spellcheck="false"></textarea></li>
+                <li>
+                    <div id="new_button" onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div>
+                </li>  
+            </ul>
+        </form>
+    </div>
+</body>
+</html>
