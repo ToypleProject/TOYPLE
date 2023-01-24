@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./new.css">
+    <link rel="stylesheet" href="../main/banner.css">
+    <script type="text/javascript" src="../new/new.js"></script>
+    <title>TOYPLE_new</title>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <div class="nav">
+        <div id="nav_logo" onclick="location.href='../main/main.html'">
+            <h2 id="nav_lg">TOYPLE</h2>
+        </div>
+        <div id ="nav_right">
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                <img src="../img/plus.png" id="new_icon" alt="new">
+            </div>
+            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                <img src="../img/envelope.png" id="nav_alarm_icon" alt="envelope">
+            </div>
+            
+            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                <img src="../img/login.png" id="personal_icon" alt="member">
+            </div>
+        </div>
+    </div>
+
+    <div class="back">
+        <img src="../img/back.png" id="go_back_icon" onclick="history.back()">
+    </div>
+
+    <div class="new_page">
+        <form autocomplete="off">
+            <ul>
+                <li class="topic"><p>지역</p></li>
+                <li>
+                    <div id="choose_place"> 
+                        <!-- 지역 누르면 place_selected 클래스 추가됨 => 재클릭하면 place_selected 클래스 삭제 -->
+                        <div class="places" onclick="add_place(this)">서울</div>
+                        <div class="places" onclick="add_place(this)">경기/인천</div>
+                        <div class="places" onclick="add_place(this)">강원</div>
+                        <div class="places" onclick="add_place(this)">충천/대전</div>
+                        <div class="places" onclick="add_place(this)">전라/광주</div>
+                        <div class="places" onclick="add_place(this)">경북/대구</div>
+                        <div class="places" onclick="add_place(this)">경남/부산/울산</div>
+                        <div class="places" onclick="add_place(this)">제주</div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="new_select">
+                        <div id="selected_places">
+                            <!-- 각 지역 누르면 place_list 클래스를 가진 div 생성 -->
+                        </div>
+                    </div>
+                    <div class="select_reset_area">
+                        <div class="select_reset" id="reset_place" onclick="reset(this)">선택초기화</div>
+                    </div>
+                </li>
+                <li class="topic"><div>직무</div></li>
+                <li>
+                    <div id="choose_works">
+                        <div class="works" id="fornt_end" onclick="add_work(this)">프론트엔드</div>
+                        <div class="works" id="back_end"  onclick="add_work(this)">백엔드</div>
+                        <div class="works" id="work_mobile" onclick="add_work(this)">모바일</div>
+                        <div class="works" id="work_etc" onclick="add_work(this)">기타</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="new_select">
+                        <div id="selected_works">
+                            <!-- 각 직무 누르면 work_list 클래스를 가진 div 생성 -->
+                        </div>
+                    </div>
+                    <div class="select_reset_area">
+                        <div class="select_reset" id="reset_work" onclick="reset(this)">선택초기화</div>
+                    </div>
+                </li>
+                <li class="topic"><div>언어</div></li>
+                <li>
+                    <div id="choose_langs">
+                        <!-- <div class="langs" onclick="add_lang(this)">JavaScript</div>
+                        <div class="langs" onclick="add_lang(this)">TypeScript</div>
+                        <div class="langs" onclick="add_lang(this)">React</div>
+                        <div class="langs" onclick="add_lang(this)">Vue</div>
+                        <div class="langs" onclick="add_lang(this)">Svelte</div>
+                        <div class="langs" onclick="add_lang(this)">Nextjs</div> -->
+                    </div>
+                </li>
+                <li>
+                    <div class="new_select">
+                        <div id="selected_langs">
+                            <!-- 각 언어 누르면 lang_list 클래스를 가진 div 생성 -->
+                        </div>
+                    </div>
+                    <div class="select_reset_area">
+                        <div class="select_reset" id="reset_lang" onclick="reset(this)">선택초기화</div>
+                    </div>
+                </li>
+                <li class="topic"><div>프로젝트 제목</div></li>
+                <li><input type="text" id="proj_name" class = "focused" placeholder="입력하세요." spellcheck="false" required></li>
+                <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
+
+                <li class="topic"><div>프로젝트 설명</div></li>
+                <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" spellcheck="false"></textarea></li>
+                <li>
+                    <div id="new_button" onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div>
+                </li>  
+            </ul>
+        </form>
+    </div>
+</body>
+</html>
