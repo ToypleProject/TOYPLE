@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,9 @@
             <h2 id="nav_lg">TOYPLE</h2>
         </div>
         <div id ="nav_right">
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+<!--            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../project/new.html'">-->
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project'">
+<!--            <div id="nav_neww" style="cursor:pointer" th:onclick="|location.href='@{/project/new}'|">-->
                 <img src="../img/plus.png" id="new_icon" alt="new">
             </div>
             <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
