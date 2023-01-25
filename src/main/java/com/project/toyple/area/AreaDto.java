@@ -5,14 +5,13 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Getter
 @Setter
 @Builder
 @Entity
-@Table
+@Table(name = "area")
 //일대다관계에서 한쪽만
 public class AreaDto {
 

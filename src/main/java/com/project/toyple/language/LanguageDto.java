@@ -4,14 +4,13 @@ import com.project.toyple.project.ProjectDto;
 import lombok.*;
 
 import javax.persistence.*;
-
-@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
-@Table
+@Table(name = "language")
 public class LanguageDto {
     @Id
     @Column(name="seq")

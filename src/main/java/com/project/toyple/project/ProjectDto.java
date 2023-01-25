@@ -9,18 +9,17 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Getter
 @Setter
 @Builder
 @Entity
-@Table
+@Table(name="project")
 public class ProjectDto {
     @Id //pk 설정
     @GeneratedValue //생성된 값 사용
-    private String projectId;//_언더바 사용시
+    private Long projectId;//_언더바 사용시
     private String projectNm;
     @Column
     private String content;
@@ -41,4 +40,8 @@ public class ProjectDto {
     @OneToMany
     @JoinColumn(name = "job")
     private List<JobDto> jobs = new ArrayList<JobDto>();
+
+//    public Posts toEntity(){
+//        return Posts.b
+//    }
 }
