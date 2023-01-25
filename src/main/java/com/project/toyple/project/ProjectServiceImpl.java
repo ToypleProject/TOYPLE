@@ -11,16 +11,13 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 public class ProjectServiceImpl implements ProjectService {
 
-    ProjectDao projectDao;
+    private final ProjectDao projectDao;
 
     @Override
-    public void listProject(ProjectDto projectDto) {
-        System.out.println("데이터 확인 작업" + projectDto.getProjectId());
+    public void save(ProjectDto dto) {
+        ProjectDto projectDto = ProjectDto.toSaveDto(dto);
+       projectDao.save(projectDto);
 
     }
-//    @Override
-//    public Long save(ProjectDto requestDao) {
-//        return projectDao.save(requestDao.)
-//    }
 
 }

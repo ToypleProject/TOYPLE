@@ -19,7 +19,7 @@ public class AreaDto {
     @Column(name="seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int seq;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private ProjectDto project_id;
     private String area;

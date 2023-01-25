@@ -1,7 +1,6 @@
 
 let offering = ['A','B','C','D','1','2','3','4','5']
 
-
 window.onresize = function(event){
     let offers = document.getElementById('offers')
     console.log(offers)

@@ -1,3 +1,6 @@
+const addReq = () => {
+    location.href = "/project/add"
+}
 function newproject() {
     let proj_name = document.getElementById('proj_name')
     let response_area = document.getElementById('response_area')
