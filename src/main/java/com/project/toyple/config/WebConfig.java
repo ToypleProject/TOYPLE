@@ -12,6 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
+//        bean.setContentType("text/html; charset=UTF-8");
         bean.setPrefix("classpath:templates/");
         bean.setSuffix(".html");
         return bean;

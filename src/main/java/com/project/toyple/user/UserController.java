@@ -13,22 +13,31 @@ public class UserController {
     // 로그인 창으로 이동
     @RequestMapping(value="/user/login", method=RequestMethod.GET)
     public String loginForm() {
-        System.out.println("!!!!!!!!!!login()!!!!!!!!!");
         return "login/index";
     }
 
-    // 로그인 창에서 로그인 버튼 눌렀을 때
-    // TODO: js에서 경로 여기로 보내는지 확인하기
-    @RequestMapping(value="/user/login", method=RequestMethod.POST)
-    public String login(String id, String password) {
-        System.out.println("@@@@@@@@@@@@login()@@@@@@@");
-        UserDto userDto = new UserDto();
-        userDto.setUserId(id);
-        userDto.setPassword(password);
-        userService.login(userDto);
-        System.out.println("#######login()#########");
+    // 로그인 작업 수행
+//    @RequestMapping(value="/user/login", method=RequestMethod.POST)
+//    public String login(String id, String pswd1) {  // TODO: join() 처럼 UserDto를 인자로 받도록 고치기
+//        UserDto userDto = new UserDto();
+//        userDto.setUserId(id);
+//        userDto.setPassword(pswd1);
+//        userService.login(userDto);
+//
+//        return "login/index";  // TODO: 메인페이지 완성되면 메인페이지로 바꾸기
+//    }
 
-        return "login/index";  // TODO: 메인페이지 완성되면 메인페이지로 바꾸기
+    // 회원가입 창으로 이동
+    @RequestMapping(value="/user/join", method=RequestMethod.GET)
+    public String joinForm() {
+        return "membership/index";
+    }
+
+    // 회원가입 작업 수행
+    @RequestMapping(value="/user/join", method=RequestMethod.POST)
+    public String join(UserDto userDto) {
+        userService.join(userDto);
+        return "redirect:/user/login";
     }
 
 }
