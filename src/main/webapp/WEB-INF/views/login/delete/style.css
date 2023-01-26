@@ -1,0 +1,264 @@
+* { margin : 0; padding: 0; box-sizing: border-box;}
+
+
+#wrap {
+    width : 100%;
+    height : 750px;
+    margin : 0 auto;
+}
+
+/* ============class='NewProject'============ */
+.NewProject {
+    /* background-color: red; */
+    width : 100%;
+    height : 30px;
+}
+/* width값이 284이하일 경우 NewProject부분을 아예 삭제 */
+/* (max-width:284px) : 284 이하일 때
+    (min-width:2020px) : 2020 이상일 때*/
+@media (max-width:284px){
+    .NewProject {
+        display: none;
+    }
+}
+@media  (min-height:1000px) {
+    .NewProject {
+        display: none;
+    }
+}
+/* text와 button 한줄로 보이게 설정 */
+.NewProject h3 {
+    display : inline-block;
+}
+/* 가운데 정렬 */
+.NewProject {
+    /* border : 1px solid black; */
+    text-align: center;
+}
+
+.NewProject > h3, .NewProject > span {
+    font-size : 2vh;
+}
+
+
+
+
+
+/* ============class='TopMenu'============ */
+
+.TopMenu {
+    /* width : 100px;
+    height : 100px; */
+    /* background-color: yellow; */
+    border : 0.5px solid gray;
+    width : 100%;
+    height : 60px;
+    background-color: rgb(255, 247, 211);
+}
+
+
+/* 512px 이하가 되면 상단에 TOYPLE 글자만 보이게(로그인&회원가입 안 보임) */
+@media (max-width : 512px) {
+    .TopMenu .button_login {
+        height: 40px;
+        display : none;
+    }
+    .TopMenu .icon {
+        width : 100%;
+        height: 100%;
+        text-align: center;
+        /* display: inline-block; */
+        /* margin : 0 0 0 0; */
+        margin-left : 0;
+    }
+}
+
+.TopMenu div {
+    text-align: center;
+    vertical-align: middle;
+    /* margin-left : 30%; */
+    /* margin-right: 30%; */
+}
+
+.icon {
+    /* TOYPLE과 (로그인&회원가입) 사이의 거리 */
+    margin-right : 34%;
+    margin-left : 17%;
+}
+
+.button_login {
+    width : 15%;
+    height : 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button_login li a {
+    text-decoration: none;
+    /* inherit : a태그의 색상 제거(보라빛) */
+    color: inherit; 
+    /* 임의로 색상 지정 */
+    text-align: center;
+    font-size: 1vh;
+}
+.button_login li {
+    width : 50%;
+    height: 100%;
+    list-style: none;
+    display: inline;
+}
+
+.menu {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.icon {
+    width : 20%;
+    height : 100%;
+    display: inline-block;
+}
+
+
+
+
+/* ============class='Login'============ */
+.Login {
+    width : 40%;
+    height : 450px;
+    margin-left : 30%;
+    margin-right : 30%;
+    margin-top : 5%;
+    /* align-content: center; */
+}
+
+/* 화면을 축소할 때 TopMenu와의 간격조정(이거 안 해주면 wrap영역을 벗어남) */
+@media (min-width : 1688px) {
+    .Login {
+        margin-top : 3%;
+    }
+}
+@media (min-width : 4600px) {
+    .Login {
+        margin-top : 1%;
+    }
+}
+
+@media (max-width : 512px) {
+    .Login {
+        margin-left : 10%;
+        width : 80%;
+        margin-right: 10%;
+    }
+}
+
+.fhrmdls {
+    /* width : 100%;
+    height : 20%; */
+    text-align: center;
+<<<<<<< HEAD
+    /* font-size: 1rem; */
+=======
+    font-size: 1rem;
+>>>>>>> 7fa85a5be7ceea9202685707a26716e8a266348f
+}
+
+.id_and_password {
+    width : 100%;
+    height : 30%;
+}
+
+.id_and_password input {
+    width : 100%;
+    height: 35%;
+}
+
+@media (max-width : 600px) {
+
+    .id_and_password input {
+        width : 100%;
+    }
+}
+
+.id_and_password input::placeholder {
+    font-size: 0.8vw;
+}
+
+/* input안에 있는 placeholder("아이디를 입력해주세요" 등)의 글자 크기를 반응형으로! */
+@media (min-width : 2270px) {
+    .id_and_password input::placeholder {
+        font-size: 0;
+    }
+}
+
+.id_and_password input:last-child {
+    margin-top : 5%;
+}
+
+.id_and_password input:first-child {
+    margin-top: 8%;
+}
+
+@media (min-width : 300px) {
+    .id_and_password input:first-child {
+        margin-top : 3%;
+    }
+}
+
+@media (min-width : 1534px) {
+    .id_and_password input:first-child {
+        margin-top : 1%
+    }
+}
+
+@media (min-width : 938px) {
+    .id_and_password input:last-child {
+        margin-top : 2%;
+    }
+
+    div.id_and_password_button {
+        width : 400px;
+        margin : auto;
+    }
+}
+
+@media (min-width : 2278px) {
+    .id_and_password input:last-child {
+        margin-top : 0.7%;
+    }
+}
+
+@media (min-width : 4600px) {
+    .id_and_password input:last-child {
+        margin-top : 0;
+    }
+}
+
+/* 1012px를 넘어갈 때는 아이디&비번 입력창 크기 고장 */
+@media (min-width : 1012px) {
+    .id_and_password {
+        width : 400px;
+        margin : auto;
+    }
+}
+
+.id_and_password_button {
+    width : 100%;
+    height : 40%;
+}
+
+.id_and_password_button input {
+    width : 70%;
+    display : block;
+    margin: auto;
+    border-radius: 10px 10px 10px 10px;
+    border : 1px solid gray;
+}
+
+.id_and_password_button input:first-child {
+    margin-top : 3%;
+}
+
+.id_and_password_button input:last-child {
+    margin-top : 3%;
+}
