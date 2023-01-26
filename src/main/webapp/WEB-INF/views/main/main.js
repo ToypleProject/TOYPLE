@@ -1,12 +1,6 @@
 
 let offering = ['A','B','C','D','1','2','3','4','5']
-
-
-function add_offering() {
-    let newoffer_topic = document.getElementById('proj_name')
-    offering.push(newoffer_topic)
-    console.log(offering)
-}
+let offering_table = document.getElementById('offering_table')
 
 window.onresize = function(event){
     let offers = document.getElementById('offers')
@@ -56,7 +50,7 @@ window.onresize = function(event){
 }
 
 function sort() {
-    let offering_table = document.getElementById('offering_table')
+    // let offering_table = document.getElementById('offering_table')
     // console.log(offering_table.rows.length)
     // console.log(offering_table.rows[0].cells.length)
     let j = 0

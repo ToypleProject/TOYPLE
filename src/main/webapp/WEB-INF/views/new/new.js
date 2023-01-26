@@ -24,9 +24,11 @@ function newproject() {
     add_offering();
     return
 }
+
 function buttonover(obj) {
     obj.style.backgroundColor = "rgb(180, 150, 110)"
 }
+
 function buttonout(obj) {
     obj.style.backgroundColor = "tan"
 }
