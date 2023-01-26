@@ -5,14 +5,13 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Getter
 @Setter
 @Builder
 @Entity
-@Table
+@Table(name = "area")
 //일대다관계에서 한쪽만
 public class AreaDto {
 
@@ -20,7 +19,7 @@ public class AreaDto {
     @Column(name="seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int seq;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private ProjectDto project_id;
     private String area;
