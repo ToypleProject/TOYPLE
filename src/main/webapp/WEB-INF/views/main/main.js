@@ -1,6 +1,6 @@
 
 let offering = ['A','B','C','D','1','2','3','4','5']
-let offering_table = document.getElementById('offering_table')
+// let offering_table = document.getElementById('offering_table')
 
 window.onresize = function(event){
     let offers = document.getElementById('offers')
