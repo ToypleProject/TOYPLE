@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD:src/main/resources/templates/login.html
     <link rel="stylesheet" href="/css/login.css">
     <script type =  "text/javascript" th:src="@{/js/login.js}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <title>login</title>
+=======
+    <link rel="stylesheet" href="findId.css">
+    <title>find-id</title>
+>>>>>>> 419513a677250d271a51764ad06f42d46121eac0:src/main/resources/static/find_id/index.html
 </head>
 <body>
     <script th:inline="javascript">
@@ -62,10 +67,17 @@
                     <div class="row_group">
                         <div class ="join_row">
                             <h3 class="join_title">
+<<<<<<< HEAD:src/main/resources/templates/login.html
                                 <label for="userId">아이디</label>
                             </h3>
                             <span class="ps_box int_id">
                                 <input type="text" maxlength="20" class="int" title="ID" id="userId" name="userId" onchange="id_repeat()">
+=======
+                                <label for="fname">이름</lebel>
+                            </h3>
+                            <span class="ps_box int_id">
+                                <input type="text" maxlength="20" class="int" title="ID" id="fname" name="id">
+>>>>>>> 419513a677250d271a51764ad06f42d46121eac0:src/main/resources/static/find_id/index.html
                             </span>
                             <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
                                 필수 입력란입니다.
@@ -75,10 +87,17 @@
                     <div>
                         <div class="join_row">
                             <h3 class="join_title">
+<<<<<<< HEAD:src/main/resources/templates/login.html
                                 <label for="password">비밀번호</label>
                             </h3>
                             <span class="ps_box int_pass" id="psw1Img">
                                 <input type="password" id="password" name="password" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20">
+=======
+                                <label for="fmail">이메일</label>
+                            </h3>
+                            <span class="ps_box int_id" id="psw1Img">
+                                <input type="text" id="fmail" name="fmail" class="int" title="이메일 입력" aria-describedby="pswd1Msg" maxlength="30">
+>>>>>>> 419513a677250d271a51764ad06f42d46121eac0:src/main/resources/static/find_id/index.html
                             </span>
                             <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive">
                                 필수 입력란입니다.
@@ -86,8 +105,13 @@
                         </div>
                     </div>
                     <!-- //아이디 비밀번호 -->
+<<<<<<< HEAD:src/main/resources/templates/login.html
 
+                    <!-- 로그인 버튼 -->
+=======
+                    
                     <!-- 찾기 버튼 -->
+>>>>>>> 419513a677250d271a51764ad06f42d46121eac0:src/main/resources/static/find_id/index.html
                     <div class="btn_area">
                         <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
                             <span>찾기</span>
@@ -99,5 +123,11 @@
             </div>
         </form>
     </div>
+<<<<<<< HEAD:src/main/resources/templates/login.html
+=======
+    <script type =  "text/javascript" src = "findId.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+>>>>>>> 419513a677250d271a51764ad06f42d46121eac0:src/main/resources/static/find_id/index.html
 </body>
 </html>
