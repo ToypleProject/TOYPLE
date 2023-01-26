@@ -1,0 +1,43 @@
+.main {
+    background: #f8f8f8;
+    position: relative;
+    top: 10%;
+}
+#filter_area {
+    height: 100px;
+
+}
+#contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#ex2 {
+    background-color: yellow;
+    position: relative;
+
+}
+#offers_area {
+    display: flex;
+    justify-content : center;
+    /* width: 90%; */
+}
+#offers{
+    /* width: 80%; */
+}
+#offering_table{
+    padding: 0;
+    display: flex;
+    justify-content : center;
+    flex-wrap: wrap;
+}
+.offer {
+    display: inline-block;
+    list-style:none;
+    width: 250px;
+    height: 200px;
+    margin: 20px 20px;
+    background-color: tan;
+    text-align: center;
+    font-size: 50px;
+}
