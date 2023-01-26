@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -18,9 +19,11 @@ public class ProjectController {
 
     //메인 페이지
     @RequestMapping(value="/", method=RequestMethod.GET)
-    public String loginForm(Model model) {
+    public String mainForm(Model model) {
         System.out.println("타임리프 데이터 확인 ");
-        model.addAttribute("testMessage", "TEST!!!");
+        List<ProjectDto> projectDtoList = projectService.findAll();
+        model.addAttribute("projectList", projectDtoList);
+//        model.addAttribute("testMessage", "TEST!!!");
         return "main";
     }
 
@@ -37,8 +40,20 @@ public class ProjectController {
         projectDto.setProjectNm(map.get("project_nm"));
         projectDto.setComment(map.get("content"));
         projectService.save(projectDto);
-        return "redirect:/main";
+        return "redirect:/";
     }
+
+    //게시글 목록
+//    @RequestMapping(value = "/", method=RequestMethod.POST)
+//    public String findAll(Model model){
+//            //DB에서 전체 게시글 데이터를 가져와서 main.html에 보여주기
+//        List<ProjectDto> projectDtoList = projectService.findAll();
+//        System.out.println("가져온 데이터 확인" + projectDtoList.get(1));
+//        System.out.println("가져온 데이터 확인" + projectDtoList.get(2));
+//        model.addAttribute("projectList", projectDtoList);
+//        return "main";
+//    }
+
 
     //글 작성 시 상세 페이지
 //    @RequestMapping(value = "/")

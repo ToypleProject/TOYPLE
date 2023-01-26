@@ -8,24 +8,18 @@
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/banner.css}">
 <!--    <script type="text/javascript" src="../static/js/main.js"></script>-->
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+<!--    <script type="text/javascript" th:src="@{/js/main.js}"></script>-->
 
     <title>TOYPLE</title>
 </head>
-<script>
-    //글추가(+) 버튼 링크
-    const addReq = () => {
-        location.href = "/project/add"
-    }
-</script>
 <body onload="resize()">
     <div class="nav">
-        <div id="nav_logo" onclick="location.href='../main/main.html'">
+        <div id="nav_logo" onclick="location.href = '/'">
             <h2 id="nav_lg">TOYPLE</h2>
         </div>
         <div id ="nav_right">
 <!--            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/save'">-->
-            <div id="nav_neww" style="cursor:pointer" onclick="addReq()">
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href ='/project/add'">
 <!--                 <img src="../static/img/plus.png" id="new_icon" alt="new">-->
                 <img th:src="@{/img/plus.png}" id="new_icon" alt="new">
             </div>
@@ -46,6 +40,12 @@
             <div id="offers_area">
                 <div id="offers">
                     <table id="offering_table">
+                        <tr>
+                            <th>제목</th>
+                        </tr>
+                        <tr th:each="list: ${projectList}">
+                            <td th:text="${list.getProjectNm()}"></td>
+                        </tr>
                         <!-- <tr>
                             <td class="offer">A</td>
                             <td class="offer">B</td>
