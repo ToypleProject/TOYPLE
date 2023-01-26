@@ -2,6 +2,12 @@
 let offering = ['A','B','C','D','1','2','3','4','5']
 
 
+function add_offering() {
+    let newoffer_topic = document.getElementById('proj_name')
+    offering.push(newoffer_topic)
+    console.log(offering)
+}
+
 window.onresize = function(event){
     let offers = document.getElementById('offers')
     console.log(offers)
@@ -17,7 +23,7 @@ window.onresize = function(event){
                 newTd.classList.add('offer')
             }
             sort();
-        } 
+        }
     } else if (window.innerWidth >= 900 ){
         offering_table.innerHTML = '<table id="offering_table">'
         let a = offering.length/3
@@ -48,6 +54,7 @@ window.onresize = function(event){
         } 
     }
 }
+
 function sort() {
     let offering_table = document.getElementById('offering_table')
     // console.log(offering_table.rows.length)
@@ -65,6 +72,7 @@ function sort() {
         }
     }
 }
+
 function resize() {
     let offers = document.getElementById('offers')
     console.log(offers)

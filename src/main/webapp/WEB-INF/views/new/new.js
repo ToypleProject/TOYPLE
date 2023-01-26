@@ -21,6 +21,7 @@ function newproject() {
             alert('취소되었습니다.')
         }
     }
+    add_offering();
     return
 }
 function buttonover(obj) {
