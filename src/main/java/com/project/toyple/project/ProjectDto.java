@@ -9,12 +9,13 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
+@Entity
+@Table(name="project")
 @Getter
 @Setter
 @Builder
-@Entity
-@Table(name="project")
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProjectDto {
     @Id //pk 설정
     @GeneratedValue //생성된 값 사용

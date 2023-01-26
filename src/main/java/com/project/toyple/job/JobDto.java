@@ -5,11 +5,13 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@Data
-@Builder
 @Entity
 @Table(name="job")
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class JobDto {
 
     @Id

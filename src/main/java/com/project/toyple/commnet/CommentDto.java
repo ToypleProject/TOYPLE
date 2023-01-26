@@ -6,15 +6,13 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@Getter
-@Builder
 @Entity
-<<<<<<< HEAD
-@Table(name="comment")
-=======
 @Table(name="commnet")
->>>>>>> 419513a677250d271a51764ad06f42d46121eac0
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CommentDto {
     @Id
     @GeneratedValue //생성된 값 사용

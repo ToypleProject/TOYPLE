@@ -2,15 +2,8 @@ package com.project.toyple.applicant;
 
 import com.project.toyple.project.ProjectDto;
 import com.project.toyple.user.UserDto;
-<<<<<<< HEAD
-import com.project.toyple.project.ProjectDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-=======
+
 import lombok.*;
->>>>>>> 419513a677250d271a51764ad06f42d46121eac0
 
 import javax.persistence.*;
 
@@ -20,6 +13,7 @@ import javax.persistence.*;
 @Setter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class ApplicantDto {
 
     @Id
