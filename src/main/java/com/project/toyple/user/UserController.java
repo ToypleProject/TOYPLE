@@ -19,7 +19,7 @@ public class UserController {
                             Model model) {
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
-        return "login/index";
+        return "login";
     }
 
     // 회원가입 창으로 이동
@@ -29,7 +29,7 @@ public class UserController {
                            Model model) {
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
-        return "join/index";
+        return "join";
     }
 
     // 회원가입 작업 수행

@@ -57,7 +57,7 @@ function membership() {
                 // alert('회원가입에 성공하셨습니다!');
                 // (로그인 안된)메인 페이지와 연결하기 or 로그인 화면으로 연결하기
                 // setTimeout(function() {
-                //     location.href = "../login/index.html";
+                //     location.href = "../login/join.html";
                 // }, 1500);
                 // const Toast = Swal.mixin({
                 //     toast: true,
