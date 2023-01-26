@@ -16,7 +16,7 @@ function newproject() {
     } else {
         if( confirm('프로젝트 이름 : ' + proj_name.value + '\n글을 등록하시겠습니까?')) {
             alert('추가되었습니다.')
-            location.href='../banner/banner_in.html'    //글 추가 후 홈으로 이동
+            location.href='../main/main.html'    //글 추가 후 홈으로 이동
         } else {
             alert('취소되었습니다.')
         }
