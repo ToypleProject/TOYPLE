@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>login</title>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="NewProject">
+            <h3>지금! <span>New Project</span>를 만들러 가볼까요?</h3>
+            <input type="button" value="바로가기▶">
+        </div>
+        <div class="TopMenu">
+            <div class="icon">
+                <h1>TOYPLE</h1>
+            </div>
+            <div class="button_login">
+                <nav>
+                    <ul class="menu">
+                        <li><a href="index.html">로그인</a></li>
+                        <li><a href="index.html" class="user_new">회원가입</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="Login">
+            <div class="fhrmdls">
+                <h1><mark>로그인</mark></h1>
+            </div>
+            <div class="id_and_password">
+                <input type="text" name = "userid" placeholder="아이디를 입력해주세요">
+                <input type="password" name = "userpassword" placeholder="비밀번호를 입력해주세요">
+            </div>
+            <div class="id_and_password_button">
+                <input type="button" onclick="location.href='index.html'; return false;" value="로그인">
+                <input type="button" onclick="location.href='index.html'; return false;" value="회원가입">
+            </div>
+        </div>
+    </div>
+
+<script src="login.js"></script>
+
+</body>
+</html>

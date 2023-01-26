@@ -241,7 +241,7 @@ Label {
 
 
 /* 비밀번호 */
-.ps_box.int_pass:after,
+/*.ps_box.int_pass:after*/
 .ps_box.int_pass_step1:after,
 .ps_box.int_pass_step2:after,
 .ps_box.int_pass_step3:after,
@@ -333,3 +333,16 @@ button {
     margin-bottom: 28px;
     color : black;
   } */
+
+
+
+
+
+
+
+  /* 아이디 찾기 페이지에 해당하는 css 코드 */
+
+  /* 아이디 찾기 라는 text를 감싸고 있는 a태그를 클릭해도 이동하지 않게 만듦 */
+  a.h_logo {
+    pointer-events: none;
+  }
