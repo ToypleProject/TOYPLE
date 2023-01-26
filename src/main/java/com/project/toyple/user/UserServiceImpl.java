@@ -9,42 +9,45 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
+import java.net.URLEncoder;
 
 @Service
 @Transactional
 @AllArgsConstructor
 public class UserServiceImpl implements UserService, UserDetailsService {
     UserDao userDao;
-    BCryptPasswordEncoder passwordEncoder;  // 안되면 Autowired로 주입해보기
+    BCryptPasswordEncoder passwordEncoder;
 
-    public void login(UserDto userDto) {
-//        int result = validateUser(userDto);
-//        System.out.println("validateUser() 결과: " + result);
-//        if (result == 0) {
-//            // 세션 발급
-//            System.out.println("세션 발급");
-//        } else {
-//            // 에러
-//            System.out.println("에러발생");
-//        }
+    public boolean isIdDuplicated(UserDto userDto) {
+        return userDao.existsByUserId(userDto.getUserId());
     }
 
-    // 여기서 인증 실패 시 Exception 발생시킬 건지, return 1; 할건지 정해야 함(결국 view에 에러를 전달하는것이 목표)
-//    public int validateUser(UserDto userDto) {
-//        Optional<UserDto> findUser = userDao.findByUserId(userDto.getUserId());
-//        if (findUser == null || !userDto.getPassword().equals(findUser.getPassword())) {
-//            return 1;
-//        } else {
-//            return 0;
-//        }
-//    }
+    public boolean isEmailDuplicated(UserDto userDto) {
+        return userDao.existsByEmail(userDto.getEmail());
+    }
 
-    public void join(UserDto userDto) {
-        String rawPassword = userDto.getPassword();
-        String encPassword = passwordEncoder.encode(rawPassword);
-        userDto.setPassword(encPassword);
-        userDao.save(userDto);
+    public String join(UserDto userDto) {  // TODO: 중복 체크하고 오류메세지 프론트로 전달
+        String url = "";
+
+        try {
+            if (isIdDuplicated(userDto)) {  // ID가 중복이라면
+                url = "redirect:/user/join?error=true&exception=";
+                url += URLEncoder.encode("이미 가입된 아이디 입니다.", "UTF-8");
+            } else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
+                url = "redirect:/user/join?error=true&exception=";
+                url += URLEncoder.encode("이미 가입된 이메일 입니다.", "UTF-8");
+            } else {  // DB에 새 유저 정보 저장
+                String rawPassword = userDto.getPassword();
+                String encPassword = passwordEncoder.encode(rawPassword);
+                userDto.setPassword(encPassword);
+                userDao.save(userDto);
+                url = "redirect:/user/join?error=false";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return url;
     }
 
     @Override

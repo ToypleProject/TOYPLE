@@ -4,25 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="membership.css">
+    <link rel="stylesheet" href="/css/join.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <title>membership</title>
 </head>
 <body>
+    <script th:inline="javascript">
+        let error = [[${error}]];
+        let exception = [[${exception}]];
+
+        $(document).ready(function() {
+            if (error == 'false') {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: '회원가입 성공',
+                    text : '로그인 화면으로 이동합니다.'
+                })
+                setTimeout(function() {
+                    location.href = "/user/login";
+                }, 2000);
+
+            } else if (error == 'true') {
+                Swal.fire({
+                    title: exception,
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    timer: 1000,
+                })
+            }
+        });
+    </script>
+
     <div id="wrap">
         <div id="header" class="logo">
             <h1><a href='#' class='h_logo' role="banner">TOYPLE</a></h1>
         </div>
-        <form id="join_form" autocomplete='off'>
+        <form id="join_form" method="post" autocomplete='off'>
             <div id="container">
                 <div id="content">
                     <!-- 아이디 비밀번호, 비밀번호 재확인  -->
                     <div class="row_group">
                         <div class ="join_row">
                             <h3 class="join_title">
-                                <label for="id">아이디</lebel>
+                                <label for="userId">아이디</label>
                             </h3>
                             <span class="ps_box int_id">
-                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id" onchange="id_repeat()" onfocus="isnullcheck(this,'0')" onkeypress="isnotnullcheck(0)">
+                                <input type="text" maxlength="20" class="int" title="ID" id="userId" name="userId" onfocus="isnullcheck(this,'0')" onkeypress="isnotnullcheck(0)">
                             </span>
                             <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -33,10 +75,10 @@
                         </div>
                         <div class="join_row">
                             <h3 class="join_title">
-                                <label for="pswd1">비밀번호</label>
+                                <label for="password">비밀번호</label>
                             </h3>
                             <span class="ps_box int_pass" id="psw1Img">
-                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20" onfocus="isnullcheck(this,'1')" onkeypress="isnotnullcheck(1)">
+                                <input type="password" id="password" name="password" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20" onfocus="isnullcheck(this,'1')" onkeypress="isnotnullcheck(1)">
                             </span>
                             <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -58,10 +100,10 @@
                     <div class="row_group">
                         <div class="join_row join_email">
                             <h3 class="join_title">
-                                <label for="name">이름</label>
+                                <label for="userName">이름</label>
                             </h3>
                             <span class="ps_box  box_right_space">
-                                <input type="text" id="name" name="name" aria-label="이름" class="int" maxlength="100" onfocus="isnullcheck(this,'2')" onkeypress="isnotnullcheck(2)">
+                                <input type="text" id="userName" name="userName" aria-label="이름" class="int" maxlength="100" onfocus="isnullcheck(this,'2')" onkeypress="isnotnullcheck(2)">
                             </span>
                             <span class="error_next_box" id="Msg3"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -70,7 +112,7 @@
                                 <label for="email">이메일</label>
                             </h3>
                             <span class="ps_box int_email box_right_space">
-                                <input type="text" id="email" name="email" aria-label="이메일" class="int" maxlength="100" onfocus="isnullcheck(this,'3')" onkeypress="isnotnullcheck(3)" onchange="mail_repeat()">
+                                <input type="text" id="email" name="email" aria-label="이메일" class="int" maxlength="100" onfocus="isnullcheck(this,'3')" onkeypress="isnotnullcheck(3)">
                             </span>
                             <span class="error_next_box" id="Msg4"style="display : none" aria-live="assertive" vlaue="0">
                                 필수 입력란입니다.
@@ -95,8 +137,6 @@
             </div>
         </form>
     </div>
-    <script type =  "text/javascript" src = "membership.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+    <script type =  "text/javascript" src = "/js/join.js"></script>
 </body>
 </html>

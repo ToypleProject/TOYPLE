@@ -1,6 +1,6 @@
-let id = document.getElementById('id').value;
-let pwd = document.getElementById('pswd1').value;
-let name = document.getElementById('name').value;
+let id = document.getElementById('userId').value;
+let pwd = document.getElementById('password').value;
+let name = document.getElementById('userName').value;
 let mail = document.getElementById('email').value;
 let check_comment = document.getElementById('pswd2Msg');
 let msg1 = document.getElementById('Msg1');
@@ -19,7 +19,7 @@ let outvalue = [msg1, msg2, msg3, msg4];
 function checking() {
     // console.log('checking start');
     let check_pw = document.getElementById('pswd2').value;
-    let pw = document.getElementById('pswd1').value;
+    let pw = document.getElementById('password').value;
     let check_comment = document.getElementById('pswd2Msg');
     // console.log('check_pw : ' + check_pw);
     // console.log('pw : ' + pw);
@@ -53,31 +53,24 @@ function membership() {
         if(checkvalue == (array.length)) {
             // 비밀번호 확인을 했는지 확인
             if(check_comment.value =="1") {
+                document.getElementById('join_form').submit();
                 // alert('회원가입에 성공하셨습니다!');
                 // (로그인 안된)메인 페이지와 연결하기 or 로그인 화면으로 연결하기
                 // setTimeout(function() {
                 //     location.href = "../login/index.html";
                 // }, 1500);
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                  })
-                  
-                  Toast.fire({
-                    icon: 'success',
-                    title: '회원가입 성공',
-                    text : '로그인 화면으로 이동합니다.'
-                  })
-                setTimeout(function() {
-                    location.href = "../login/index.html";
-                }, 2000);
+                // const Toast = Swal.mixin({
+                //     toast: true,
+                //     position: 'top-end',
+                //     showConfirmButton: false,
+                //     timer: 2000,
+                //     timerProgressBar: true,
+                //     didOpen: (toast) => {
+                //       toast.addEventListener('mouseenter', Swal.stopTimer)
+                //       toast.addEventListener('mouseleave', Swal.resumeTimer)
+                //     }
+                //   })
+
                 // Swal.fire('회원가입이 완료되었습니다.', '', 'success');
             } else {
                 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@회원을 생성해야 함@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -106,7 +99,7 @@ function membership() {
 function id_repeat() {
     // 임시 변수 id_sample >> DB와 연동해서 값 가져오기??
     let id_sample = "aa";
-    let id = document.getElementById('id').value;
+    let id = document.getElementById('userId').value;
     let msg1_2 = document.getElementById('Msg1_2');
     // 아이디에는 영어와 숫자만 입력가능하게 조건 걸기
     const regex = /^[a-z|A-Z|0-9|]+$/;

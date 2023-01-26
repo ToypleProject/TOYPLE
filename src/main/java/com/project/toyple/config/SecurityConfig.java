@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -20,6 +21,11 @@ public class SecurityConfig {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+    }
     
     @Bean
 //    @Order(SecurityProperties.BASIC_AUTH_ORDER)
@@ -33,11 +39,11 @@ public class SecurityConfig {
             .formLogin()
             .loginPage("/login")  // 권한이 없는 페이지 요청 시 로그인 페이지로 이동시킴
             .loginProcessingUrl("/user/login")  // 이 주소가 호출되면 spring security가 낚아채서 로그인작업을 진행해준다.
-            .defaultSuccessUrl("/")  // 로그인 성공 후 리다이렉트 주소
+            .defaultSuccessUrl("/user/login?error=false")  // 로그인 성공 후 리다이렉트 주소
             .failureUrl("/user/login?error=true")  // 로그인 실패 후 리다이렉트 주소
             .usernameParameter("userId")
             .passwordParameter("password")
-            //.failureHandler(customFailureHandler);
+            .failureHandler(customFailureHandler)
             .and()
             .logout()
             .logoutSuccessUrl("/")
