@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./new.css">
     <link rel="stylesheet" href="../main/banner.css">
     <script type="text/javascript" src="../new/new.js"></script>
+    <script src="../main/main.js"></script>
     <title>TOYPLE_new</title>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
@@ -33,7 +34,7 @@
     </div>
 
     <div class="new_page">
-        <form autocomplete="off">
+        <form autocomplete="off" action="/main/resources/save">
             <ul>
                 <li class="topic"><p>지역</p></li>
                 <li>
@@ -107,7 +108,8 @@
                 <li class="topic"><div>프로젝트 설명</div></li>
                 <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" spellcheck="false"></textarea></li>
                 <li>
-                    <div id="new_button" onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div>
+                    <!-- <div id="new_button"  onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div> -->
+                    <input type="submit" id="new_button" value="등록하기" onclick="newproject()"  onmouseover="buttonover(this)" onmouseout="buttonout(this)">
                 </li>  
             </ul>
         </form>

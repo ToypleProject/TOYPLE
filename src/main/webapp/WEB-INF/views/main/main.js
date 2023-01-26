@@ -1,6 +1,6 @@
 
 let offering = ['A','B','C','D','1','2','3','4','5']
-
+let offering_table = document.getElementById('offering_table')
 
 window.onresize = function(event){
     let offers = document.getElementById('offers')
@@ -17,7 +17,7 @@ window.onresize = function(event){
                 newTd.classList.add('offer')
             }
             sort();
-        } 
+        }
     } else if (window.innerWidth >= 900 ){
         offering_table.innerHTML = '<table id="offering_table">'
         let a = offering.length/3
@@ -48,8 +48,9 @@ window.onresize = function(event){
         } 
     }
 }
+
 function sort() {
-    let offering_table = document.getElementById('offering_table')
+    // let offering_table = document.getElementById('offering_table')
     // console.log(offering_table.rows.length)
     // console.log(offering_table.rows[0].cells.length)
     let j = 0
@@ -65,6 +66,7 @@ function sort() {
         }
     }
 }
+
 function resize() {
     let offers = document.getElementById('offers')
     console.log(offers)
