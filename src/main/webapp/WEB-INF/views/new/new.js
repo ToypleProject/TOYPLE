@@ -89,26 +89,27 @@ function add_place(a) {
     const newDiv = document.createElement('div');
     const newText = document.createTextNode(a.innerHTML);
     let selected_places = document.getElementById('selected_places')
-    if (classes.contains('place_selected')){
-        a.classList.remove("place_selected")
+    console.log(a.id)
+    // if (classes.contains('place_selected')){
+    //     a.classList.remove("place_selected")
+    //     let placeList = document.getElementsByClassName('place_list')
 
-        let placeList = document.getElementsByClassName('place_list')
-        for(let i = 0; i < placeList.length; i++){
-            if (String(a.innerHTML + '\n' + xx) == String(placeList[i].innerText)){
-                selected_places.removeChild(placeList[i]);
-            }
-        }
-    } else {
-        a.classList.add("place_selected");
-        newDiv.appendChild(newText);
-        selected_places.appendChild(newDiv);
-        newDiv.classList.add('place_list')
-        const x = document.createElement('div')
-        const xText = document.createTextNode(xx)
-        x.appendChild(xText)
-        newDiv.appendChild(x)
-        x.classList.add('x')
-    }
+    //     for(let i = 0; i < placeList.length; i++){
+    //         if (String(a.value + '\n' + xx) == String(placeList[i].innerText)){
+    //             selected_places.removeChild(placeList[i]);
+    //         }
+    //     }
+    // } else {
+    //     a.classList.add("place_selected");
+    //     newDiv.appendChild(newText);
+    //     selected_places.appendChild(newDiv);
+    //     newDiv.classList.add('place_list')
+    //     const x = document.createElement('div')
+    //     const xText = document.createTextNode(xx)
+    //     x.appendChild(xText)
+    //     newDiv.appendChild(x)
+    //     x.classList.add('x')
+    // }
 }
 
 function add_work(a) {

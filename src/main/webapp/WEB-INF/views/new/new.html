@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./new.css">
     <link rel="stylesheet" href="../main/banner.css">
-    <script type="text/javascript" src="../new/new.js"></script>
+    <script type="text/javascript" src="./new.js"></script>
     <script src="../main/main.js"></script>
     <title>TOYPLE_new</title>
 </head>
@@ -40,14 +40,23 @@
                 <li>
                     <div id="choose_place"> 
                         <!-- 지역 누르면 place_selected 클래스 추가됨 => 재클릭하면 place_selected 클래스 삭제 -->
-                        <div class="places" onclick="add_place(this)">서울</div>
+                        <label for="seoul"><input type="checkbox" name="seoul" id="seoul">서울</label>
+                        <label for="gyeonggi/Inchon"><input type="checkbox" name="gyeonggi/Inchon" id="gyeonggi/Inchon">경기/인천</label>
+                        <label for="gangwon"><input type="checkbox" name="gangwon" id="gangwon">강원</label>
+                        <label for="chungcheong/Daejeon"><input type="checkbox" name="chungcheong/Daejeon" id="chungcheong/Daejeon">충천/대전</label>
+                        <label for="jeolla/Gwangju"><input type="checkbox" name="jeolla/Gwangju" id="jeolla/Gwangju">전라/광주</label>
+                        <label for="gyeongbuk/Daegu"><input type="checkbox" name="sgyeongbuk/Daegueoul" id="segyeongbuk/Daeguoul">경북/대구</label>
+                        <label for="gyeongnam/Busan/Ulsan"><input type="checkbox" name="gyeongnam/Busan/Ulsan" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
+                        <label for="jeju"><input type="checkbox" name="jeju" id="jeju">제주</label>
+
+                        <!-- <div class="places" onclick="add_place(this)">서울</div>
                         <div class="places" onclick="add_place(this)">경기/인천</div>
                         <div class="places" onclick="add_place(this)">강원</div>
                         <div class="places" onclick="add_place(this)">충천/대전</div>
                         <div class="places" onclick="add_place(this)">전라/광주</div>
                         <div class="places" onclick="add_place(this)">경북/대구</div>
                         <div class="places" onclick="add_place(this)">경남/부산/울산</div>
-                        <div class="places" onclick="add_place(this)">제주</div>
+                        <div class="places" onclick="add_place(this)">제주</div> -->
 
                     </div>
                 </li>
