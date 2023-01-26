@@ -38,27 +38,46 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin-bottom: 5px;
 }
 .new_page  ul > .topic {
     height: 50px;
     background-color: tan;
     cursor: default;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-top: 20px;
+}
+
+
+
+.places, .works, .langs {
+    float: left;
+    border: 1px solid tan;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    background-color: white;
+    height: 20px;
+    font-family: 고딕,arial;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 .new_select {
     border: 2px solid tan;
     background-color: white;
     margin-bottom: 5px;
     width: 90%;
-    min-height: 30px;
+    min-height: 34px;
     font-family: 고딕,arial;
     display: flex;
     align-items: center;
     text-align: left;
+    padding: 2px;
 }
-.place_selected, .job_selected {
+.places:hover, .works:hover, .langs:hover, .place_selected, .work_selected, .lang_selected, .place_list, .work_list ,.lang_list{
     float: left;
     border: 1px solid tan;
     border-radius: 3px;
@@ -70,6 +89,14 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+.x {
+    color: gray;
+    margin-left: 3px;
+}
+
+#choose_place, #choose_works, #choose_langs{
+    width: 450px;
 }
 
 #new_button {
@@ -90,7 +117,7 @@ body {
 #proj_name, #proj_explain {
     margin-left: 0;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 0;
     width: 90%;
     resize: none;
     border: 2px solid tan;
@@ -123,11 +150,34 @@ body {
 }
 #new_alert{
     font-size: small;
-    margin-left: 20px;
+    margin-left: 5%;
     text-align: left;
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
 }
 #proj_explain, #proj_name:focus {
     outline: none;
-  }
+ }
+
+.select_reset_area{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+}
+.select_reset{
+    font-size: small;
+    /* font-weight:bold; */
+    float: right;
+    background-color:tan;
+    border-radius: 3px;
+    margin: 2px;
+    padding: 2px 3px;
+    border: 2px solid tan;
+    font-family: 고딕,arial;
+    cursor: pointer;
+}
+.select_reset:hover{
+    border-color: rgb(187, 162, 132);
+    background-color: rgb(187, 162, 132);
+}

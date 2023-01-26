@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: rgb(255, 251, 247);
 }
 html, body {
     height: 100%;
@@ -70,18 +71,4 @@ html, body {
     margin-left: 10px;
     width: 35px;
     height: 35px;
-}
-
-#ex1, #ex2 {
-    height: 1000px;
-}
-#ex1 {
-    background: #f8f8f8;
-    position: relative;
-    top: 10%;
-}
-#ex2 {
-    background-color: yellow;
-    position: relative;
-
 }
