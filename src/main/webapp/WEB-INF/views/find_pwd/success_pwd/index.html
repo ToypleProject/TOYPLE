@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../findpwd.css">
+    <link rel="stylesheet" href="success_pwd.css">
+    <title>success_pwd</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header" class="logo">
+            <h1><a href='#' class='h_logo' role="banner">비밀번호 찾기</a></h1>
+        </div>
+        <form id="join_form">
+            <div id="container">
+                <div id="banner"></div>
+                <div id="content">
+                    <!-- 전송받은 코드 입력창  -->
+                    <div class="row_group">
+                        <div class="join_row">
+                            <div class="join_row">
+                                <h3 class="join_title">
+                                    <label for="code">전송코드</label>
+                                </h3>
+                                <span class="ps_box int_id" id="psw1Img">
+                                    <input type="text" id="code" name="code" class="int" title="전송코드 입력" maxlength="30">
+                                </span>
+                                <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
+                                    필수 입력란입니다.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //전송받은 코드 입력창 -->
+
+                    <!-- 전송코드 재전송 버튼 -->
+                    <div class="btn_area">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="agin_send()">
+                            <span>전송코드 재전송</span>
+                        </button>
+                    </div>
+                    <!-- //전송코드 재전송 버튼 -->
+
+                    <!-- 전송코드 확인 버튼 -->
+                    <div class="btn_area">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
+                            <span>전송코드 확인</span>
+                        </button>
+                    </div>
+                    <!-- //전송코드 확인 버튼 -->
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type =  "text/javascript" src = "success_pwd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+</body>
+</html>
