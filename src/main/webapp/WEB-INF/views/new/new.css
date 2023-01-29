@@ -50,19 +50,8 @@ body {
 }
 
 
-
 .places, .works, .langs {
-    float: left;
-    border: 1px solid tan;
-    border-radius: 3px;
-    margin: 3px;
-    padding: 2px 5px;
     background-color: white;
-    height: 20px;
-    font-family: 고딕,arial;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
 }
 .new_select {
     border: 2px solid tan;
@@ -76,7 +65,7 @@ body {
     text-align: left;
     padding: 2px;
 }
-/* .places:hover, .works:hover, .langs:hover, .place_selected, .work_selected, .lang_selected, .place_list, .work_list ,.lang_list{
+.places:hover, .works:hover, .langs:hover{
     float: left;
     border: 1px solid tan;
     border-radius: 3px;
@@ -88,11 +77,34 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-} */
-.x {
-    color: gray;
-    margin-left: 3px;
 }
+.place_selected, .work_selected, .lang_selected{
+    float: left;
+    border: 1px solid tan;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    background-color: rgb(244, 240, 236);
+    height: 20px;
+    font-family: 고딕,arial;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.place_list, .work_list ,.lang_list{
+    float: left;
+    border: 1px solid tan;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    background-color: rgb(244, 240, 236);
+    height: 20px;
+    font-family: 고딕,arial;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
 
 #choose_place, #choose_works, #choose_langs{
     width: 450px;
@@ -179,4 +191,22 @@ body {
 .select_reset:hover{
     border-color: rgb(187, 162, 132);
     background-color: rgb(187, 162, 132);
+}
+
+
+input[type='checkbox']{
+    display: none;
+}
+label {
+    float: left;
+    border: 1px solid tan;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    background-color: white;
+    height: 20px;
+    font-family: 고딕,arial;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
