@@ -1,3 +1,4 @@
+
 .main {
     background: #f8f8f8;
     position: relative;
@@ -38,4 +39,6 @@
     height: 200px;
     margin: 20px 20px;
     background-color: tan;
+    text-align: center;
+    font-size: 50px;
 }
