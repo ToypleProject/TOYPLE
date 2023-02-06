@@ -41,14 +41,14 @@
                 <li>
                     <div id="choose_place"> 
                         <!-- 지역 누르면 label에 place_selected 클래스 추가됨 => 재클릭하면 place_selected 클래스 삭제 -->
-                        <label class="places p1" ><input onclick="add_place(this)" type="checkbox" class="p1" name="서울" id="seoul">서울</label>
-                        <label class="places p2" ><input onclick="add_place(this)" type="checkbox" class="p2" name="경기/인천" id="gyeonggi/Inchon">경기/인천</label>
-                        <label class="places p3" ><input onclick="add_place(this)" type="checkbox" class="p3" name="강원" id="gangwon">강원</label>
-                        <label class="places p4" ><input onclick="add_place(this)" type="checkbox" class="p4" name="충천/대전" id="chungcheong/Daejeon">충천/대전</label>
-                        <label class="places p5" ><input onclick="add_place(this)" type="checkbox" class="p5" name="전라/광주" id="jeolla/Gwangju">전라/광주</label>
-                        <label class="places p6" ><input onclick="add_place(this)" type="checkbox" class="p6" name="경북/대구" id="gyeongbuk/Daegu">경북/대구</label>
-                        <label class="places p7" ><input onclick="add_place(this)" type="checkbox" class="p7" name="경남/부산/울산" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
-                        <label class="places p8" ><input onclick="add_place(this)" type="checkbox" class="p8" name="제주" id="jeju">제주</label>
+                        <label class="places p1" ><input onclick="add_place(this)" type="checkbox" class="p1" value="서울" name="지역" id="seoul">서울</label>
+                        <label class="places p2" ><input onclick="add_place(this)" type="checkbox" class="p2" value="경기/인천" name="지역" id="gyeonggi/Inchon">경기/인천</label>
+                        <label class="places p3" ><input onclick="add_place(this)" type="checkbox" class="p3" value="강원" name="지역" id="gangwon">강원</label>
+                        <label class="places p4" ><input onclick="add_place(this)" type="checkbox" class="p4" value="충천/대전" name="지역" id="chungcheong/Daejeon">충천/대전</label>
+                        <label class="places p5" ><input onclick="add_place(this)" type="checkbox" class="p5" value="전라/광주" name="지역" id="jeolla/Gwangju">전라/광주</label>
+                        <label class="places p6" ><input onclick="add_place(this)" type="checkbox" class="p6" value="경북/대구" name="지역" id="gyeongbuk/Daegu">경북/대구</label>
+                        <label class="places p7" ><input onclick="add_place(this)" type="checkbox" class="p7" value="경남/부산/울산" name="지역" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
+                        <label class="places p8" ><input onclick="add_place(this)" type="checkbox" class="p8" value="제주" name="지역" id="jeju">제주</label>
 
                     </div>
                 </li>
@@ -65,10 +65,10 @@
                 <li class="topic"><div>직무</div></li>
                 <li>
                     <div id="choose_works">
-                        <label class="works work w1"><input class="work w1" id="fornt_end" onclick="add_work(this)" type="checkbox" name="프론트엔드">프론트엔드</label>
-                        <label class="works work w2"><input class="work w2" id="back_end"  onclick="add_work(this)" type="checkbox" name="백엔드">백엔드</label>
-                        <label class="works work w3"><input class="work w3" id="work_mobile" onclick="add_work(this)" type="checkbox" name="모바일">모바일</label>
-                        <label class="works work w4"><input class="work w4" id="work_etc" onclick="add_work(this)" type="checkbox" name="기타">기타</label>
+                        <label class="works work w1"><input class="work w1" id="fornt_end" onclick="add_work(this)" type="checkbox" name="직무" value="프론트엔드">프론트엔드</label>
+                        <label class="works work w2"><input class="work w2" id="back_end"  onclick="add_work(this)" type="checkbox" name="직무" value="백엔드">백엔드</label>
+                        <label class="works work w3"><input class="work w3" id="work_mobile" onclick="add_work(this)" type="checkbox" name="직무" value="모바일">모바일</label>
+                        <label class="works work w4"><input class="work w4" id="work_etc" onclick="add_work(this)" type="checkbox" name="직무" value="기타">기타</label>
                     </div>
                 </li>
                 <li>
@@ -142,7 +142,7 @@
                 <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
 
                 <li class="topic"><div>프로젝트 설명</div></li>
-                <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" spellcheck="false"></textarea></li>
+                <li><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" value ="" spellcheck="false"></textarea></li>
                 <li>
                     <!-- <div id="new_button"  onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div> -->
                     <input type="submit" id="new_button" value="등록하기" onclick="newproject()"  onmouseover="buttonover(this)" onmouseout="buttonout(this)">
