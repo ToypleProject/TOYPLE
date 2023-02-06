@@ -7,7 +7,8 @@ import javax.persistence.*;
 
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name="job")

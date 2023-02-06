@@ -4,7 +4,6 @@ import com.project.toyple.project.ProjectDto;
 import lombok.*;
 
 import javax.persistence.*;
-
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Getter

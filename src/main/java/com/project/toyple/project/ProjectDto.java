@@ -44,6 +44,9 @@ public class ProjectDto {
         ProjectDto projectDto = new ProjectDto();
         projectDto.setProjectNm(dto.getProjectNm());
         projectDto.setContent(dto.getContent());
+//        projectDto.setJobs();
+//        projectDto.setAreas();
+//        projectDto.setLanguages();
         return projectDto;
     }
 
