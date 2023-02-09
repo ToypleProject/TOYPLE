@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,7 +17,7 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserDto implements UserDetails {  // Serializable(?)
+public class UserDto implements UserDetails {
 
     @Id
     private String userId;
@@ -32,6 +31,19 @@ public class UserDto implements UserDetails {  // Serializable(?)
     private String intro;
 
     private String image;
+
+    public UserDto(UserDto userDto) {
+        this.userId = userDto.userId;
+        this.password = userDto.password;
+        this.userName = userDto.userName;
+        this.email = userDto.email;
+        this.intro = userDto.intro;
+        this.image = userDto.image;
+    }
+
+    public String getUserName() {  // UserDetails의 getUsername()과 겹쳐서 직접 구현해 줌.
+        return userName;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
