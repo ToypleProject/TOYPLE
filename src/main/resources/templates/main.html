@@ -45,7 +45,10 @@
                             <th></th>
                         </tr>
                         <tr th:each="list: ${projectList}">
+                            <td th:text="${list.getProjectId()}"></td>
                             <td th:text="${list.getProjectNm()}"></td>
+                            <td th:text="${list.getContent()}"></td>
+
                         </tr>
                         <!-- <tr>
                             <td class="offer">A</td>

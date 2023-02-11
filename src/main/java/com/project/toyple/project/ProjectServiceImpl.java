@@ -1,10 +1,14 @@
 package com.project.toyple.project;
 
+import com.project.toyple.area.AreaDao;
+import com.project.toyple.area.AreaDto;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +18,17 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectDao projectDao;
-
     @Override
     public void save(ProjectDto dto) {
         ProjectDto projectDto = ProjectDto.toSaveDto(dto);
-       projectDao.save(projectDto);
-
+        projectDao.save(projectDto);
     }
+
+//    @Override
+//    public void areaSave(AreaDto area) {
+//        AreaDto areaDto = AreaDto.createAreaDto(area);
+//        areaDao.save(areaDto);
+//    }
 
     @Override
     public List<ProjectDto> findAll() {
