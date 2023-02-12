@@ -10,48 +10,34 @@ import javax.persistence.*;
 @Setter
 @Builder
 @Entity
-@Table(name = "area")
-//일대다관계에서 한쪽만
+//@Entity
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@Table(name = "area")
 public class AreaDto {
-
     @Id
-    @Column(name="seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int seq;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    private ProjectDto project_id;
+    @Column(name="area_id")
+    private int id;
+
     private String area; //지역
 
-    //생성 메서드
-    public static AreaDto createAreaDto(AreaDto area){
-        AreaDto areaDto = new AreaDto();
-        areaDto.setArea(area.getArea());
-        return areaDto;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_Id")
+    private ProjectDto projectDto;
+
+    @Builder
+    public AreaDto(String area, ProjectDto projectDto){
+        this.area = area;
+        this.projectDto = projectDto;
     }
 
-    //비즈니스 로직
-
-    //생성 로직
-
+    public static AreaDto createArea(String area, ProjectDto projectDto){
+        return AreaDto.builder()
+                .area(area)
+                .projectDto(projectDto)
+                .build();
+    }
 }
 
-//package com.project.toyple.area;
-//
-//import com.project.toyple.project.ProjectDto;
-//import lombok.*;
-//
-//import javax.persistence.*;
-//import java.util.List;
-//
-//@Getter
-//@Setter
-//@Entity
-//@DiscriminatorValue("area")
-//public class AreaDto extends ProjectDto{
-//    private String area;
-//
-//    public static List<AreaDto> findAll() {
-//    }
-//}
+
 

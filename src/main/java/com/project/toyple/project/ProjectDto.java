@@ -1,12 +1,9 @@
 package com.project.toyple.project;
 
 import com.project.toyple.area.AreaDto;
-import com.project.toyple.job.JobDto;
-import com.project.toyple.language.LanguageDto;
 import lombok.*;
 
 import javax.persistence.*;
-import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,43 +13,79 @@ import java.util.List;
 @Setter
 @Builder
 @Entity
-@Table(name="project")
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ProjectDto {
     @Id //pk 설정
-    @GeneratedValue //생성된 값 사용
-    private Long projectId;//_언더바 사용시
+    @GeneratedValue(strategy = GenerationType.AUTO) //생성된 값 사용
+    @Column(name = "project_Id")
+    private int id;//_언더바 사용시
     private String projectNm;
-    @Column
     private String content;
-    private String deadline;//마감시간
-    private String comment;
-    private String closeDt;//끝난시간
-    private String userId;
-    @Column
-    private String status;
-    @OneToMany(mappedBy = "area",cascade = CascadeType.ALL)
-    private List<AreaDto> areas = new ArrayList<AreaDto>();
-    //연관관계 메서드
-    public void addArea(AreaDto area){
-        areas.add(area);
-        area.setProject_id(this);
-    }
-    //생성 메서드
-    public static ProjectDto createProject(AreaDto... areas){
-        ProjectDto dto = new ProjectDto();
-        dto.setProjectNm(dto.getProjectNm());
-        dto.setContent(dto.getContent());
-        for (AreaDto area : areas){
-            dto.addArea(area);
-        }
-        return dto;
-    }
-    //비즈니스 로직
-    @OneToMany
-    @JoinColumn(name = "job")
-    public List<JobDto> jobs = new ArrayList<JobDto>();
+//    private String deadline;//마감시간
+//    private String comment;
+//    private String closeDt;//끝난시간
+//    private String userId;
+//    @Column
+//    private String status;
+    @OneToMany(mappedBy = "projectDto",
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AreaDto> areas;
 
-    //조회 로직
+    @Builder
+    public ProjectDto(String projectNm, String content){
+        this.projectNm = projectNm;
+        this.content = content;
+    }
+
+    public static ProjectDto createProject(String projectNm, String content){
+        return ProjectDto.builder()
+                .projectNm(projectNm)
+                .content(content)
+                .build();
+    }
+
+    public void putArea(AreaDto areaDto){
+        areas = new ArrayList<AreaDto>();
+        this.areas.add(areaDto);
+        System.out.println("값 확인"+areaDto.getArea());
+    }
+
+    public static ProjectDto toSaveDto(ProjectDto dto){ //view에서 dao로 이동
+        ProjectDto projectDto = new ProjectDto();
+        projectDto.setProjectNm(dto.getProjectNm());
+        projectDto.setContent(dto.getContent());
+//        projectDto.setAreas(dto.areas);
+        return projectDto;
+    }
+}
+//비즈니스 로직
+//    @OneToMany
+//    @JoinColumn(name = "job")
+//    public List<JobDto> jobs = new ArrayList<JobDto>();
+//
+//    @OneToMany
+//    @JoinColumn(name = "language") //column
+//    private List<LanguageDto> languages = new ArrayList<LanguageDto>();
+
+
+//연관관계 메서드
+//    public void addArea(AreaDto area){
+//        areas.add(area);
+//        area.setProject_id(this);
+//    }
+
+    //생성 메서드
+//    public static ProjectDto createProject(AreaDto... areas){
+//        ProjectDto dto = new ProjectDto();
+//        dto.setProjectNm(dto.getProjectNm());
+//        dto.setContent(dto.getContent());
+//        for (AreaDto area : areas){
+//            dto.addArea(area);
+//        }
+//        return dto;
+//    }
+
+//조회 로직
 //    public int getProjectList(){
 //        ProjectDto project;
 //        for(AreaDto area : areas){
@@ -60,30 +93,6 @@ public class ProjectDto {
 //        }
 //        return project;
 //    }
-    @OneToMany
-    @JoinColumn(name = "language") //column
-    private List<LanguageDto> languages = new ArrayList<LanguageDto>();
-
-    public static ProjectDto toSaveDto(ProjectDto dto){ //view에서 dao로 이동
-        ProjectDto projectDto = new ProjectDto();
-        projectDto.setProjectNm(dto.getProjectNm());
-        projectDto.setContent(dto.getContent());
-        System.out.println("toSaveDto---------아니 왜 값이 아예 없어서 안 나오는 건가.....");
-        for (int i =0; i<dto.areas.size(); i++){
-            System.out.println("Dto에서 값이 잘 들어가는지 areas 확인 : "
-                    + dto.areas.get(i).getArea().toString());
-        }
-        projectDto.setAreas(dto.areas);
-        projectDto.setJobs(dto.getJobs());
-
-
-        return projectDto;
-    }
-
-
-}
-
-
     //==연관관계 메서드==//
 //    public void setMember(Member member) {
 //        this.member = member;
@@ -106,4 +115,36 @@ public class ProjectDto {
 //        order.setStatus(OrderStatus.ORDER);
 //        order.setOrderDate(LocalDateTime.now());
 //        return order;
+//    }
+
+//    public static ProjectDto toSaveDto(ProjectDto dto){ //view에서 dao로 이동
+//        ProjectDto projectDto = new ProjectDto();
+//        projectDto.setProjectNm(dto.getProjectNm());
+//        projectDto.setContent(dto.getContent());
+
+//        AreaDto areaDto = new AreaDto();
+//        for (int i =0; i<dto.areas.size(); i++){
+//            System.out.println("projectDto에서 AreaDtg List값 확인 : "
+//                    + dto.areas.get(i).getSeq()
+//                    + dto.areas.get(i).getArea().toString());
+////                 areaDto.setProject_id(lastElement);
+//                areaDto.setArea(dto.areas.get(i).getArea().toString());
+//        }
+//        projectDto.setAreas(dto.areas);
+//
+//        return projectDto;
+//    }
+
+//    public static ProjectDto addSaveArea(ProjectDto dto,Long areaNum){ //view에서 dao로 이동
+//        ProjectDto projectDto = new ProjectDto();
+//
+//        AreaDto areaDto = new AreaDto();
+//        for (int i =0; i<dto.areas.size(); i++){
+//            System.out.println("projectDto에서 AreaDtg List값 확인 : "
+//                    + dto.areas.get(i).getArea().toString());
+//                areaDto.setArea(dto.areas.get(i).getArea().toString());
+//        }
+//        projectDto.setAreas(dto.areas);
+//
+//        return projectDto;
 //    }

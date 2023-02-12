@@ -1,6 +1,5 @@
 package com.project.toyple.language;
 
-import com.project.toyple.project.ProjectDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,9 +15,9 @@ public class LanguageDto {
     @Column(name="seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int seq;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    private ProjectDto project_id;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "projectDto_id")
+//    private ProjectDto project_id;
     @Column
     private String language;
 

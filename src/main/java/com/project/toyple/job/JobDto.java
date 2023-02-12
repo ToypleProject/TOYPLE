@@ -27,7 +27,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @DiscriminatorValue("job")
-public class JobDto extends ProjectDto{
+public class JobDto extends ProjectDto {
     private String job;
 
 }

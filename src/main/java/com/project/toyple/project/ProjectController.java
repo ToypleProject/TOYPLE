@@ -3,11 +3,7 @@ package com.project.toyple.project;
 //import com.project.toyple.area.AreaDao;
 import com.project.toyple.area.AreaDto;
 //import com.project.toyple.area.AreaService;
-import com.project.toyple.job.JobDto;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +22,8 @@ public class ProjectController {
     //메인 페이지
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String mainForm(Model model) {
-        System.out.println("타임리프 데이터 확인 ");
         List<ProjectDto> projectDtoList = projectService.findAll();
         model.addAttribute("projectList", projectDtoList);
-//        model.addAttribute("testMessage", "TEST!!!");
         return "main";
     }
 
@@ -46,21 +40,28 @@ public class ProjectController {
         System.out.println("글 추가 확인");
         System.out.println("area.siae() 확인 : " + area.size());
         projectDto.setProjectNm(map.get("project_nm"));
-        projectDto.setComment(map.get("content"));
-//        List<AreaDto> areas = new ArrayList<AreaDto>();
-        Long count = 0L;
+        projectDto.setContent(map.get("content"));
 
-        System.out.println("projectDto Project_id() 확인 : " + projectDto.getProjectId());
-
-        AreaDto areaDto = new AreaDto();
+        ArrayList<AreaDto> areas = new ArrayList<>();
         for (int i =0; i<area.size(); i++){
             System.out.println("area.get(i) 확인 : " + area.get(i));
+            AreaDto areaDto = new AreaDto();
             areaDto.setArea(area.get(i));
+            areas.add(areaDto);
         }
-//        areaService.save(areaDto);
-        projectService.save(projectDto);
-//        projectService.areaSave(areaDto);
-        System.out.println("projectDto Project_id() 저장 후 확인 : " + projectDto.getProjectId());
+        projectDto.setAreas(areas);
+
+        //참조받는 테이블에 값을 먼저 들어가서 에러가 발생
+
+        //save() 사용해서 저장
+        projectService.creaetProjectAndAreas(projectDto);
+//        projectService.save(projectDto);
+
+//        System.out.println("projectDto Project_id() 저장 후 확인 : " + projectDto.getProjectId());
+//        for (int i =0; i<projectDto.getAreas().size(); i++){
+//            System.out.println("projectDto.getAreas() 데이터 확인 : "
+//                    + areas.get(i).getArea().toString());
+//        }
 
         model.addAttribute("form", new ProjectForm());
         return "redirect:/";
