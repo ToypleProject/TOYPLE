@@ -2,6 +2,8 @@ package com.project.toyple.project;
 
 //import com.project.toyple.area.AreaDao;
 import com.project.toyple.area.AreaDto;
+import com.project.toyple.job.JobDto;
+import com.project.toyple.language.LanguageDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,20 @@ public class ProjectServiceImpl implements ProjectService {
             System.out.println("여기로 안 넘어가지는 건가?");
         }
         dto.setAreas(areas);
+
+        List<JobDto> jobs = projectDto.getJobs();
+        for(JobDto jobDto : jobs){
+            JobDto job = JobDto.createJob(jobDto.getJob(),dto);
+            dto.putJob(job);
+        }
+        dto.setJobs(jobs);
+
+        List<LanguageDto> languages = projectDto.getLanguages();
+        for(LanguageDto languageDto : languages){
+            LanguageDto language = LanguageDto.createLanguage(languageDto.getLanguage(),dto);
+            dto.putlanguage(language);
+        }
+        dto.setLanguages(languages);
         projectDao.save(projectDto);
     }
     @Override
