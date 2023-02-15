@@ -3,6 +3,8 @@ package com.project.toyple.project;
 //import com.project.toyple.area.AreaDao;
 import com.project.toyple.area.AreaDto;
 //import com.project.toyple.area.AreaService;
+import com.project.toyple.job.JobDto;
+import com.project.toyple.language.LanguageDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,20 +38,48 @@ public class ProjectController {
     //게시글 저장
     @RequestMapping(value = "/project/save", method=RequestMethod.POST)
     public String save(@ModelAttribute ProjectDto projectDto, @RequestParam Map<String,String> map,
-                       @RequestParam(value = "area") List<String> area, Model model){
+                       @RequestParam(value = "area",required = false) List<String> area
+                        ,@RequestParam(value = "job",required = false) List<String> job
+                      ,@RequestParam(value = "language",required = false) List<String> language
+                       , Model model){
         System.out.println("글 추가 확인");
-        System.out.println("area.siae() 확인 : " + area.size());
+//        System.out.println("areaList확인 : " + area.size());
+//        System.out.println("jobList확인 : " + job.size());
+//        System.out.println("languagesList확인 : " + language.size());
+
         projectDto.setProjectNm(map.get("project_nm"));
         projectDto.setContent(map.get("content"));
 
         ArrayList<AreaDto> areas = new ArrayList<>();
         for (int i =0; i<area.size(); i++){
-            System.out.println("area.get(i) 확인 : " + area.get(i));
+//            System.out.println("area.get(i) 확인 : " + area.get(i));
             AreaDto areaDto = new AreaDto();
             areaDto.setArea(area.get(i));
             areas.add(areaDto);
         }
         projectDto.setAreas(areas);
+
+        ArrayList<JobDto> jobDtos = new ArrayList<>();
+//        if(job.isEmpty() ==  true) {
+//            break;
+            for (int i = 0; i < job.size(); i++) {
+//            System.out.println("ViewjobList확인:" + job.get(i));
+                JobDto jobDto = new JobDto();
+                jobDto.setJob(job.get(i));
+                jobDtos.add(jobDto);
+            }
+
+//        }
+        projectDto.setJobs(jobDtos);
+
+        ArrayList<LanguageDto> languageDtos = new ArrayList<>();
+        for(int i=0; i<language.size(); i++){
+//            System.out.println("ViewLanguages확인:"+language.get(i));
+            LanguageDto languageDto = new LanguageDto();
+            languageDto.setLanguage(language.get(i));
+            languageDtos.add(languageDto);
+        }
+        projectDto.setLanguages(languageDtos);
 
         //참조받는 테이블에 값을 먼저 들어가서 에러가 발생
 

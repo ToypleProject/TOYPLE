@@ -1,5 +1,6 @@
 package com.project.toyple.language;
 
+import com.project.toyple.project.ProjectDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,16 +10,23 @@ import javax.persistence.*;
 @Setter
 @Builder
 @Entity
-@Table(name = "language")
+//@Table(name = "language")
 public class LanguageDto {
     @Id
-    @Column(name="seq")
+    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int seq;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "projectDto_id")
-//    private ProjectDto project_id;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "projectId", insertable=false, updatable=false,
+//            referencedColumnName = "projectId")
+    @JoinColumn(name = "id")
+    private ProjectDto projectDto;
+
     @Column
     private String language;
+
+//    @ManyToOne
+//    @JoinColumn(name = "project_dto_project_id")
+//    private ProjectDto projectDto;
 
 }

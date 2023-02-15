@@ -36,20 +36,20 @@
 
     <div class="new_page">
 <!--        <form autocomplete="off" action="/project/save" method="post">-->
-            <form th:action="@{/project/save}" th:object="${form}" method="post">
+        <form th:action="@{/project/save}" th:object="${form}" method="post">
             <ul>
                 <li class="topic"><p>지역</p></li>
                 <li>
                     <div id="choose_place">
                         <!-- 지역 누르면 label에 place_selected 클래스 추가됨 => 재클릭하면 place_selected 클래스 삭제 -->
-<!--                        <label class="places p1" ><input onclick="add_place(this)" type="checkbox" class="p1" value="서울" name="area" id="seoul">서울</label>-->
-<!--                        <label class="places p2" ><input onclick="add_place(this)" type="checkbox" class="p2" value="경기/인천" name="area" id="gyeonggi/Inchon">경기/인천</label>-->
-<!--                        <label class="places p3" ><input onclick="add_place(this)" type="checkbox" class="p3" value="강원" name="area" id="gangwon">강원</label>-->
-<!--                        <label class="places p4" ><input onclick="add_place(this)" type="checkbox" class="p4" value="충천/대전" name="area" id="chungcheong/Daejeon">충천/대전</label>-->
-<!--                        <label class="places p5" ><input onclick="add_place(this)" type="checkbox" class="p5" value="전라/광주" name="area" id="jeolla/Gwangju">전라/광주</label>-->
-<!--                        <label class="places p6" ><input onclick="add_place(this)" type="checkbox" class="p6" value="경북/대구" name="area" id="gyeongbuk/Daegu">경북/대구</label>-->
-<!--                        <label class="places p7" ><input onclick="add_place(this)" type="checkbox" class="p7" value="경남/부산/울산" name="area" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>-->
-<!--                        <label class="places p8" ><input onclick="add_place(this)" type="checkbox" class="p8" value="제주" name="area" id="jeju">제주</label>-->
+                        <label class="places p1" ><input onclick="add_place(this)" type="checkbox" class="p1" value="서울" name="area" id="seoul">서울</label>
+                        <label class="places p2" ><input onclick="add_place(this)" type="checkbox" class="p2" value="경기/인천" name="area" id="gyeonggi/Inchon">경기/인천</label>
+                        <label class="places p3" ><input onclick="add_place(this)" type="checkbox" class="p3" value="강원" name="area" id="gangwon">강원</label>
+                        <label class="places p4" ><input onclick="add_place(this)" type="checkbox" class="p4" value="충천/대전" name="area" id="chungcheong/Daejeon">충천/대전</label>
+                        <label class="places p5" ><input onclick="add_place(this)" type="checkbox" class="p5" value="전라/광주" name="area" id="jeolla/Gwangju">전라/광주</label>
+                        <label class="places p6" ><input onclick="add_place(this)" type="checkbox" class="p6" value="경북/대구" name="area" id="gyeongbuk/Daegu">경북/대구</label>
+                        <label class="places p7" ><input onclick="add_place(this)" type="checkbox" class="p7" value="경남/부산/울산" name="area" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
+                        <label class="places p8" ><input onclick="add_place(this)" type="checkbox" class="p8" value="제주" name="area" id="jeju">제주</label>
 
 <!--                        <label class="places p1" ><input class="p1" value="서울" name="area" id="seoul">서울</label>-->
 <!--                        <label class="places p2" ><input class="p2" value="경기/인천" name="area" id="gyeonggi/Inchon">경기/인천</label>-->
@@ -60,14 +60,14 @@
 <!--                        <label class="places p7" ><input   class="p7" value="경남/부산/울산" name="area" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>-->
 <!--                        <label class="places p8" ><input   class="p8" value="제주" name="area" id="jeju">제주</label>-->
 
-                        <label class="places p1" ><input class="p1" value="서울" name="area" id="seoul">서울</label>
-                        <label class="places p2" ><input class="p2" value="경기/인천" name="area" id="gyeonggi/Inchon">경기/인천</label>
-                        <label class="places p3" ><input  class="p3" value="강원" name="area" id="gangwon">강원</label>
-                        <label class="places p4" ><input  class="p4" value="충천/대전" name="area" id="chungcheong/Daejeon">충천/대전</label>
-                        <label class="places p5" ><input  class="p5" value="전라/광주" name="area" id="jeolla/Gwangju">전라/광주</label>
-                        <label class="places p6" ><input   class="p6" value="경북/대구" name="area" id="gyeongbuk/Daegu">경북/대구</label>
-                        <label class="places p7" ><input   class="p7" value="경남/부산/울산" name="area" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
-                        <label class="places p8" ><input   class="p8" value="제주" name="area" id="jeju">제주</label>
+<!--                        <label class="places p1" ><input class="p1" value="서울" name="area" id="seoul">서울</label>-->
+<!--                        <label class="places p2" ><input class="p2" value="경기/인천" name="area" id="gyeonggi/Inchon">경기/인천</label>-->
+<!--                        <label class="places p3" ><input  class="p3" value="강원" name="area" id="gangwon">강원</label>-->
+<!--                        <label class="places p4" ><input  class="p4" value="충천/대전" name="area" id="chungcheong/Daejeon">충천/대전</label>-->
+<!--                        <label class="places p5" ><input  class="p5" value="전라/광주" name="area" id="jeolla/Gwangju">전라/광주</label>-->
+<!--                        <label class="places p6" ><input   class="p6" value="경북/대구" name="area" id="gyeongbuk/Daegu">경북/대구</label>-->
+<!--                        <label class="places p7" ><input   class="p7" value="경남/부산/울산" name="area" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>-->
+<!--                        <label class="places p8" ><input   class="p8" value="제주" name="area" id="jeju">제주</label>-->
 
                     </div>
                 </li>
@@ -84,10 +84,10 @@
                 <li class="topic"><div>직무</div></li>
                 <li>
                     <div id="choose_works">
-                        <label class="works work w1"><input class="work w1" id="fornt_end" onclick="add_work(this)" type="checkbox" name="직무" value="프론트엔드">프론트엔드</label>
-                        <label class="works work w2"><input class="work w2" id="back_end"  onclick="add_work(this)" type="checkbox" name="직무" value="백엔드">백엔드</label>
-                        <label class="works work w3"><input class="work w3" id="work_mobile" onclick="add_work(this)" type="checkbox" name="직무" value="모바일">모바일</label>
-                        <label class="works work w4"><input class="work w4" id="work_etc" onclick="add_work(this)" type="checkbox" name="직무" value="기타">기타</label>
+                        <label class="works work w1"><input class="work w1" id="fornt_end" onclick="add_work(this)" type="checkbox" name="job" value="프론트엔드">프론트엔드</label>
+                        <label class="works work w2"><input class="work w2" id="back_end"  onclick="add_work(this)" type="checkbox" name="job" value="백엔드">백엔드</label>
+                        <label class="works work w3"><input class="work w3" id="work_mobile" onclick="add_work(this)" type="checkbox" name="job" value="모바일">모바일</label>
+                        <label class="works work w4"><input class="work w4" id="work_etc" onclick="add_work(this)" type="checkbox" name="job" value="기타">기타</label>
                     </div>
                 </li>
                 <li>
@@ -100,7 +100,7 @@
                         <div class="select_reset" id="reset_work" onclick="reset(this)">선택초기화</div>
                     </div>
                 </li>
-                <li class="topic"><div>언어</div></li>
+                <li class="topic"><div>language</div></li>
                 <li>
                     <div id="choose_langs">
                         <div id="langs_front"></div>
@@ -149,7 +149,7 @@
                 <li>
                     <div class="new_select">
                         <div id="selected_langs">
-                            <!-- 각 언어 누르면 lang_list 클래스를 가진 div 생성 -->
+                            <!-- 각 language 누르면 lang_list 클래스를 가진 div 생성 -->
                         </div>
                     </div>
                     <div class="select_reset_area">
@@ -166,6 +166,7 @@
                     <!-- <div id="new_button"  onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div> -->
                     <input type="submit" id="new_button" value="등록하기" onclick="newproject()"  onmouseover="buttonover(this)" onmouseout="buttonout(this)">
             </li>
+            </ul>
         </form>
     </div>
 </body>

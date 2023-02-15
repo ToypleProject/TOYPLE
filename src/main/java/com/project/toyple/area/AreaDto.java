@@ -12,17 +12,20 @@ import javax.persistence.*;
 @Entity
 //@Entity
 //@NoArgsConstructor(access = AccessLevel.PROTECTED)
-//@Table(name = "area")
+//@Table(name = "area_id")
 public class AreaDto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="area_id")
-    private int id;
+    private int seq;
 
     private String area; //지역
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_Id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "projectId",referencedColumnName = "projectId")
+//    @JoinColumn( insertable=false, updatable=false)
+//    @JoinColumn
+    @JoinColumn(name = "id", insertable = false, updatable = false)
+//    @ForeignKey(value=ConstraintMode.NO_CONSTRAINT)
     private ProjectDto projectDto;
 
     @Builder

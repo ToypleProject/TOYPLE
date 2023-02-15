@@ -29,6 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
             dto.putArea(area);
             System.out.println("여기로 안 넘어가지는 건가?");
         }
+        dto.setAreas(areas);
         projectDao.save(projectDto);
     }
     @Override

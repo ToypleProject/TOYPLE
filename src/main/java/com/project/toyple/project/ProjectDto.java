@@ -1,9 +1,14 @@
 package com.project.toyple.project;
 
 import com.project.toyple.area.AreaDto;
+import com.project.toyple.job.JobDto;
+import com.project.toyple.language.LanguageDto;
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,27 +19,44 @@ import java.util.List;
 @Builder
 @Entity
 //@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ProjectDto {
+public class ProjectDto implements Serializable {
     @Id //pk 설정
     @GeneratedValue(strategy = GenerationType.AUTO) //생성된 값 사용
-    @Column(name = "project_Id")
+    @Column(name = "id")
     private int id;//_언더바 사용시
     private String projectNm;
     private String content;
+
 //    private String deadline;//마감시간
 //    private String comment;
 //    private String closeDt;//끝난시간
 //    private String userId;
 //    @Column
 //    private String status;
-    @OneToMany(mappedBy = "projectDto",
+
+@Nullable
+    @OneToMany
+            (
             cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AreaDto> areas;
+    private List<AreaDto> areas = new ArrayList<>();
+    @Nullable
+    @OneToMany
+            (
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<JobDto> jobs = new ArrayList<>();
+    @Nullable
+    @OneToMany
+            (
+             cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LanguageDto> languages = new ArrayList<>();
 
     @Builder
-    public ProjectDto(String projectNm, String content){
+    public ProjectDto(String projectNm, String content, List<AreaDto> areas, List<JobDto> jobs, List<LanguageDto> languages){
         this.projectNm = projectNm;
         this.content = content;
+        this.areas.addAll(areas);
+        this.jobs.addAll(jobs);
+        this.languages.addAll(languages);
     }
 
     public static ProjectDto createProject(String projectNm, String content){
@@ -47,6 +69,10 @@ public class ProjectDto {
     public void putArea(AreaDto areaDto){
         areas = new ArrayList<AreaDto>();
         this.areas.add(areaDto);
+
+        if (areaDto.getProjectDto() != this) { // 추가
+            areaDto.setProjectDto(this);
+        }
         System.out.println("값 확인"+areaDto.getArea());
     }
 
@@ -63,9 +89,6 @@ public class ProjectDto {
 //    @JoinColumn(name = "job")
 //    public List<JobDto> jobs = new ArrayList<JobDto>();
 //
-//    @OneToMany
-//    @JoinColumn(name = "language") //column
-//    private List<LanguageDto> languages = new ArrayList<LanguageDto>();
 
 
 //연관관계 메서드
