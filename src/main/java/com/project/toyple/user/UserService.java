@@ -7,4 +7,5 @@ public interface UserService {
     boolean checkUserInfo(UserDto userDto);
     String sendAuthEmail(UserDto userDto);
     void changePassword(String userId, String password);
+    String findId(UserDto userDto);
 }

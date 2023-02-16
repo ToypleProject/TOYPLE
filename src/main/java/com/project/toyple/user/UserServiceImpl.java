@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         UserDto findUser = userDao.findByUserId(userId);
                 //.orElseThrow(() -> new UsernameNotFoundException("could not find user " + userId));
-
+// TODO: NULL GUARD
         return User.builder()
                 .username(findUser.getUserId())
                 .password(findUser.getPassword())
@@ -78,8 +78,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         String userId = userDto.getUserId();
         UserDto findUser = userDao.findByUserId(userId);
                 //.orElseThrow(() -> new UsernameNotFoundException("could not find user " + userId));
-        if (userDto.getUserName().equals(findUser.getUserName()) &&
-            userDto.getEmail().equals(findUser.getEmail())) {
+
+        if (userDto != null && userDto.getUserName().equals(findUser.getUserName())
+                && userDto.getEmail().equals(findUser.getEmail())) {
             return true;
         }
         return false;
@@ -138,5 +139,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         UserDto newUser = new UserDto(user);
         newUser.setPassword(passwordEncoder.encode(password));
         userDao.save(newUser);
+    }
+
+    public String findId(UserDto userDto) {
+        String email = userDto.getEmail();
+        UserDto findUser = userDao.findByEmail(email);
+        //.orElseThrow(() -> new UsernameNotFoundException("could not find user " + userId));
+        
+        if (findUser != null && userDto.getUserName().equals(findUser.getUserName())) {
+            return findUser.getUserId();
+        }
+        return null;
     }
 }

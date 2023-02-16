@@ -100,16 +100,45 @@ public class UserController {
         return "success_pwd";
     }
 
-    // 비밀번호 변경 작업 수행
+    // 비밀번호 변경 페이지로 이동
     @RequestMapping(value="/user/find/password/change/form")
     public String findPasswordChangeForm() {
         return "change_pwd";
     }
 
+    // 비밀번호 변경 작업 수행
     @RequestMapping(value="/user/find/password/change")
     public String findPasswordChange(String userId, String pswd1) {
         userService.changePassword(userId, pswd1);
 
         return "redirect:/user/login";
+    }
+
+    // 아이디 찾기 페이지로 이동
+    @RequestMapping(value="/user/find/id/form")
+    public String findIdForm() {
+        return "findId";
+    }
+
+    // 아이디 찾기 작업 수행
+    @RequestMapping(value="/user/find/id")
+    public String findId(UserDto userDto, Model model) {
+        System.out.println(userDto.getUserName());
+        System.out.println(userDto.getEmail());
+        String userId = userService.findId(userDto);
+        if (userId != null) {
+            model.addAttribute("error", false);
+            model.addAttribute("message", "아이디 찾기 성공");
+            model.addAttribute("userId", userId);
+        } else {
+            model.addAttribute("error", true);
+            model.addAttribute("message", "이름 또는 이메일을 다시 한번 확인해 주세요");
+        }
+        return "findId";
+    }
+
+    @RequestMapping(value="/user/find/id/success")
+    public String findIdSuccess() {
+        return "successId";
     }
 }

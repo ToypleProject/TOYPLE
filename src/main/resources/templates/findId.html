@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/findId.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>find-id</title>
+</head>
+<body>
+    <script th:inline="javascript">
+        let error = [[${error}]];
+        let message = [[${message}]];
+
+        $(document).ready(function() {
+            if (error == false) {
+                let userId = [[${userId}]];
+                sessionStorage.setItem("userId", userId);
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: message
+                })
+                setTimeout(function () {
+                    location.href = "/user/find/id/success";
+                }, 2000);
+
+            } else if (error == true) {
+                Swal.fire({
+                    title: message,
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    timer: 1000,
+                })
+            }
+        });
+    </script>
+
+    <div id="wrap">
+        <div id="header" class="logo">
+            <h1><a href='#' class='h_logo' role="banner">아이디 찾기</a></h1>
+        </div>
+        <form id="join_form" method="post" action="/user/find/id">
+            <div id="container">
+                <div id="banner"></div>
+                <div id="content">
+                    <!-- 아이디 비밀번호  -->
+                    <div class="row_group">
+                        <div class ="join_row">
+                            <h3 class="join_title">
+                                <label for="fname">이름</label>
+                            </h3>
+                            <span class="ps_box int_id">
+                                <input type="text" maxlength="20" class="int" title="ID" id="fname" name="userName">
+                            </span>
+                            <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
+                                필수 입력란입니다.
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="join_row">
+                            <h3 class="join_title">
+                                <label for="fmail">이메일</label>
+                            </h3>
+                            <span class="ps_box int_id" id="psw1Img">
+                                <input type="text" id="fmail" name="email" class="int" title="이메일 입력" aria-describedby="pswd1Msg" maxlength="30">
+                            </span>
+                            <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive">
+                                필수 입력란입니다.
+                            </span>
+                        </div>
+                    </div>
+                    <!-- //아이디 비밀번호 -->
+                    
+                    <!-- 찾기 버튼 -->
+                    <div class="btn_area">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
+                            <span>찾기</span>
+                        </button>
+                    </div>
+                    <!-- //찾기 버튼 -->
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type =  "text/javascript" th:src = "@{/js/findId.js}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+</body>
+</html>
