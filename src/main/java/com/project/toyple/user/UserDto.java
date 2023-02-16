@@ -32,6 +32,10 @@ public class UserDto implements UserDetails {
 
     private String image;
 
+    private boolean authStatus;
+
+    private String authKey;
+
     public UserDto(UserDto userDto) {
         this.userId = userDto.userId;
         this.password = userDto.password;
@@ -39,6 +43,8 @@ public class UserDto implements UserDetails {
         this.email = userDto.email;
         this.intro = userDto.intro;
         this.image = userDto.image;
+        this.authStatus = userDto.authStatus;
+        this.authKey = userDto.authKey;
     }
 
     public String getUserName() {  // UserDetails의 getUsername()과 겹쳐서 직접 구현해 줌.

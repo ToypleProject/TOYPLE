@@ -37,9 +37,23 @@ public class UserController {
 
     // 회원가입 작업 수행
     @RequestMapping(value="/user/join", method=RequestMethod.POST)
-    public String join(UserDto userDto) {
-        String url = userService.join(userDto);
-        return url;
+    public String join(UserDto userDto, Model model) {
+        //String url = userService.join(userDto);
+        String randomKey = userService.join(userDto);
+        userService.sendEmailLink(userDto, randomKey);
+        // TODO: 아래 addAttribute()는 임시로 넣은것임. join, sendEmailLink 함수를 수행한 후 리턴값 받아 적절히 처리하기
+        model.addAttribute("error", "false");
+        model.addAttribute("exception", "exception!!!");
+        model.addAttribute("message", "인증 이메일을 전송하였습니다. 확인해주세요.");
+        return "join";
+        //return url;
+    }
+
+    @RequestMapping(value="/user/join/auth")
+    public String joinAuth(@RequestParam(value="userId") String userId,
+                           @RequestParam(value="randomKey") String randomKey) {
+        userService.updateAuthStatus(userId, randomKey);
+        return "redirect:/user/login";
     }
 
     // 비밀번호 찾기 창으로 이동
@@ -52,7 +66,7 @@ public class UserController {
     @RequestMapping(value="/user/find/password")
     public String findPassword(UserDto userDto, Model model) {
         if (userService.checkUserInfo(userDto)) {
-            String randomKey = userService.sendAuthEmail(userDto);
+            String randomKey = userService.sendEmailKey(userDto);
             model.addAttribute("error", false);
             model.addAttribute("userId", userDto.getUserId());
             model.addAttribute("userName", userDto.getUserName());
@@ -94,7 +108,7 @@ public class UserController {
     public String resendEmail(UserDto userDto, Model model) {
         System.out.println(userDto.getUserName());
         System.out.println(userDto.getEmail());
-        String randomKey = userService.sendAuthEmail(userDto);
+        String randomKey = userService.sendEmailKey(userDto);
         model.addAttribute("randomKey", randomKey);
 
         return "success_pwd";

@@ -25,12 +25,12 @@ public class UserServiceTests {
 //    }
 
     @Test
-    public void sendAuthEmailTest() {
+    public void sendEmailKeyTest() {
         UserDto userDto = new UserDto();
         userDto.setUserId("daypark");
         userDto.setUserName("박다연");
         userDto.setEmail("ddggs@naver.com");
-        userService.sendAuthEmail(userDto);
+        userService.sendEmailKey(userDto);
     }
 
     @Test
@@ -44,5 +44,18 @@ public class UserServiceTests {
         for (int i = 0; i < 200; i++) {
             userService.makeRandomKey();
         }
+    }
+
+    @Test
+    public void sendEmailLinkTest() {
+        UserDto userDto = new UserDto();
+        userDto.setUserId("daypark2");
+        userDto.setUserName("박다연2");
+        userDto.setEmail("ddggs@naver.com");
+        System.out.println(userDto.getUserId());
+        System.out.println(userDto.getUserName());
+        System.out.println(userDto.getEmail());
+
+        //userService.sendEmailLink(userDto, userService.makeRandomKey());
     }
 }
