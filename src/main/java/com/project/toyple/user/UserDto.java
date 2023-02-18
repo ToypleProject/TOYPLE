@@ -32,7 +32,7 @@ public class UserDto implements UserDetails {
 
     private String image;
 
-    private boolean authStatus;
+    private int authStatus;
 
     private String authKey;
 

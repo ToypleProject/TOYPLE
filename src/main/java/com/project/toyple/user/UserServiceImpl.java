@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 userDto.setPassword(encPassword);
                 randomKey = makeRandomKey();
                 userDto.setAuthKey(randomKey);
-                userDto.setAuthStatus(false);
+                userDto.setAuthStatus(0);
                 userDao.save(userDto);
                 return randomKey;
 //                url = "redirect:/user/join?error=false";
@@ -70,7 +70,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         UserDto findUser = userDao.findByUserId(userId);
                 //.orElseThrow(() -> new UsernameNotFoundException("could not find user " + userId));
-// TODO: NULL GUARD
+        if (findUser == null) {
+            throw new UsernameNotFoundException("could not find user " + userId);
+        } else if (findUser.getAuthStatus() == 0) {  // 테스트용 임시 EXCEPTION
+            throw new UsernameNotFoundException("이메일 인증을 하지 않은 사용자");
+        }
         return User.builder()
                 .username(findUser.getUserId())
                 .password(findUser.getPassword())
@@ -166,7 +170,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public void updateAuthStatus(String userId, String randomKey) {
         UserDto findUser = userDao.findByUserId(userId);
         if (findUser != null && findUser.getAuthKey().equals(randomKey)) {
-            findUser.setAuthStatus(true);
+            findUser.setAuthStatus(1);
             userDao.save(findUser);
         }
     }

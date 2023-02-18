@@ -7,7 +7,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name="commnet")
+@Table(name="comment")
 @Getter
 @Setter
 @Builder
