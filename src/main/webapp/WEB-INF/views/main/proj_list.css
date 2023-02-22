@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+.main {
+    position: relative;
+    top: 10%;
+    width: 100%;
+}
+
+#offers_area {
+    display: flex;
+    justify-content : center;
+    /* width: 90%; */
+}
+#offering_table{
+    padding: 0;
+    display: flex;
+    justify-content : center;
+    flex-wrap: wrap;
+}
+.offer {
+    display: inline-block;
+    list-style:none;
+    width: 250px;
+    height: 200px;
+    margin: 20px 20px;
+    background-color: tan;
+    text-align: center;
+    font-size: 50px;
+}
