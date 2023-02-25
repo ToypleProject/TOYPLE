@@ -23,7 +23,13 @@ public class ProjectController {
 
     //메인 페이지
     @RequestMapping(value="/", method=RequestMethod.GET)
-    public String mainForm(Model model) {
+    public String mainForm(Model model,String area) {
+        System.out.println("area.get(i) 확인 : " + area);
+//        for (int i =0; i<area.size(); i++){
+//            System.out.println("area.get(i) 확인 : " + area.get(i));
+//        }
+        List<ProjectDto> p = new ArrayList<>();
+        projectService.findbyProjectDtoALL(p);
         List<ProjectDto> projectDtoList = projectService.findAll();
         model.addAttribute("projectList", projectDtoList);
         return "main";
@@ -107,6 +113,16 @@ public class ProjectController {
         model.addAttribute("projectList", projectDtoList);
         return "main";
     }
+
+//    @RequestMapping(value = "/project/select", method=RequestMethod.POST)
+//    public String searching(@ModelAttribute ProjectDto projectDto, @RequestParam(value = "seoul",required = false) String seoul
+//            ,@RequestParam(value = "areaSelect",required = false) List<String> areaSelect
+//    ) {
+//            System.out.println("seoul값 확인 : " + seoul);
+//
+//
+//        return "redirect:/";
+//    }
 
 //    @PostMapping(value = "/project/save")
 //    public String createForm(ProjectForm form){

@@ -9,6 +9,8 @@ public interface ProjectService {
 
     void creaetProjectAndAreas(ProjectDto projectDto);
 
+    void findbyProjectDtoALL(List<ProjectDto> projectDtoList);
+
 //    void areaSave(AreaDto area);
     public List<ProjectDto> findAll();
 }

@@ -36,18 +36,26 @@
         <div id="contents">
             <div id="filter_area">
                 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역
+
             </div>
             <div id="offers_area">
                 <div id="offers">
                     <table id="offering_table">
+                        <button th:type="button" onclick='location.href="/?area=서울"' value="서울">서울</button>
+                        <button th:type="button" onclick='location.href="/?area=서울"' >경기/인천</button>
+                        <button th:type="button" onclick='location.href="/?area=서울"' >강원</button>
+                        <button th:type="button" onclick='location.href="/?area=서울"' >충전/대전</button>
+                        <button th:type="button" th:id="area" value="전라/광주">전라/광주</button>
+                        <button th:type="button" th:id="area" value="경북/대구">경북/대구</button>
+                        <button th:type="button" th:id="area" value="경남/부산/울산">경남/부산/울산</button>
+                        <button th:type="button" th:id="area" value="경남/부산/울산">제주</button>
                         <tr>
                             <th>제목</th>
-                            <th></th>
+                            <th>내용</th>
                         </tr>
                         <tr th:each="list: ${projectList}">
                             <td th:text="${list.getProjectNm()}"></td>
                             <td th:text="${list.getContent()}"></td>
-
                         </tr>
                         <!-- <tr>
                             <td class="offer">A</td>

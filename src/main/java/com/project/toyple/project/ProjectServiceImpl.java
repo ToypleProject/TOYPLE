@@ -5,6 +5,7 @@ import com.project.toyple.area.AreaDto;
 import com.project.toyple.job.JobDto;
 import com.project.toyple.language.LanguageDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -48,6 +49,12 @@ public class ProjectServiceImpl implements ProjectService {
         dto.setLanguages(languages);
         projectDao.save(projectDto);
     }
+    @Override
+    @Query(value = "select * from project_dto pr, area_dto a, project_dto_areas where p.project_dto_id = pr.id and p.areas_seq = a.seq and a.area = pr.id")
+    public void findbyProjectDtoALL(List<ProjectDto> projectDtoList) {
+
+    }
+
     @Override
     public List<ProjectDto> findAll() {
         //entity에서 dto로 옮겨담기
