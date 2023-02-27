@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+button {
+    outline: 0;
+}
+
 #contents {
     display: flex;
     flex-wrap: wrap;

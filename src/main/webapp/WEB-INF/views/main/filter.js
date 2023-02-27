@@ -3,7 +3,7 @@ function placeFltr(obj) {
 
     if(label_place[0].classList.contains('place_selected')){
         label_place[0].classList.remove('place_selected')
-        console.log(selected_list[0].parentNode)
+        // label_place[0].firstChild .checked = flase
     }else {
         label_place[0].classList.add('place_selected')
     }
@@ -114,6 +114,7 @@ function reset_filter() {
 function reset_place_filter() {
     let place_selected = document.getElementsByClassName('place_selected')
     while(place_selected.length > 0){
+        place_selected[0].firstChild.checked = false
         place_selected[0].classList.remove('place_selected')
     }
     showreset('place')
