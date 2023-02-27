@@ -35,17 +35,38 @@ h2{
     right: 0px;
     z-index: 9999;
 }
-#nav_login {
-    visibility: hidden;
+#nav_login_area {
+    /* visibility: hidden; */
     display: flex;
-    background-color: tan;
+    /* background-color: tan; */
     border-radius: 5px;
+    border: 1px solid tan;
     width: 80px;
     height: 40px;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 14px;
+    flex-direction: column;
+}
+#nav_login, #nav_new_user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 20px;
+}
+#nav_login {
+    border-bottom: 1px solid tan;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#nav_new_user {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#nav_login:hover, #nav_new_user:hover{
+    background-color: rgb(224, 210, 195)
 }
 #nav_bar{
     width: 1000px;

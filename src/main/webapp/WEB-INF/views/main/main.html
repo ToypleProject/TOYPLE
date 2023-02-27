@@ -21,8 +21,11 @@
                 <h2 id="nav_lg">TOYPLE</h2>
             </div>
             <div id ="nav_right">
-                <div id="nav_login" style="cursor:pointer" onclick="location.href='../login/index.html'"><div>LOGIN</div></div>
-                <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                <div id="nav_login_area" style="cursor:pointer">
+                    <div id="nav_login" onclick="location.href='../login/index.html'">로그인</div>
+                    <div id="nav_new_user" onclick="location.href='../membership/index.html'">회원가입</div>
+                </div>
+                <!-- <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
                     <img src="../img/plus.png" id="new_icon" alt="new">
                 </div>
                 <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
@@ -31,13 +34,34 @@
                 
                 <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
                     <img src="../img/login.png" id="personal_icon" alt="member">
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
     <div class="main">
         <div id="contents">
             <div id="filter_area">
+                <form>
+                <div id="place">
+                    <div id="place_filter_top">지역 선택</div>
+                    <div id="filter_place_reset_area">
+                        <div id="filter_place_reset" onclick="reset_place_filter()">필터초기화</div>
+                    </div>
+                </div>
+                
+                <div id="place_filter_area">
+                    <div id="place_filter">
+                        <label class="places p1" ><input onclick="placeFltr(this)" type="checkbox" class="p1" value="서울" name="slt_place" id="seoul">서울</label>
+                        <label class="places p2" ><input onclick="placeFltr(this)" type="checkbox" class="p2" value="경기/인천" name="slt_place" id="gyeonggi/Inchon">경기/인천</label>
+                        <label class="places p3" ><input onclick="placeFltr(this)" type="checkbox" class="p3" value="강원" name="slt_place" id="gangwon">강원</label>
+                        <label class="places p4" ><input onclick="placeFltr(this)" type="checkbox" class="p4" value="충천/대전" name="slt_place" id="chungcheong/Daejeon">충천/대전</label>
+                        <label class="places p5" ><input onclick="placeFltr(this)" type="checkbox" class="p5" value="전라/광주" name="slt_place" id="jeolla/Gwangju">전라/광주</label>
+                        <label class="places p6" ><input onclick="placeFltr(this)" type="checkbox" class="p6" value="경북/대구" name="slt_place" id="gyeongbuk/Daegu">경북/대구</label>
+                        <label class="places p7" ><input onclick="placeFltr(this)" type="checkbox" class="p7" value="경남/부산/울산" name="slt_place" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
+                        <label class="places p8" ><input onclick="placeFltr(this)" type="checkbox" class="p8" value="제주" name="slt_place" id="jeju">제주</label>
+                        
+                    </div>
+                </div>
                 <div id="work_filter">
                     <div id="lang_fornt_end" style="border-bottom: 3px solid tan;" class="filter_work" onclick="workFltr(this)">프론트엔드</div>
                     <div id="lang_back_end" class="filter_work" onclick="workFltr(this)">백엔드</div>
@@ -46,19 +70,23 @@
                 </div>
                 <div id="lang_filter_area">
                     <div id="lang_filter">
-                        <label class="langs front_lang f_lang1"><input class="front_lang f_lang1" id="JavaScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="JavaScript">JavaScript</label>
-                        <label class="langs front_lang f_lang2"><input class="front_lang f_lang2" id="TypeScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="TypeScript">TypeScript</label>
-                        <label class="langs front_lang f_lang3"><input class="front_lang f_lang3" id="React" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="React">React</label>
-                        <label class="langs front_lang f_lang4"><input class="front_lang f_lang4" id="Vue" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Vue">Vue</label>
-                        <label class="langs front_lang f_lang5"><input class="front_lang f_lang5" id="Svelte" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Svelte">Svelte</label>
-                        <label class="langs front_lang f_lang6"><input class="front_lang f_lang6" id="Nextjs" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Nextjs">Nextjs</label>
+                        <div class="langs front_lang f_lang1" onclick="add_lang(this)" ><div class="front_lang f_lang1" id="JavaScript" type="checkbox" name="slt_lang" value="JavaScript">JavaScript</div></div>
+                        <div class="langs front_lang f_lang2" onclick="add_lang(this)" ><div class="front_lang f_lang2" id="TypeScript" type="checkbox" name="slt_lang" value="TypeScript">TypeScript</div></div>
+                        <div class="langs front_lang f_lang3" onclick="add_lang(this)" ><div class="front_lang f_lang3" id="React" type="checkbox" name="slt_lang" value="React">React</div></div>
+                        <div class="langs front_lang f_lang4" onclick="add_lang(this)" ><div class="front_lang f_lang4" id="Vue" type="checkbox" name="slt_lang" value="Vue">Vue</div></div>
+                        <div class="langs front_lang f_lang5" onclick="add_lang(this)" ><div class="front_lang f_lang5" id="Svelte" type="checkbox" name="slt_lang" value="Svelte">Svelte</div></div>
+                        <div class="langs front_lang f_lang6" onclick="add_lang(this)" ><div class="front_lang f_lang6" id="Nextjs" type="checkbox" name="slt_lang" value="Nextjs">Nextjs</div></div>
                     </div>
                 </div>
-                <form id="selected_lang_area">
+                <div id="selected_lang_area">
                     <div id="selected_lang_list"></div>
                     <div id="filter_reset_area">
                         <div id="filter_reset" onclick="reset_filter()">필터초기화</div>
                     </div>
+                </div>
+                <div id="submit_area">
+                    <input  id="submit" type="submit" value="submit">
+                </div>
                 </form>
                 <div id="search">
                     <div class="search_box">
@@ -77,7 +105,7 @@
                     }
                 </script>
             </div>
-            <div id="currentPageNumber" >1</div>
+            <div id="currentPageNumber" >1</div> 
             <div class="ifrm">
                 <iframe src="proj_list.html" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: 3px solid tan" scrolling ="no"></iframe>
                 <nav aria-label="Page navigation example">
