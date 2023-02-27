@@ -25,7 +25,7 @@
                     <div id="nav_login" onclick="location.href='../login/index.html'">로그인</div>
                     <div id="nav_new_user" onclick="location.href='../membership/index.html'">회원가입</div>
                 </div>
-                <!-- <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
                     <img src="../img/plus.png" id="new_icon" alt="new">
                 </div>
                 <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
@@ -34,7 +34,7 @@
                 
                 <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
                     <img src="../img/login.png" id="personal_icon" alt="member">
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -84,16 +84,17 @@
                         <div id="filter_reset" onclick="reset_filter()">필터초기화</div>
                     </div>
                 </div>
-                <div id="submit_area">
-                    <input  id="submit" type="submit" value="submit">
-                </div>
-                </form>
                 <div id="search">
                     <div class="search_box">
                         <input type="text" class="srch_field" id="srch_kywrd" onkeypress="if(event.keyCode == 13){search(); return false;}" placeholder="Search.." value=""  spellcheck="false">
-                        <a href="#" class="srch_icon_a" onclick="search(); return false;"><img src="../img/search_icon_on.png" alt="찾기" class="srch_icon"></a>
+                        <a href="#" class="srch_icon_a" onclick="search()"><img src="../img/search_icon_on.png" alt="찾기" class="srch_icon"></a>
                     </div>
                 </div>
+                <!-- <div id="submit_area">
+                    <input  id="submit" type="submit" value="찾기">
+                </div> -->
+                </form>
+                
                 <script>
                     function search() {
                         if($('#srch_kywrd').val() == "") {

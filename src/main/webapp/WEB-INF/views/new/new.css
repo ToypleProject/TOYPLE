@@ -117,11 +117,12 @@ label, .place_list, .work_list ,.lang_list {
     align-items: center;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0 0 2px rgb(180, 150, 110) inset;
     border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
     outline: none;
+    border-style: none;
+    border: 2px solid rgb(180, 150, 110);
 }
 
 #proj_name_div, #proj_explain_div {

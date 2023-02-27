@@ -36,7 +36,7 @@ h2{
     z-index: 9999;
 }
 #nav_login_area {
-    /* visibility: hidden; */
+    visibility: hidden;
     display: flex;
     /* background-color: tan; */
     border-radius: 5px;

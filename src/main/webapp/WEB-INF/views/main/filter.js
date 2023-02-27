@@ -99,6 +99,16 @@ function uncheck(obj){
     showreset('work')
 }
 
+function showdeletekeyw() {
+    let srch_kywrd = document.getElementById('srch_kywrd')
+    let srch_icon_delete = document.getElementsByClassName('srch_icon_delete')
+    if ($('#srch_kywrd').val()=='') {
+        srch_icon_delete[0].style.visibility = 'hidden'
+    } else {
+        srch_icon_delete[0].style.visibility = 'visible'
+    }
+}
+
 function reset_filter() {
     let lang_list = document.getElementById('selected_lang_list')
     while(lang_list.childNodes.length > 0){
@@ -139,4 +149,14 @@ function showreset(a) {
             filter_place_reset_area.style.visibility='hidden'
         }
     }
+}
+
+
+function search() {
+    if($('#srch_kywrd').val() == "") {
+        alert("검색할 단어를 입력하세요")
+        $('#srch_kywrd').select()
+        return false
+    }
+    location.href = "" + encodeURIComponent( $('#srch_kywrd').val())
 }
