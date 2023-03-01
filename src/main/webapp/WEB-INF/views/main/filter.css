@@ -207,3 +207,32 @@ input[type='checkbox']{
     position: relative;
     left: -40px;
 }
+
+.filter_situation_area {
+    display: flex;
+    justify-content: flex-end;
+}
+.filter_situations {
+    display: flex;
+    border: 1px solid tan;
+    border-bottom: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.filter_situation {
+    display: flex;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    border-right: 1px solid tan;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#situation_all {
+    border-top-left-radius: 5px;
+}
+#situation_done {
+    border-top-right-radius: 5px;
+    border-right: none;
+}

@@ -160,3 +160,11 @@ function search() {
     }
     location.href = "" + encodeURIComponent( $('#srch_kywrd').val())
 }
+
+function change_situ(obj) {
+    let filter_situation = document.getElementsByClassName('filter_situation')
+    for(let i=0; i<filter_situation.length;i++){
+        filter_situation[i].style.backgroundColor = ''
+    }
+    obj.style.backgroundColor = 'rgb(244, 240, 236)'
+}
