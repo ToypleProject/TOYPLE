@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel="stylesheet" href="../static/css/main.css">-->
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <script type="text/javascript" th:src="@{/js/pagination.js}"></script>
+    <script type="text/javascript" th:src="@{/js/filter.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--    <link rel="stylesheet" href="../static/css/main.css">-->
     <link rel="stylesheet" th:href="@{/css/banner.css}">
-<!--    <script type="text/javascript" src="../static/js/main.js"></script>-->
-<!--    <script type="text/javascript" th:src="@{/js/main.js}"></script>-->
-
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/filter.css}">
     <title>TOYPLE</title>
+    <script th:src="@{/js/filter.js}"></script>
 </head>
-<body onload="resize()">
-    <div class="nav">
-        <div id="nav_logo" onclick="location.href = '/'">
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<div class="nav">
+    <div id="nav_bar">
+        <div id="nav_logo" onclick="location.href='/'">
             <h2 id="nav_lg">TOYPLE</h2>
         </div>
         <div id ="nav_right">
-<!--            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/save'">-->
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href ='/project/add'">
-<!--                 <img src="../static/img/plus.png" id="new_icon" alt="new">-->
-                <img th:src="@{/img/plus.png}" id="new_icon" alt="new">
+            <div id="nav_login" style="cursor:pointer" onclick="location.href='../login/index.html'"><div>LOGIN</div></div>
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/add'">
+                <img th:src="@{/img/plus.png}"  id="new_icon" alt="new">
             </div>
             <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
                 <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
@@ -32,58 +35,107 @@
             </div>
         </div>
     </div>
-    <div class="main">
-        <div id="contents">
-            <div id="filter_area">
-                필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역 필터영역
+</div>
+<div class="main">
+    <div id="contents">
+        <div id="filter_area">
 
+            <div id="work_filter">
+                <div id="lang_fornt_end" style="border-bottom: 3px solid tan;" class="filter_work" onclick="workFltr(this)">프론트엔드</div>
+                <div id="lang_back_end" class="filter_work" onclick="workFltr(this)">백엔드</div>
+                <div id="lang_mobile" class="filter_work" onclick="workFltr(this)">모바일</div>
+                <div id="lang_etc" class="filter_work" onclick="workFltr(this)">기타</div>
             </div>
+            <div id="lang_filter_area">
+                <div id="lang_filter">
+                    <label class="langs front_lang f_lang1"><input class="front_lang f_lang1" id="JavaScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="JavaScript">JavaScript</label>
+                    <label class="langs front_lang f_lang2"><input class="front_lang f_lang2" id="TypeScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="TypeScript">TypeScript</label>
+                    <label class="langs front_lang f_lang3"><input class="front_lang f_lang3" id="React" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="React">React</label>
+                    <label class="langs front_lang f_lang4"><input class="front_lang f_lang4" id="Vue" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Vue">Vue</label>
+                    <label class="langs front_lang f_lang5"><input class="front_lang f_lang5" id="Svelte" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Svelte">Svelte</label>
+                    <label class="langs front_lang f_lang6"><input class="front_lang f_lang6" id="Nextjs" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Nextjs">Nextjs</label>
+                </div>
+            </div>
+            <form id="selected_lang_area">
+                <div id="selected_lang_list"></div>
+                <div id="filter_reset_area">
+                    <div id="filter_reset" onclick="reset_filter()">필터초기화</div>
+                </div>
+            </form>
+            <div id="search">
+                <div class="search_box">
+                    <input type="text" class="srch_field" id="srch_kywrd" onkeypress="if(event.keyCode == 13){search(); return false;}" placeholder="Search.." value=""  spellcheck="false">
+                    <a href="#" class="srch_icon_a" onclick="search(); return false;"><img th:src="@{img/search_icon_on.png}" alt="찾기" class="srch_icon"></a>
+                </div>
+            </div>
+            <script>
+                function search() {
+                    if($('#srch_kywrd').val() == "") {
+                        alert("검색할 단어를 입력하세요")
+                        $('#srch_kywrd').select()
+                        return false
+                    }
+                    location.href = "" + encodeURIComponent( $('#srch_kywrd').val())
+                }
+            </script>
+        </div>
+        <div id="currentPageNumber" >1</div>
+        <div class="ifrm">
+
+<!--        <iframe th:src="@{proj_list.html}" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: 3px solid tan" scrolling ="no"></iframe>-->
             <div id="offers_area">
+                <div id="alert_currentPage">
+
+                </div>
+                <div id="foo">
+                </div>
                 <div id="offers">
                     <table id="offering_table">
-                        <button th:type="button" onclick='location.href="/?area=서울"' value="서울">서울</button>
-                        <button th:type="button" onclick='location.href="/?area=서울"' >경기/인천</button>
-                        <button th:type="button" onclick='location.href="/?area=서울"' >강원</button>
-                        <button th:type="button" onclick='location.href="/?area=서울"' >충전/대전</button>
-                        <button th:type="button" th:id="area" value="전라/광주">전라/광주</button>
-                        <button th:type="button" th:id="area" value="경북/대구">경북/대구</button>
-                        <button th:type="button" th:id="area" value="경남/부산/울산">경남/부산/울산</button>
-                        <button th:type="button" th:id="area" value="경남/부산/울산">제주</button>
                         <tr>
-                            <th>제목</th>
-                            <th>내용</th>
-                        </tr>
-                        <tr th:each="list: ${projectList}">
-                            <td th:text="${list.getProjectNm()}"></td>
-                            <td th:text="${list.getContent()}"></td>
-                        </tr>
-                        <!-- <tr>
-                            <td class="offer">A</td>
-                            <td class="offer">B</td>
-                            <td class="offer">C</td>
-                            <td class="offer">D</td>
+                            <td><div class="offer"></div></td>
+                            <td><div class="offer"></div></td>
+                            <td><div class="offer"></div></td>
+
                         </tr>
                         <tr>
-                            <td class="offer">a</td>
-                            <td class="offer">b</td>
-                            <td class="offer">c</td>
-                            <td class="offer">d</td>
+                            <td><div class="offer"></div></td>
+                            <td><div class="offer"></div></td>
+                            <td><div class="offer"></div></td>
+
                         </tr>
                         <tr>
-                            <td class="offer">1</td>
-                        </tr> -->
+                            <td><div class="offer"></div></td>
+                            <td><div class="offer"></div></td>
+                            <td><div class="offer"></div></td>
+                        </tr>
                     </table>
                 </div>
             </div>
-
-            시작점
-            스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트
-        </div>
-        <div id="ex2">
-            시작점
-            스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트 스크롤 테스트
-        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination" id="pagination">
+                <li class="page-item">
+                    <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" href="./proj_list.html" target="pages">1</a></li>
+                <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">2</a></li>
+                <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">3</a></li>
+                <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">4</a></li>
+                <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
+    </div>
+    <div id="ex2">
+    </div>
+</div>
 
 </body>
+
 </html>

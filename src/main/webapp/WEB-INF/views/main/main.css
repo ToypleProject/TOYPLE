@@ -1,17 +1,44 @@
 
 .main {
-    background: #f8f8f8;
     position: relative;
     top: 10%;
+    width: 100%;
 }
-#filter_area {
-    height: 100px;
 
-}
 #contents {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+#ifrm {
+    margin-top: 8px;
+}
+#pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: rgb(187, 162, 132);
+    border: 1px solid rgb(220, 204, 183);
+}
+.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus {
+    color: rgb(187, 162, 132);
+    border: 1px solid tan;
+}
+.currentPage {
+    background-color: #eee;
+}
+#currentPageNumber{
+    visibility: hidden;
+    display: none;
+}
+.page-item {
+    cursor: pointer;
 }
 #ex2 {
     background-color: yellow;
