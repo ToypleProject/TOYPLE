@@ -1,8 +1,11 @@
 package com.project.toyple.user;
 
+import com.project.toyple.exception.NotAuthenticatedException;
 import lombok.AllArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.authentication.AccountStatusException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,7 +25,7 @@ import java.util.Random;
 @Service
 @Transactional
 @AllArgsConstructor
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl implements UserService {
     private UserDao userDao;
     private BCryptPasswordEncoder passwordEncoder;
     private JavaMailSender javaMailSender;
@@ -45,7 +48,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             if (isIdDuplicated(userDto)) {  // ID가 중복이라면
 //                url = "redirect:/user/join?error=true&exception=";
 //                url += URLEncoder.encode("이미 가입된 아이디 입니다.", "UTF-8");
-            } else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
+//            } else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
 //                url = "redirect:/user/join?error=true&exception=";
 //                url += URLEncoder.encode("이미 가입된 이메일 입니다.", "UTF-8");
             } else {  // DB에 새 유저 정보 저장
@@ -67,17 +70,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException, LockedException{
         UserDto findUser = userDao.findByUserId(userId);
                 //.orElseThrow(() -> new UsernameNotFoundException("could not find user " + userId));
-        if (findUser == null) {
-            throw new UsernameNotFoundException("could not find user " + userId);
-        } else if (findUser.getAuthStatus() == 0) {  // 테스트용 임시 EXCEPTION
-            throw new UsernameNotFoundException("이메일 인증을 하지 않은 사용자");
-        }
+//        if (findUser == null) {
+//            throw new UsernameNotFoundException("could not find user " + userId);
+//        //}
+//        } else if (findUser.getAuthStatus() == 0) {  // 이메일 인증이 안되어있다면
+//            throw new LockedException("AuthStatus is 0");
+//        }
         return User.builder()
                 .username(findUser.getUserId())
                 .password(findUser.getPassword())
+                .accountLocked(!findUser.isAccountNonLocked())
                 .roles()
                 .build();
     }

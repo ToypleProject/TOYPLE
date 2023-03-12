@@ -73,6 +73,8 @@ public class UserDto implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
+        if (authStatus == 1)
+            return true;
         return false;
     }
 

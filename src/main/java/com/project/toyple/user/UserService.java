@@ -1,8 +1,14 @@
 package com.project.toyple.user;
 
+import org.springframework.security.authentication.AccountStatusException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import javax.mail.MessagingException;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
+    UserDetails loadUserByUsername(String userId);
     String join(UserDto userDto);
     boolean checkUserInfo(UserDto userDto);
     String makeRandomKey();
