@@ -74,7 +74,7 @@ input[type='checkbox']{
     justify-content: space-between;
 }
 #lang_filter_area, #selected_lang_area {
-    background-color: white;
+    /* background-color: white; */
 }
 #work_filter, #place {
     display: flex;
@@ -127,7 +127,7 @@ input[type='checkbox']{
     display: flex;
     justify-content: center;
     padding-top: 10px;
-    background-color: white;
+    /* background-color: white; */
 
 }
 #lang_filter, #place_filter{
@@ -200,7 +200,7 @@ input[type='checkbox']{
     padding: 0;
     font-size: 14px;
     font-weight: 500;
-    background-color: white;
+    /* background-color: white; */
     border: 1px solid tan;
 }
 .srch_icon_a {
