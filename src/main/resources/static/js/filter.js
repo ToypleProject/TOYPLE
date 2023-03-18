@@ -15,6 +15,7 @@ function workFltr(obj) {
                 console.log(lang_list[j].childNodes[0].id)
                 if(String(langs[i].childNodes[0].id) == String(lang_list[j].childNodes[0].value)){
                     langs[i].classList.add('lang_selected')
+                    console.log(langs[i]);
                 }
             }
         }

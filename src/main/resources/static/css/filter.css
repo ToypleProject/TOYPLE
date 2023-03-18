@@ -1,3 +1,24 @@
+/* #submit {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(218, 189, 152);
+    margin: 10px 5px;
+    font-size: 15px;
+    padding: 6px 15px;
+    height: 20px;
+    border-radius: 5px;
+    font-family: 고딕,arial;
+    width: auto;
+    width: 80px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+}
+#submit_area{
+    display: flex;
+    justify-content: center;
+} */
+
 label{
     display: inherit;
     max-width: inherit;
@@ -19,7 +40,7 @@ label{
     text-align: left;
     padding: 2px;
 }
-label, .place_list, .work_list ,.lang_list {
+label, .place_list, .work_list ,.lang_list, .langs {
     float: left;
     border: 1px solid tan;
     border-radius: 3px;
@@ -33,7 +54,7 @@ label, .place_list, .work_list ,.lang_list {
     align-items: center;
     cursor: pointer;
 }
-.places:hover, .works:hover, .langs:hover, .place_selected, .work_selected, .lang_selected, .place_list, .work_list ,.lang_list{
+.places:hover, .works:hover, .langs:hover, .place_selected, .work_selected, .lang_selected, .place_list, .work_list ,.lang_list, .place_selected{
     background-color: rgb(244, 240, 236);
 }
 input[type='checkbox']{
@@ -43,7 +64,8 @@ input[type='checkbox']{
     margin-left: 8px;
 }
 
-#filter_area {
+
+#filter_area, #filter_place_reset_area {
     margin-top: 30px;
     width: 1000px;
     /* height: 300px; */
@@ -54,15 +76,42 @@ input[type='checkbox']{
 #lang_filter_area, #selected_lang_area {
     background-color: white;
 }
-#work_filter {
+#work_filter, #place {
     display: flex;
     height: 42px;
     border-bottom: 1px solid tan;
+    font-size: 20px;
+    font-weight: 400;
 }
-.filter_work {
+#place {
+    border: none;
+    margin: 0 30px;
+    height: 40px;
+    text-align: center;
+}
+.filter_work{
     margin: 0 30px;
     /* background-color: tan; */
     width: 120px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    /* border-bottom: 1px solid tan; */
+}
+#place_filter_top{
+    width: 120px;
+    border-bottom: 2px solid tan;
+}
+#filter_place_reset_area{
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    visibility: hidden;
+}
+#place_filter{
+    /* display: flex; */
+    margin: 0 30px;
+    /* background-color: tan; */
     height: 40px;
     text-align: center;
     font-size: 20px;
@@ -70,18 +119,30 @@ input[type='checkbox']{
     cursor: pointer;
     /* border-bottom: 1px solid tan; */
 }
+
 .filter_work:hover {
     border-bottom: 3px solid tan;
 }
-#lang_filter_area {
+#lang_filter_area, #place_filter_area {
     display: flex;
     justify-content: center;
     padding-top: 10px;
+    background-color: white;
+
 }
-#lang_filter{
+#lang_filter, #place_filter{
     width: 90%;
     padding-bottom: 5px;
     border-bottom: 2px solid tan;
+}
+#place_filter {
+    border: none;
+    /* margin-bottom: 30px; */
+}
+#place_filter_area {
+    border-top: 1px solid tan;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 #selected_lang_area {
     display: flex;
@@ -96,7 +157,7 @@ input[type='checkbox']{
     display: flex;
     align-items: center;
 }
-#filter_reset {
+#filter_reset, #filter_place_reset {
     display: flex;
     background-color: rgb(218, 189, 152);
     margin: 0 5px;
@@ -113,20 +174,18 @@ input[type='checkbox']{
 #search{
     display: flex;
     flex-direction: row-reverse;
-    margin-top: 30px;
+    margin: 20px 0;
 }
 .search_box {
-    /* display: none; */
-    display: block;
-    /* position: absolute; */
+    display: flex;
+    justify-content: center;
     top: 60px;
     height: 35px;
     line-height: 35px;
-    /* width: 20%; */
-    width: 300px;
-    /* background-color: #e1e1e1; */
+    width: 1000px;
     z-index: 10;
     border-radius: 70px;
+    align-items: center;
 }
 .search_box .srch_field {
     width: 80%;
@@ -134,19 +193,46 @@ input[type='checkbox']{
     padding-left: 15px;
     padding-right: 50px;
     line-height: 35px;
-    border: 0;
-    background-color: #e1e1e1;
-    border-radius: 10px;
+    border-radius: 5px;
     outline:none;
 }
 .srch_field{
     padding: 0;
     font-size: 14px;
     font-weight: 500;
+    background-color: white;
+    border: 1px solid tan;
 }
-
 .srch_icon_a {
     position: relative;
-    left: 87%;
-    top: -35px;
+    left: -40px;
+}
+
+.filter_situation_area {
+    display: flex;
+    justify-content: flex-end;
+}
+.filter_situations {
+    display: flex;
+    border: 1px solid tan;
+    border-bottom: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.filter_situation {
+    display: flex;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    border-right: 1px solid tan;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#situation_all {
+    border-top-left-radius: 5px;
+}
+#situation_done {
+    border-top-right-radius: 5px;
+    border-right: none;
 }
