@@ -15,15 +15,13 @@
 }
 .proj_info_area{
     width: 1000px;
-    /* border: 2px solid tan; */
 }
 .proj_informents {
     display: flex;
-    /* height: 700px; */
 }
 #proj_info {
-    /* background-color: white; */
     width: 700px;
+    cursor: default;
 }
 #proj_date{
     display: flex;
@@ -39,13 +37,9 @@
 .proj_info_topic{
     font-size: 20px;
     border-bottom: 1px solid tan;
-    /* padding-bottom: 8px; */
-    /* padding-top: 8px; */
     display: flex;
-    /* justify-content: center; */
 }
 #area, #perioud_topic, #proj_lang, #proj_details_explain{
-    /* width: ; */
     margin-left: 15px;
     border-bottom: 3px solid tan;
     height: 30px;
@@ -54,7 +48,6 @@
 #perioud {
     font-size: 15px;
     margin: 15px;
-    /* margin-top: 10px; */
 }
 #detail_place_area, #perioud, .detail_langs_area{
     margin-bottom: 30px;
@@ -71,7 +64,6 @@
     font-family: 고딕,arial;
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 .detail_explain_area{
     display: flex;
@@ -82,7 +74,6 @@
     width: 95%;
 }
 #proj_teammates_area{
-    /* background-color: aqua; */
     display: flex;
     align-items: center;
     margin-left: 10px;
@@ -94,8 +85,6 @@
     border: 2px solid tan;
 }
 .comment_area {
-    /* height: 400px; */
-    /* border: 2px solid tan; */
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -104,7 +93,6 @@
 .comment_field_area {
     display: flex;
     justify-content: center;
-    /* width: 80%; */
     border-bottom: 1px solid tan;
 }
 #comment_field_divide_area{
@@ -113,7 +101,6 @@
     height: 60px;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid tan; */
     background-color: white;
     border-radius: 5px;
 }
@@ -130,12 +117,10 @@
     height: 40px;
     border: none;
     resize: none;
-    /* background-color: white; */
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-left: 12px;
     padding-right: 12px;
-    /* margin: 0; */
 }
 .comment_area_div {
     width: 80%;
@@ -148,16 +133,13 @@
     height: 100%;
     background-color: tan;
     border-top-right-radius: 3px;
-    /* border-bottom-right-radius: 3px; */
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 .comments {
     background-color: white;
-    /* width: 80%; */
     height: 250px;
-    /* border: 1px solid tan; */
     border-top: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -174,7 +156,6 @@
     font-family: 고딕,arial;
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 
