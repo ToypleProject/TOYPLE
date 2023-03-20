@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/new.css}">
     <link rel="stylesheet" th:href="@{/css/banner.css}">
+    <link rel="stylesheet" th:href="@{/css/new.css}">
     <script type="text/javascript" th:src="@{/js/new.js}"></script>
     <title>TOYPLE_new</title>
 </head>
@@ -23,7 +23,7 @@
             <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
                 <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
             </div>
-            
+
             <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
                 <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
             </div>
@@ -35,84 +35,129 @@
     </div>
 
     <div class="new_page">
-        <form autocomplete="off" action="/project/save" method="post">
-            <ul>
-                <li class="topic"><p>지역</p></li>
-                <li>
-                    <div id="choose_place"> 
-                        <!-- 지역 누르면 place_selected 클래스 추가됨 => 재클릭하면 place_selected 클래스 삭제 -->
-                        <div class="places" onclick="add_place(this)">서울</div>
-                        <div class="places" onclick="add_place(this)">경기/인천</div>
-                        <div class="places" onclick="add_place(this)">강원</div>
-                        <div class="places" onclick="add_place(this)">충천/대전</div>
-                        <div class="places" onclick="add_place(this)">전라/광주</div>
-                        <div class="places" onclick="add_place(this)">경북/대구</div>
-                        <div class="places" onclick="add_place(this)">경남/부산/울산</div>
-                        <div class="places" onclick="add_place(this)">제주</div>
 
-                    </div>
-                </li>
-                <li>
-                    <div class="new_select">
-                        <div id="selected_places">
-                            <!-- 각 지역 누르면 place_list 클래스를 가진 div 생성 -->
-                        </div>
-                    </div>
-                    <div class="select_reset_area">
-                        <div class="select_reset" id="reset_place" onclick="reset(this)">선택초기화</div>
-                    </div>
-                </li>
-                <li class="topic"><div>직무</div></li>
-                <li>
-                    <div id="choose_works">
-                        <div class="works" id="fornt_end" onclick="add_work(this)">프론트엔드</div>
-                        <div class="works" id="back_end"  onclick="add_work(this)">백엔드</div>
-                        <div class="works" id="work_mobile" onclick="add_work(this)">모바일</div>
-                        <div class="works" id="work_etc" onclick="add_work(this)">기타</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="new_select">
-                        <div id="selected_works">
-                            <!-- 각 직무 누르면 work_list 클래스를 가진 div 생성 -->
-                        </div>
-                    </div>
-                    <div class="select_reset_area">
-                        <div class="select_reset" id="reset_work" onclick="reset(this)">선택초기화</div>
-                    </div>
-                </li>
-                <li class="topic"><div>언어</div></li>
-                <li>
-                    <div id="choose_langs">
-                        <!-- <div class="langs" onclick="add_lang(this)">JavaScript</div>
-                        <div class="langs" onclick="add_lang(this)">TypeScript</div>
-                        <div class="langs" onclick="add_lang(this)">React</div>
-                        <div class="langs" onclick="add_lang(this)">Vue</div>
-                        <div class="langs" onclick="add_lang(this)">Svelte</div>
-                        <div class="langs" onclick="add_lang(this)">Nextjs</div> -->
-                    </div>
-                </li>
-                <li>
-                    <div class="new_select">
-                        <div id="selected_langs">
-                            <!-- 각 언어 누르면 lang_list 클래스를 가진 div 생성 -->
-                        </div>
-                    </div>
-                    <div class="select_reset_area">
-                        <div class="select_reset" id="reset_lang" onclick="reset(this)">선택초기화</div>
-                    </div>
-                </li>
-                <li class="topic"><div>프로젝트 제목</div></li>
-                <li><input type="text" name = "project_nm" id="proj_name" class = "focused" placeholder="입력하세요." spellcheck="false" required></li>
-                <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
+        <form autocomplete="off" th:action="@{/project/save}" th:object="${form}" method="post">
+        <ul>
+            <li class="topic"><div>지역</div></li>
+            <li>
+                <div id="choose_place">
+                    <!-- 지역 누르면 label에 place_selected 클래스 추가됨 => 재클릭하면 place_selected 클래스 삭제 -->
+                    <label class="places p1" ><input onclick="add_place(this)" type="checkbox" class="p1" value="서울" name="area" id="seoul">서울</label>
+                    <label class="places p2" ><input onclick="add_place(this)" type="checkbox" class="p2" value="경기/인천" name="area" id="gyeonggi/Inchon">경기/인천</label>
+                    <label class="places p3" ><input onclick="add_place(this)" type="checkbox" class="p3" value="강원" name="area" id="gangwon">강원</label>
+                    <label class="places p4" ><input onclick="add_place(this)" type="checkbox" class="p4" value="충천/대전" name="area" id="chungcheong/Daejeon">충천/대전</label>
+                    <label class="places p5" ><input onclick="add_place(this)" type="checkbox" class="p5" value="전라/광주" name="area" id="jeolla/Gwangju">전라/광주</label>
+                    <label class="places p6" ><input onclick="add_place(this)" type="checkbox" class="p6" value="경북/대구" name="area" id="gyeongbuk/Daegu">경북/대구</label>
+                    <label class="places p7" ><input onclick="add_place(this)" type="checkbox" class="p7" value="경남/부산/울산" name="area" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
+                    <label class="places p8" ><input onclick="add_place(this)" type="checkbox" class="p8" value="제주" name="area" id="jeju">제주</label>
 
-                <li class="topic"><div>프로젝트 설명</div></li>
-                <li><textarea type="text" name = "content" id="proj_explain" placeholder="입력하세요." rows="20" spellcheck="false"></textarea></li>
-                <li>
-<!--                    <div id="new_button" onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div>-->
-                    <input id="new_button" type="submit" onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)" value="등록하기">
-                </li>
-            </ul>
+                </div>
+            </li>
+            <li>
+                <div class="new_select">
+                    <div id="selected_places">
+                        <!-- 각 지역 누르면 place_list 클래스를 가진 div 생성 -->
+                    </div>
+                </div>
+                <div class="select_reset_area">
+                    <div class="select_reset" id="reset_place" onclick="reset(this)">선택초기화</div>
+                </div>
+            </li>
+            <li class="topic"><div>직무</div></li>
+            <li>
+                <div id="choose_works">
+                    <label class="works work w1"><input class="work w1" id="fornt_end" onclick="add_work(this)" type="checkbox" name="job" value="프론트엔드">프론트엔드</label>
+                    <label class="works work w2"><input class="work w2" id="back_end"  onclick="add_work(this)" type="checkbox" name="job" value="백엔드">백엔드</label>
+                    <label class="works work w3"><input class="work w3" id="work_mobile" onclick="add_work(this)" type="checkbox" name="job" value="모바일">모바일</label>
+                    <label class="works work w4"><input class="work w4" id="work_etc" onclick="add_work(this)" type="checkbox" name="job" value="기타">기타</label>
+                </div>
+            </li>
+            <li>
+                <div class="new_select">
+                    <div id="selected_works">
+                        <!-- 각 직무 누르면 work_list 클래스를 가진 div 생성 -->
+                    </div>
+                </div>
+                <div class="select_reset_area">
+                    <div class="select_reset" id="reset_work" onclick="reset(this)">선택초기화</div>
+                </div>
+            </li>
+            <li class="topic"><div>언어</div></li>
+            <li>
+                <div id="choose_langs">
+                    <div id="langs_front"></div>
+                    <div id="langs_back"></div>
+                    <div id="langs_mob"></div>
+                    <div id="langs_etc"></div>
+                    <!-- <label class="langs front_lang f_lang1 lang1"><input class="f_lang1" id="JS" onclick="add_lang(this)" type="checkbox" name="JavaScript">JavaScript</label>
+                    <label class="langs front_lang f_lang2 lang2"><input class="f_lang2" id="TS" onclick="add_lang(this)" type="checkbox" name="TypeScript">TypeScript</label>
+                    <label class="langs front_lang f_lang3 lang3"><input class="f_lang3" id="React" onclick="add_lang(this)" type="checkbox" name="React">React</label>
+                    <label class="langs front_lang f_lang4 lang4"><input class="f_lang4" id="Vue" onclick="add_lang(this)" type="checkbox" name="Vue">Vue</label>
+                    <label class="langs front_lang f_lang5 lang5"><input class="f_lang5" id="Svelte" onclick="add_lang(this)" type="checkbox" name="Svelte">Svelte</label>
+                    <label class="langs front_lang f_lang6 lang6"><input class="f_lang6" id="Nextjs" onclick="add_lang(this)" type="checkbox" name="Nextjs">Nextjs</label> -->
+
+                    <!-- <label class="langs back_lang b_lang1 lang7"><input class="lang b_lang1" id="Java" onclick="add_lang(this)" type="checkbox" name="Java">Java</label>
+                    <label class="langs back_lang b_lang2 lang8"><input class="lang b_lang2" id="Spring" onclick="add_lang(this)" type="checkbox" name="Spring">Spring</label>
+                    <label class="langs back_lang b_lang3 lang9"><input class="lang b_lang3" id="Nodejs" onclick="add_lang(this)" type="checkbox" name="Nodejs">Nodejs</label>
+                    <label class="langs back_lang b_lang4 lang10"><input class="lang b_lang4" id="Nestjs" onclick="add_lang(this)" type="checkbox" name="Nestjs">Nestjs</label>
+                    <label class="langs back_lang b_lang5 lang11"><input class="lang b_lang5" id="Go" onclick="add_lang(this)" type="checkbox" name="Go">Go</label>
+                    <label class="langs back_lang b_lang6 lang12"><input class="lang b_lang6" id="Kotlin" onclick="add_lang(this)" type="checkbox" name="Kotlin">Kotlin</label>
+                    <label class="langs back_lang b_lang4 lang13"><input class="lang b_lang7" id="Express" onclick="add_lang(this)" type="checkbox" name="Express">Express</label>
+                    <label class="langs back_lang b_lang5 lang14"><input class="lang b_lang8" id="MySQL" onclick="add_lang(this)" type="checkbox" name="MySQL">MySQL</label>
+                    <label class="langs back_lang b_lang6 lang15"><input class="lang b_lang9" id="MongoDB" onclick="add_lang(this)" type="checkbox" name="MongoDB">MongoDB</label>
+                    <label class="langs back_lang b_lang5 lang16"><input class="lang b_lang10" id="Python" onclick="add_lang(this)" type="checkbox" name="Python">Python</label>
+                    <label class="langs back_lang b_lang6 lang17"><input class="lang b_lang11" id="Django" onclick="add_lang(this)" type="checkbox" name="Django">Django</label>
+                    <label class="langs back_lang b_lang4 lang18"><input class="lang b_lang12" id="php" onclick="add_lang(this)" type="checkbox" name="php">php</label>
+                    <label class="langs back_lang b_lang5 lang19"><input class="lang b_lang13" id="GraphQL" onclick="add_lang(this)" type="checkbox" name="GraphQL">GraphQL</label>
+                    <label class="langs back_lang b_lang6 lang20"><input class="lang b_lang14" id="Firebase" onclick="add_lang(this)" type="checkbox" name="Firebase">Firebase</label> -->
+
+                    <!-- <label class="langs mob_lang m_lang1 lang21"><input class="lang m_lang1" id="Flutter" onclick="add_lang(this)" type="checkbox" name="Flutter">Flutter</label>
+                    <label class="langs mob_lang m_lang2 lang22"><input class="lang m_lang2" id="Swift" onclick="add_lang(this)" type="checkbox" name="Swift">Swift</label>
+                    <label class="langs mob_lang m_lang3 lang23"><input class="lang m_lang3" id="Kotlin" onclick="add_lang(this)" type="checkbox" name="Kotlin">Kotlin</label>
+                    <label class="langs mob_lang m_lang4 lang24"><input class="lang m_lang4" id="ReactNative" onclick="add_lang(this)" type="checkbox" name="ReactNative">ReactNative</label>
+                    <label class="langs mob_lang m_lang5 lang25"><input class="lang m_lang5" id="Unity" onclick="add_lang(this)" type="checkbox" name="Unity">Unity</label> -->
+
+                    <!-- <label class="langs etc_lang e_lang1 lang26"><input class="lang e_lang1" id="AWS" onclick="add_lang(this)" type="checkbox" name="AWS">AWS</label>
+                    <label class="langs etc_lang e_lang2 lang27"><input class="lang e_lang2" id="Kubernetes" onclick="add_lang(this)" type="checkbox" name="Kubernetes">Kubernetes</label>
+                    <label class="langs etc_lang e_lang3 lang28"><input class="lang e_lang3" id="Docker" onclick="add_lang(this)" type="checkbox" name="Docker">Docker</label>
+                    <label class="langs etc_lang e_lang4 lang29"><input class="lang e_lang4" id="Git" onclick="add_lang(this)" type="checkbox" name="Git">Git</label>
+                    <label class="langs etc_lang e_lang5 lang30"><input class="lang e_lang5" id="Figma" onclick="add_lang(this)" type="checkbox" name="Figma">Figma</label>
+                    <label class="langs etc_lang e_lang6 lang31"><input class="lang e_lang3" id="Zeplin" onclick="add_lang(this)" type="checkbox" name="Zeplin">Zeplin</label>
+                    <label class="langs etc_lang e_lang7 lang32"><input class="lang e_lang4" id="Jest" onclick="add_lang(this)" type="checkbox" name="Jest">Jest</label>
+                    <label class="langs etc_lang e_lang8 lang33"><input class="lang e_lang5" id="C" onclick="add_lang(this)" type="C" name="C">C</label> -->
+
+                </div>
+            </li>
+            <li>
+                <div class="new_select">
+                    <div id="selected_langs">
+                        <!-- 각 language 누르면 lang_list 클래스를 가진 div 생성 -->
+                    </div>
+                </div>
+                <div class="select_reset_area">
+                    <div class="select_reset" id="reset_lang" onclick="reset(this)">선택초기화</div>
+                </div>
+            </li>
+            <li class="topic"><div>프로젝트 제목</div></li>
+
+
+            <li>
+                <div id="proj_name_div">
+                    <input type="text" id="proj_name" class = "focused" placeholder="입력하세요." spellcheck="false" required>
+                </div>
+            </li>
+            <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
+
+            <li class="topic"><div>프로젝트 설명</div></li>
+            <li>
+                <div id="proj_explain_div"><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" value ="" spellcheck="false"></textarea></div></li>
+
+            <li>
+                <!-- <div id="new_button"  onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div> -->
+                <input type="submit" id="new_button" value="등록하기" onclick="newproject()"  onmouseover="buttonover(this)" onmouseout="buttonout(this)">
+                <!-- slt_place, slt_work, slt_lang, proj_name, proj_explain -->
+            </li>
+        </ul>
         </form>
     </div>
 </body>

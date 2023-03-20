@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class ProjectDaoTest {
     @Autowired
@@ -15,10 +13,6 @@ class ProjectDaoTest {
         ProjectDto pro = ProjectDto.builder()
                 .projectNm("projectNm1")
                 .content("proejct1 content")
-                .deadline("2022")
-                .comment("commnet")
-                .closeDt("12/23")
-                .userId("userId123")
                 .build();
 
         //테이블 생성 후 데이터 넣어서 완성하기

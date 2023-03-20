@@ -1,25 +1,51 @@
 package com.project.toyple.job;
 
+import com.project.toyple.area.AreaDto;
 import com.project.toyple.project.ProjectDto;
 import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="job")
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+//@Table(name="job")
 public class JobDto {
 
     @Id
-    @Column(name="seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int seq;
-    @ManyToOne(fetch = FetchType.LAZY)//: fetch로 로딩 전략을 설정 FetchType. LAZY는 지연 로딩을 의미
-    @JoinColumn(name = "project_id")
-    private ProjectDto project_id;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id",insertable = false, updatable = false)
+//    @JoinColumn
+    private ProjectDto projectDto;
     private String job;
+
+    @Builder
+    public JobDto(String job, ProjectDto projectDto){
+        this.job = job;
+        this.projectDto = projectDto;
+    }
+
+    public static JobDto createJob(String job, ProjectDto projectDto){
+        return JobDto.builder()
+                .job(job)
+                .projectDto(projectDto)
+                .build();
+    }
+
+
 }
+
+//@Getter
+//@Setter
+//@Entity
+//@DiscriminatorValue("job")
+//public class JobDto extends ProjectDto {
+//    private String job;
+//
+//}
