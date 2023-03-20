@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/login.css}">
-    <script type =  "text/javascript" th:src="@{/js/login.js}"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/css/findId.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <title>login</title>
+    <title>find-id</title>
 </head>
 <body>
     <script th:inline="javascript">
         let error = [[${error}]];
-        let exception = [[${exception}]];
+        let message = [[${message}]];
 
         $(document).ready(function() {
-            if (error == 'false') {
+            if (error == false) {
+                let userId = [[${userId}]];
+                sessionStorage.setItem("userId", userId);
+
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -32,16 +32,15 @@
 
                 Toast.fire({
                     icon: 'success',
-                    title: '로그인 성공',
-                    text : '메인 화면으로 이동합니다.'
+                    title: message
                 })
-                setTimeout(function() {
-                    location.href = "/";
+                setTimeout(function () {
+                    location.href = "/user/find/id/success";
                 }, 2000);
 
-            } else if (error == 'true') {
+            } else if (error == true) {
                 Swal.fire({
-                    title: exception,
+                    title: message,
                     icon: 'warning',
                     showConfirmButton: false,
                     timer: 1000,
@@ -52,9 +51,9 @@
 
     <div id="wrap">
         <div id="header" class="logo">
-            <h1><a href='#' class='h_logo' role="banner">TOYPLE</a></h1>
+            <h1><a href='#' class='h_logo' role="banner">아이디 찾기</a></h1>
         </div>
-        <form id="login_form" method="post" action="/user/login">
+        <form id="join_form" method="post" action="/user/find/id">
             <div id="container">
                 <div id="banner"></div>
                 <div id="content">
@@ -62,10 +61,10 @@
                     <div class="row_group">
                         <div class ="join_row">
                             <h3 class="join_title">
-                                <label for="userId">아이디</label>
+                                <label for="fname">이름</label>
                             </h3>
                             <span class="ps_box int_id">
-                                <input type="text" maxlength="20" class="int" title="ID" id="userId" name="userId" onchange="id_repeat()">
+                                <input type="text" maxlength="20" class="int" title="ID" id="fname" name="userName">
                             </span>
                             <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
                                 필수 입력란입니다.
@@ -75,10 +74,10 @@
                     <div>
                         <div class="join_row">
                             <h3 class="join_title">
-                                <label for="password">비밀번호</label>
+                                <label for="fmail">이메일</label>
                             </h3>
-                            <span class="ps_box int_pass" id="psw1Img">
-                                <input type="password" id="password" name="password" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20">
+                            <span class="ps_box int_id" id="psw1Img">
+                                <input type="text" id="fmail" name="email" class="int" title="이메일 입력" aria-describedby="pswd1Msg" maxlength="30">
                             </span>
                             <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive">
                                 필수 입력란입니다.
@@ -86,26 +85,27 @@
                         </div>
                     </div>
                     <!-- //아이디 비밀번호 -->
-
-                    <!-- 로그인 버튼 -->
+                    
+                    <!-- 찾기 버튼 -->
                     <div class="btn_area">
                         <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
-                            <span>로그인</span>
+                            <span>찾기</span>
                         </button>
                     </div>
-                    <!-- //로그인 버튼 -->
+                    <!-- //찾기 버튼 -->
 
-                    <!-- 아이디 찾기, 비밀번호 찾기, 회원가입 링크 -->
+                    <!-- 비밀번호 찾기 링크 -->
                     <div class="links">
-                        <a href="/user/find/id/form">아이디 찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                        <a href="/user/find/password/form">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                        <a href="/user/join">회원가입</a>
+                        <a href="/user/find/password/form">비밀번호 찾기</a>
                     </div>
-                    <!-- //아이디 찾기, 비밀번호 찾기, 회원가입 링크 -->
+                    <!-- //비밀번호 찾기 링크 -->
 
                 </div>
             </div>
         </form>
     </div>
+    <script type =  "text/javascript" th:src = "@{/js/findId.js}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
 </body>
 </html>

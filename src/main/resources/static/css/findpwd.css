@@ -341,15 +341,14 @@ button {
 
 
   /* 아이디 찾기 페이지에 해당하는 css 코드 */
+  /* 비밀번호 찾기 페이지에 해당하는 css 코드 */
 
   /* 아이디 찾기 라는 text를 감싸고 있는 a태그를 클릭해도 이동하지 않게 만듦 */
   a.h_logo {
     pointer-events: none;
   }
 
-
-  /* 아이디 찾기, 비밀번호 찾기, 회원가입 링크 */
-  .links {
-      display: flex;
-      justify-content: center;
+  /* 비밀번호 찾기 페이지에 해당하는 css 코드 */
+  .code {
+    display: none;
   }

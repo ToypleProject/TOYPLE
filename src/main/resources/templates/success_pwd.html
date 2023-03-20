@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/findpwd.css">
+<!--    <link rel="stylesheet" href="success_pwd.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>success_pwd</title>
+</head>
+<body>
+<script th:inline="javascript">
+    let randomKey = sessionStorage.getItem("randomKey");
+    let userId = sessionStorage.getItem("userId");
+    let userName = sessionStorage.getItem("userName");
+    let email = sessionStorage.getItem("email");
+
+    let error = [[${error}]];
+    let message = [[${message}]];
+    let newKey = [[${randomKey}]];
+
+    function button_click() {
+        let code = document.getElementById('code').value;
+        let msg = document.getElementById('Msg1')
+
+        // 만약 내 가설이 맞다면 처음 NEWKEY는 null이어야 하고 randomKey는 값이 들어있어야 한다.
+        // if (newKey != null) {randomKey = newKey; sessionStorage.setItem("randomKey", randomKey);}
+        // 이렇게하면 randomKey가 새로 설정되어서 인증 가능할 듯!
+        if (newKey != null) {
+            randomKey = newKey;
+            sessionStorage.setItem("randomKey", randomKey);
+        }
+
+        if (code == '') {
+            msg.style.display = 'block';
+        } else {
+            document.join_form.randomKey.value = randomKey;
+            document.join_form.userId.value = userId;
+            document.join_form.userName.value = userName;
+            document.join_form.email.value = email;
+            document.getElementById('join_form').submit();
+        }
+    }
+
+    function again_send() {
+        //이메일로 전송코드 다시 보내기
+        Swal.fire({
+            title : '이메일을 확인해주세요.',
+            icon : 'success',
+            showConfirmButton : false,
+            timer : 1000,
+            // confirmButtonColor : '#F5EBE1',
+        })
+        document.resend_form.email.value = email;
+        document.resend_form.userName.value = userName;
+        console.log(email);
+        console.log(userName);
+        document.getElementById('resend_form').submit();
+        //location.href = '/user/find/password/resend';
+    }
+
+    $(document).ready(function() {
+        let msg = document.getElementById('Msg1');
+        if(error == false) {
+            msg.style.display = 'none';
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'success',
+                title: '이메일 인증 성공'
+            })
+            setTimeout(function() {
+                location.href = "/user/find/password/change/form";
+            }, 2000);
+        } else if (error == true) {
+            Swal.fire({
+                title : message,
+                icon : 'warning',
+                showConfirmButton : false,
+                timer : 1000,
+            })
+        }
+    });
+
+</script>
+    <div id="wrap">
+        <div id="header" class="logo">
+            <h1><a href='#' class='h_logo' role="banner">비밀번호 찾기</a></h1>
+        </div>
+            <div id="container">
+                <div id="banner"></div>
+                <div id="content">
+                    <!-- 전송받은 코드 입력창  -->
+                    <form id="join_form" name="join_form" method="post" action="/user/find/password/auth">
+                        <div class="row_group">
+                            <div class="join_row">
+                                <div class="join_row">
+                                    <input type="hidden" name="randomKey" value="" />
+                                    <input type="hidden" name="userId" value="" />
+                                    <input type="hidden" name="userName" value="" />
+                                    <input type="hidden" name="email" value="" />
+                                    <h3 class="join_title">
+                                        <label for="code">전송코드</label>
+                                    </h3>
+                                    <span class="ps_box int_id" id="psw1Img">
+                                        <input type="text" id="code" name="code" class="int" title="전송코드 입력" maxlength="30">
+                                    </span>
+                                    <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
+                                        필수 입력란입니다.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 전송코드 확인 버튼 -->
+                        <div class="btn_area">
+                            <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
+                                <span>전송코드 확인</span>
+                            </button>
+                        </div>
+                        <!-- //전송코드 확인 버튼 -->
+                    </form>
+                    <!-- //전송받은 코드 입력창 -->
+
+                    <form id="resend_form" name="resend_form" method="post" action="/user/find/password/resend">
+                        <input type="hidden" name="userName" value="" />
+                        <input type="hidden" name="email" value="" />
+                        <!-- 전송코드 재전송 버튼 -->
+                        <div class="btn_area">
+                            <button type="button" class="btn_type btn_primary" onclick="again_send()">
+                                <span>전송코드 재전송</span>
+                            </button>
+                        </div>
+                        <!-- //전송코드 재전송 버튼 -->
+                    </form>
+<!--                    &lt;!&ndash; 전송코드 재전송 버튼 &ndash;&gt;-->
+<!--                    <div class="btn_area">-->
+<!--                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="agin_send()">-->
+<!--                            <span>전송코드 재전송</span>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; //전송코드 재전송 버튼 &ndash;&gt;-->
+
+                </div>
+            </div>
+    </div>
+<!--    <script type =  "text/javascript" th:src = "@{/js/success_pwd.js}"></script>-->
+</body>
+</html>

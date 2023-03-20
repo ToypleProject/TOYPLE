@@ -15,9 +15,10 @@
     <script th:inline="javascript">
         let error = [[${error}]];
         let exception = [[${exception}]];
+        let message = [[${message}]];
 
         $(document).ready(function() {
-            if (error == 'false') {
+            if (error == false) {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -33,7 +34,7 @@
                 Toast.fire({
                     icon: 'success',
                     title: '회원가입 성공',
-                    text : '로그인 화면으로 이동합니다.'
+                    text : message
                 })
                 setTimeout(function() {
                     location.href = "/user/login";
