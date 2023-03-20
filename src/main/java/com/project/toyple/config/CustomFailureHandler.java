@@ -23,12 +23,9 @@ public class CustomFailureHandler extends SimpleUrlAuthenticationFailureHandler 
                                         AuthenticationException exception) throws IOException, ServletException {
         String errorMessage;
         if (exception instanceof BadCredentialsException || exception instanceof InternalAuthenticationServiceException) {
-            if (exception instanceof BadCredentialsException)
-                System.out.println("BadCredentialtExcption");
-            else
-                System.out.println("InternalAuthenticationServiceException");
             errorMessage = "아이디 또는 비밀번호를 다시 한번 확인해 주세요.";
-        } else if (exception instanceof UsernameNotFoundException) {  // TODO: 에러 종류 알아보기
+        } else if (exception instanceof UsernameNotFoundException) {
+            // 아마 실행 안되는 코드일듯(UsernameNotFoundException -> BadCredentialsException)
             errorMessage = "존재하지 않는 회원입니다.";
         } else if (exception instanceof LockedException) {
             errorMessage = "이메일 인증 후 로그인해 주세요.";

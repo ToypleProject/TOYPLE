@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <script type =  "text/javascript" th:src="@{/js/login.js}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
@@ -94,6 +94,14 @@
                         </button>
                     </div>
                     <!-- //로그인 버튼 -->
+
+                    <!-- 아이디 찾기, 비밀번호 찾기, 회원가입 링크 -->
+                    <div class="links">
+                        <a href="/user/find/id/form">아이디 찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href="/user/find/password/form">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href="/user/join">회원가입</a>
+                    </div>
+                    <!-- //아이디 찾기, 비밀번호 찾기, 회원가입 링크 -->
 
                 </div>
             </div>

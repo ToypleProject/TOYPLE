@@ -27,22 +27,39 @@ public class UserController {
 
     // 회원가입 창으로 이동
     @RequestMapping(value="/user/join", method=RequestMethod.GET)
-    public String joinForm(@RequestParam(value="error", required=false) String error,
+    public String joinForm(/*@RequestParam(value="error", required=false) String error,
                            @RequestParam(value="exception", required=false) String exception,
-                           Model model) {
-        model.addAttribute("error", error);
-        model.addAttribute("exception", exception);
+                           Model model*/) {
+//        model.addAttribute("error", error);
+//        model.addAttribute("exception", exception);
         return "join";
     }
 
     // 회원가입 작업 수행
     @RequestMapping(value="/user/join", method=RequestMethod.POST)
     public String join(UserDto userDto, Model model) {
-        //String url = userService.join(userDto);
-        String randomKey = userService.join(userDto);
+        String randomKey = userService.makeRandomKey();
+        String errorMsg;
+        if (randomKey == null) {
+            model.addAttribute("error", true);
+            model.addAttribute("exception", "회원가입을 실패했습니다.");
+            return "join";
+        }
+        errorMsg = userService.join(userDto, randomKey);
+        if (errorMsg != null) {
+            model.addAttribute("error", true);
+            model.addAttribute("exception", errorMsg);
+            return "join";
+        }
         userService.sendEmailLink(userDto, randomKey);
-        // TODO: 아래 addAttribute()는 임시로 넣은것임. join, sendEmailLink 함수를 수행한 후 리턴값 받아 적절히 처리하기
-        model.addAttribute("error", "false");
+
+
+
+//        //String url = userService.join(userDto);
+//        String randomKey = userService.join(userDto);
+//        userService.sendEmailLink(userDto, randomKey);
+//        // TODO: 아래 addAttribute()는 임시로 넣은것임. join, sendEmailLink 함수를 수행한 후 리턴값 받아 적절히 처리하기
+        model.addAttribute("error", false);
         model.addAttribute("exception", "exception!!!");
         model.addAttribute("message", "인증 이메일을 전송하였습니다. 확인해주세요.");
         return "join";

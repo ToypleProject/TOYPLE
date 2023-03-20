@@ -346,3 +346,10 @@ button {
   a.h_logo {
     pointer-events: none;
   }
+
+
+  /* 아이디 찾기, 비밀번호 찾기, 회원가입 링크 */
+  .links {
+      display: flex;
+      justify-content: center;
+  }

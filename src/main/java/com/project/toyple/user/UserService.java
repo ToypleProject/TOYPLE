@@ -9,7 +9,7 @@ import javax.mail.MessagingException;
 
 public interface UserService extends UserDetailsService {
     UserDetails loadUserByUsername(String userId);
-    String join(UserDto userDto);
+    String join(UserDto userDto, String randomKey);
     boolean checkUserInfo(UserDto userDto);
     String makeRandomKey();
     String sendEmailKey(UserDto userDto);

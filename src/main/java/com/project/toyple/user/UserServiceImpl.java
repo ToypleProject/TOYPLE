@@ -40,33 +40,34 @@ public class UserServiceImpl implements UserService {
     }
 
     // 아이디, 이메일 중복 체크하고 중복되지 않는다면 DB에 저장함
-    public String join(UserDto userDto) {  // TODO: url 값 정하는건 controller에서 해야할 것 같음.
+    public String join(UserDto userDto, String randomKey) {
         String url = "";
-        String randomKey;
 
         try {
             if (isIdDuplicated(userDto)) {  // ID가 중복이라면
+                return "이미 가입된 아이디 입니다.";
 //                url = "redirect:/user/join?error=true&exception=";
 //                url += URLEncoder.encode("이미 가입된 아이디 입니다.", "UTF-8");
-//            } else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
+            } else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
+                return "이미 가입된 이메일 입니다.";
 //                url = "redirect:/user/join?error=true&exception=";
 //                url += URLEncoder.encode("이미 가입된 이메일 입니다.", "UTF-8");
             } else {  // DB에 새 유저 정보 저장
                 String rawPassword = userDto.getPassword();
                 String encPassword = passwordEncoder.encode(rawPassword);
                 userDto.setPassword(encPassword);
-                randomKey = makeRandomKey();
                 userDto.setAuthKey(randomKey);
                 userDto.setAuthStatus(0);
                 userDao.save(userDto);
-                return randomKey;
+                return null;
 //                url = "redirect:/user/join?error=false";
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return "알 수 없는 오류로 인해 회원가입을 실패했습니다.";
         }
 
-        return url;
+        //return url;
     }
 
     @Override
