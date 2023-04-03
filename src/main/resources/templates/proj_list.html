@@ -1,44 +1,100 @@
 <!DOCTYPE html>
-<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<html  lang="kr" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
-    <script type="text/javascript" th:src="@{/js/pagination.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/proj_list.css}">
-
+    <script type="text/javascript" src="../main/main.js"></script>
+    <script type="text/javascript" src="../main/pagination.js"></script>
+    <link rel="stylesheet" href="../main/proj_list.css">
 </head>
 <body>
-<div id="offers_area">
-    <div id="alert_currentPage">
+    <div id="offers_area">
+        <div id="alert_currentPage">
 
+        </div>
+        <div id="foo">
+        </div>
+        <div id="offers">
+            <table id="offering_table">
+                <tr>
+                    <td><div class="offer" onclick="window.open('../proj_info/proj_info.html')">
+                        <div class="offer_header">
+                            <div class="project_status">모집중</div>
+                            <div class="project_limitdate">
+                                <div class="limdate_area">마감일</div>
+                                <div class="limdate_area" id="limdate">2023.05.01</div>
+                            </div>
+                        </div>
+                        <div class="project_title">프로젝트 제목</div>
+                        
+                        <div class="project_langs">
+                            <div class="langs" id="JavaScript" value="JavaScript">JavaScript</div>
+                            <div class="langs" id="TypeScript" value="TypeScript">TypeScript</div>
+                            <div class="langs" id="React">React</div>
+                            <div class="langs" id="Java">Java</div>
+                            <div class="langs" id="Go">Go</div>
+                            <div class="langs" id="Unity">Unity</div>
+                        </div>
+                    </div></td>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    
+                </tr>
+                <tr>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    
+                </tr>
+                <tr>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                    <td><div class="offer">
+                        <div class="project_title"></div>
+                        <div class="project_limitdate"></div>
+                        <div class="project_loc"></div>
+                        <div class="project_langs"></div>
+                    </div></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div id="foo">
-    </div>
-    <div id="offers">
-        <table id="offering_table">
-            <tr>
-                <td><div class="offer"></div></td>
-                <td><div class="offer"></div></td>
-                <td><div class="offer"></div></td>
-
-            </tr>
-            <tr>
-                <td><div class="offer"></div></td>
-                <td><div class="offer"></div></td>
-                <td><div class="offer"></div></td>
-
-            </tr>
-            <tr>
-                <td><div class="offer"></div></td>
-                <td><div class="offer"></div></td>
-                <td><div class="offer"></div></td>
-            </tr>
-        </table>
-    </div>
-</div>
 </body>
 </html>

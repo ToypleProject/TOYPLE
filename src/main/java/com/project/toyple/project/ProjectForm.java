@@ -18,7 +18,4 @@ public class ProjectForm {
     private String closeDt;//끝난시간
     private String userId;
     private String status;
-
-    private String area;
-
 }

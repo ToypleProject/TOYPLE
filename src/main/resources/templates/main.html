@@ -83,54 +83,80 @@
         <div class="ifrm">
 
 <!--        <iframe th:src="@{proj_list.html}" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: 3px solid tan" scrolling ="no"></iframe>-->
-            <div id="offers_area">
-                <div id="alert_currentPage">
+<!--            <div id="offers_area">-->
+<!--                <div id="alert_currentPage">-->
 
-                </div>
-                <div id="foo">
-                </div>
-                <div id="offers">
-                    <table id="offering_table">
-                        <tr>
-                            <td><div class="offer"></div></td>
-                            <td><div class="offer"></div></td>
-                            <td><div class="offer"></div></td>
+<!--                </div>-->
+<!--                <div id="foo">-->
+<!--                </div>-->
+<!--                <div id="offers">-->
+<!--                    <tr th:each="proj : ${projectList}">-->
+<!--                        <td th:text="${proj.projectNm}"></td>-->
+<!--                        <td th:text="${proj.content}"></td>-->
+<!--                    </tr>-->
+<!--                    <table id="offering_table">-->
+<!--                        <tr>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                            <td><div class="offer"></div></td>-->
 
-                        </tr>
-                        <tr>
-                            <td><div class="offer"></div></td>
-                            <td><div class="offer"></div></td>
-                            <td><div class="offer"></div></td>
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                            <td><div class="offer"></div></td>-->
 
-                        </tr>
-                        <tr>
-                            <td><div class="offer"></div></td>
-                            <td><div class="offer"></div></td>
-                            <td><div class="offer"></div></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination" id="pagination">
-                <li class="page-item">
-                    <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" th:href="@{/templates/proj_list.html}"  target="pages">1</a></li>
-                <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">2</a></li>
-                <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">3</a></li>
-                <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">4</a></li>
-                <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">5</a></li>
-                <li class="page-item">
-                    <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                            <td><div class="offer"></div></td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        <nav aria-label="Page navigation example">-->
+<!--            <ul class="pagination" id="pagination">-->
+<!--                <li class="page-item">-->
+<!--                    <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">-->
+<!--                        <span aria-hidden="true">&laquo;</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" th:href="@{/templates/proj_list.html}"  target="pages">1</a></li>-->
+<!--                <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">2</a></li>-->
+<!--                <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">3</a></li>-->
+<!--                <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">4</a></li>-->
+<!--                <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">5</a></li>-->
+<!--                <li class="page-item">-->
+<!--                    <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">-->
+<!--                        <span aria-hidden="true">&raquo;</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </nav>-->
     </div>
+        <div class="ifrm">
+            <iframe src="proj_list.html" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: none" scrolling ="no"></iframe>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination" id="pagination">
+                    <li class="page-item">
+                        <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" th:href="@{/template/proj_list.html}" target="pages">1</a></li>
+<!--                    <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" onclick="location.href='./templates/proj_list.html'"target="pages">2</a></li>-->
+                    <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" href="./proj_list.html" target="pages">3</a></li>
+                    <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" href="./proj_list.html" target="pages">4</a></li>
+                    <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" href="./proj_list.html" target="pages">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <div id="ex2">
     </div>
