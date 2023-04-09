@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="mypage.css">
+        <!-- test-css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="header"></div>
+            <div id="container">
+                <div id="row_group">
+                    <div id="first_row">
+                        <div id="userInfor">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end buttonframe">
+                                <button class="btn btn-primary me-md-2 button" type="button">정보수정</button>
+                            </div>
+                            <div id="image">
+                                <img src="kf.png" class="rounded mx-auto d-block" alt="...">
+                            </div>
+                            <div id="users">
+                                <div class="users information">
+                                    <div id="name">이름</div>
+                                    <div id="email">이메일</div>
+                                    <div id="open">
+                                        <label>
+                                            <input type="checkbox" name="email" value="email" checked>
+                                            <span>공개</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="users introduce">
+                                    <div class="introducescroll">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, perferendis!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 아래의 코드를 가져온 사이트
+                    : https://css-tricks.com/css-only-carousel/ -->
+                    <div id="test">
+                        <!-- Flickity HTML init -->
+                        <div class="gallery js-flickity"
+                        data-flickity-options='{ "wrapAround": true }'>
+                        <div class="gallery-cell"></div>
+                        <div class="gallery-cell"></div>
+                        <div class="gallery-cell"></div>
+                        <div class="gallery-cell"></div>
+                        <div class="gallery-cell"></div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="mypage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    <!-- test-script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+</html>

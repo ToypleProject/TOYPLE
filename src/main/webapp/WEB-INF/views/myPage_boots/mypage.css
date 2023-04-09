@@ -1,0 +1,194 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+#wrap {
+    width : 100%;
+    height : 100%;
+}
+
+/* nav영역 */
+#header {
+    width: 100%;
+    height : 70px;
+    background-color: red;
+}
+
+/* 내용 */
+#container {
+    width : 80%;
+    height: 100%;
+    margin : 0 auto;
+    /* border : 1px solid red */
+}
+
+/* 내용에서 margin-top 값주고 영역 */
+#row_group {
+    width : 100%;
+    height : 100%;
+    margin: 0 auto;
+    /* border : 1px solid yellow; */
+
+    /* nav와 거리 띄우기 */
+    margin-top : 10vh;
+}
+
+/* image, information, introduce, button */
+#first_row {
+    width : 100%;
+    height : 40%;
+    /* background-color: bisque; */
+}
+
+/* 프로젝트's */
+#second_row {
+    width : 100%;
+    height : 60%;
+    /* background-color: blue; */
+}
+
+/* image, information, introduce, button 한번 더 감쌈 */
+#userInfor {
+    width : 60vw;
+    height: 26vh;
+    margin : 0 auto;
+    position: relative;
+    /* background-color: aqua; */
+}
+
+/* 이미지 */
+#image {
+    width : 25%;
+    height: 70%;
+    float : left;
+    margin-top : 0px;
+    /* border: 1px solid salmon; */
+}
+
+/* 이미지들의 display를 inline-block으로 해줌
+이유 : button, information, intruduce 같은 라인에 위치 */
+#image > img {
+    display: inline-block;
+    /* border : 1px solid red; */
+    width : 100%;
+    height: 100%;
+}
+
+/* information, intruduce, button */
+#users {
+    width : 40vw;
+    float : right;
+    margin-top : 10px;
+    /* border : 3px solid rebeccapurple; */
+}
+
+/* 모든 div의 display를 바꿔야지 한 줄로 나옴 */
+#users div {
+    display : inline-block;
+}
+
+/* information, intruduce */
+.users {
+    width : 100%;
+    border : 1px solid gray;
+}
+
+/* button을 감싸고 있는 태그 */
+.buttonframe {
+    width : 100%;
+    height : 40px;
+    position: relative;
+    /* border : 1px solid white; */
+}
+
+/* 버튼 */
+.button {
+    width : 35%;
+    position : absolute;
+    float : right;
+    top : 0;
+    right : 0;
+}
+
+/* 이름, 이메일, 공개여부 */
+#users div.information div {
+    /* border : 1px solid olive; */
+    display : inline-flex;
+    width : 31%;
+    height : 100%;
+    text-align : center;
+    justify-content: center;
+}
+
+/* introduce */
+.users.introduce {
+    width : 100%;
+    height : 100px;
+    border : 1px solid gray;
+}
+
+.introducescroll {
+    width : 100%;
+    height : 100%;
+    padding-left : 5px;
+    /* border : 1px solid red; */
+}
+
+
+
+
+
+
+/* project */
+/* project 전체 배경 */
+/* .project {
+    background-color: orange;
+} */
+
+/* project content 영역 */
+.projectisreally {
+    /* background-color: yellow; */
+    margin : 0 auto;
+}
+
+
+
+
+
+
+/* test */
+#test {
+    width : 60vw;
+    margin : 0 auto;
+}
+/* external css: flickity.css */
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body { font-family: sans-serif; }
+  
+  .gallery {
+    background: #EEE;
+  }
+  
+  .gallery-cell {
+    width: 66%;
+    height: 200px;
+    margin-right: 10px;
+    background: #8C8;
+    counter-increment: gallery-cell;
+  }
+  
+  /* cell number */
+  .gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
