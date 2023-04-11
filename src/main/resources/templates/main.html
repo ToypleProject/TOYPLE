@@ -8,7 +8,7 @@
     <script type="text/javascript" th:src="@{/js/pagination.js}"></script>
     <script type="text/javascript" th:src="@{/js/filter.js}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--    <link rel="stylesheet" href="../static/css/main.css">-->
+    <!--  <link rel="stylesheet" href="../static/css/main.css">  -->
     <link rel="stylesheet" th:href="@{/css/banner.css}">
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/filter.css}">
@@ -22,17 +22,28 @@
             <h2 id="nav_lg">TOYPLE</h2>
         </div>
         <div id ="nav_right">
-            <div id="nav_login" style="cursor:pointer" onclick="location.href='../login/index.html'"><div>LOGIN</div></div>
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/add'">
-                <img th:src="@{/img/plus.png}"  id="new_icon" alt="new">
-            </div>
-            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
-                <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
+<!--            <div sec:authentication="name"></div>-->
+
+            <!-- 로그인을 했다면 보이는 항목 -->
+            <div sec:authorize="isAuthenticated()">
+                <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/add'">
+                    <img th:src="@{/img/plus.png}"  id="new_icon" alt="new">
+                </div>
+                <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                    <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
+                </div>
+
+                <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                    <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
+                </div>
             </div>
 
-            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
-                <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
+            <!-- 로그인을 하지 않았다면 보이는 항목 -->
+            <div sec:authorize="!isAuthenticated()">
+                로그인하세요!!
+                <div id="nav_login" style="cursor:pointer" onclick="location.href='../login/index.html'"><div>LOGIN</div></div>
             </div>
+
         </div>
     </div>
 </div>
