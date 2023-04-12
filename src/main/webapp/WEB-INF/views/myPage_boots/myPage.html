@@ -11,103 +11,92 @@
     </head>
     <body>
         <div id="wrap">
-            <div id="header"></div>
-            <div id="container">
-                <div id="row_group">
-                    <div id="first_row">
-                        <div id="userInfor">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end buttonframe">
-                                <button class="btn btn-primary me-md-2 button" type="button" id="change" onclick="ch_click()">정보수정</button>
-                            </div>
-                            <div id="image">
-                                <img src="kf.png" class="rounded mx-auto d-block" alt="...">
-                            </div>
-                            <div id="users">
-                                <!-- <div class="users information">
-                                    <div id="name">이름</div>
-                                    <div id="email">이메일</div>
-                                    <div id="open">
-                                        <label>
-                                            <input type="checkbox" name="email" value="email" checked>
-                                            <span>공개<userinforspan>
-                                        </label>
-                                    </div>
-                                </div> -->
-
-                                <!-- 위의 내용을 input으로 구현 후 disabled을 이용해서 비활성화 시키기 -->
-                                <form id="information">
-                                    <input type="usertext" id="userName" class="input" value="" disabled>
-                                    <input type="userEmail" id="userEmail" class="input" value="" disabled>
-                                    <label for="public">공개</label>
-                                    <input type="checkbox" id="public" class="public" checked>
-                                    <textarea id="intro">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, perferendis!
-                                    </textarea>
-                                </form>
-
-                                <!-- <div class="users introduce">
-                                    <div class="introducescroll">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, perferendis!
-                                    </div>
-                                </div> -->
-                            </div>
-
-
-                            
-
-
-
-                        </div>
-                    </div>
-
-                    <!-- project -->
-
-                    <!-- <div id="carousel">
-                        <div id="carouselExampleCaptions" class="carousel slide">
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="kf.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>First slide label</h5>
-                                  <p>Some representative placeholder content for the first slide.</p>
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="kf.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>Second slide label</h5>
-                                  <p>Some representative placeholder content for the second slide.</p>
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="kf.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>Third slide label</h5>
-                                  <p>Some representative placeholder content for the third slide.</p>
-                                </div>
-                              </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                    </div>      -->
-
-                    
+          <div id="header"></div>
+          <div id="container">
+            <div id="row_group">
+              <div id="first_row">
+                <!-- 정보 수정 버튼 -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end buttonframe">
+                  <button class="btn btn-primary me-md-2 button" type="button" id="change" onclick="ch_click()">정보수정</button>
                 </div>
+                <div id="userInfor">
+                    <div id="users">
+                      <!-- 사용자 이미지 -->
+                      <div id="image">
+                          <img src="kf.png" class="rounded mx-auto d-block" alt="...">
+                      </div>
+                          <!-- 위의 내용을 input으로 구현 후 disabled을 이용해서 비활성화 시키기 -->
+                      <form id="information">
+                          <!-- 이름 & 이메일 & 공개여부(checkbox) -->
+                          <div id="frow">
+                            <!-- 이름 -->
+                            <input type="usertext" id="userName" class="input" value="" disabled>
+                            <!-- 이메일 -->
+                            <input type="userEmail" id="userEmail" class="input" value="" disabled>
+                            <!-- 공개여부(checkbox) -->
+                            <label for="public">공개</label>
+                            <input type="checkbox" id="public" class="public" disabled>
+                          </div>
+                              <!-- 자기소개 -->
+                          <textarea id="intro" disabled>
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, perferendis!
+                          </textarea>
+                      </form>
+                    </div>
+                </div>
+              </div>
             </div>
+
+
+            <!-- project -->
+            <div id="tesx">
+              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="project" id="pj1" onclick="project(id)">
+                      <div class="pj_h1" id="pj1_h1">
+                        <h1 id="project1_title" value="123">프로젝트 제목1</h1>
+                      </div>
+                      <div class="pj_text" id="pj1_text">
+                        <div id="project1_text" value="234">프로젝트 설명1~~Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam recusandae quas ratione repudiandae error alias reprehenderit saepe, totam ipsam. Neque odio fugiat quaerat aperiam, provident sint rerum ipsa officia. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi esse officia rerum corrupti nemo veniam ut consequatur numquam nobis laudantium velit nostrum ducimus, voluptates, quod quos. Corporis quasi reiciendis ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci numquam consequuntur, quasi veritatis quibusdam dignissimos ipsa sapiente magnam explicabo odit nulla necessitatibus quidem ab accusantium quis dolorem eius voluptates.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="20000">
+                    <div class="project" id="pj2" onclick="project(id)">
+                      <div class="pj_h1" id="pj2_h1">
+                        <h1 id="project1_title" value="">프로젝트 제목2</h1>
+                      </div>
+                      <div class="pj_text" id="pj2_text">
+                        <div id="project1_text" value="">프로젝트 설명2~~Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam recusandae quas ratione repudiandae error alias reprehenderit saepe, totam ipsam. Neque odio fugiat quaerat aperiam, provident sint rerum ipsa officia. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi esse officia rerum corrupti nemo veniam ut consequatur numquam nobis laudantium velit nostrum ducimus, voluptates, quod quos. Corporis quasi reiciendis ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci numquam consequuntur, quasi veritatis quibusdam dignissimos ipsa sapiente magnam explicabo odit nulla necessitatibus quidem ab accusantium quis dolorem eius voluptates.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="project" id="pj3" onclick="project(id)">
+                      <div class="pj_h1" id="pj3_h1">
+                        <h1 id="project1_title" value="">프로젝트 제목3</h1>
+                      </div>
+                      <div class="pj_text" id="pj3_text">
+                        <div id="project1_text" value="">프로젝트 설명3~~Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam recusandae quas ratione repudiandae error alias reprehenderit saepe, totam ipsam. Neque odio fugiat quaerat aperiam, provident sint rerum ipsa officia. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi esse officia rerum corrupti nemo veniam ut consequatur numquam nobis laudantium velit nostrum ducimus, voluptates, quod quos. Corporis quasi reiciendis ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci numquam consequuntur, quasi veritatis quibusdam dignissimos ipsa sapiente magnam explicabo odit nulla necessitatibus quidem ab accusantium quis dolorem eius voluptates.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
     </body>
+
     <script src="myPage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
