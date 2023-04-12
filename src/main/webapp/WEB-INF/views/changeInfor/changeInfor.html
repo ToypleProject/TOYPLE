@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="changeInfor.css">
     <title>changeInfor</title>
 </head>
-<body>
+<body onload="userInformation()">
     <div id="wrap">
-        <div id="header" class="logo">
-            <h1><a href='#' class='h_logo' role="banner">TOYPLE</a></h1>
-        </div>
+
+        <!--         
+            <div id="header" class="logo">
+                <h1><a href='#' class='h_logo' role="banner">TOYPLE</a></h1>
+            </div>
+        -->
+
+        <!-- nav -->
+        <div id="header"></div>
+
+        <!-- changeinfor -->
         <form id="join_form" autocomplete='off'>
             <div id="container">
                 <div id="content">
@@ -22,12 +30,13 @@
                                 <label for="id">아이디</lebel>
                             </h3>
                             <span class="ps_box int_id">
-                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id" onchange="id_repeat()" onfocus="isnullcheck(this,'0')" onkeypress="isnotnullcheck(0)">
+                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id" value=""
+                                onchange="id_repeat()">
                             </span>
-                            <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive" vlaue="0">
+                            <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive" value="0">
                                 필수 입력란입니다.
                             </span>
-                            <span class="error_next_box" id="Msg1_2"style="display : none" aria-live="assertive" vlaue="0">
+                            <span class="error_next_box" id="Msg1_2"style="display : none" aria-live="assertive" value="0">
                                 이미 사용중인 아이디 입니다.
                             </span>
                         </div>
@@ -36,18 +45,20 @@
                                 <label for="pswd1">비밀번호</label>
                             </h3>
                             <span class="ps_box int_pass" id="psw1Img">
-                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20" onfocus="isnullcheck(this,'1')" onkeypress="isnotnullcheck(1)">
+                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20" value=""
+                                onkeypress="isnotnullcheck(1)">
                             </span>
-                            <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive" vlaue="0">
+                            <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive" value="0">
                                 필수 입력란입니다.
                             </span>
                             <h3 class="join_title">
                                 <label for="pswd2">비밀번호 재확인</label>
                             </h3>
                             <span class="ps_box int_pass_check" id="pswd2Img">
-                                <input type="password" id="pswd2" name="pswd2" aria-describedby="pswd2Blind" class="int" title="비밀번호 재확인 입력" maxlength="20" onchange="checking()" onkeypress="input_ing()">
+                                <input type="password" id="pswd2" name="pswd2" aria-describedby="pswd2Blind" class="int" title="비밀번호 재확인 입력" maxlength="20"
+                                onchange="checking()" onkeypress="input_ing()">
                             </span>
-                            <span class="error_next_box" id="pswd2Msg"style="display : none" aria-live="assertive" value="0" vlaue="0">
+                            <span class="error_next_box" id="pswd2Msg"style="display : none" aria-live="assertive" value="0">
                                 비밀번호가 일치하지 않습니다.
                             </span>
                         </div>
@@ -61,21 +72,23 @@
                                 <label for="name">이름</label>
                             </h3>
                             <span class="ps_box  box_right_space">
-                                <input type="text" id="name" name="name" aria-label="이름" class="int" maxlength="100" onfocus="isnullcheck(this,'2')" onkeypress="isnotnullcheck(2)">
+                                <input type="text" id="name" name="name" aria-label="이름" class="int" maxlength="100" value=""
+                                onchange="name_repeat()">
                             </span>
-                            <span class="error_next_box" id="Msg3"style="display : none" aria-live="assertive" vlaue="0">
+                            <span class="error_next_box" id="Msg3"style="display : none" aria-live="assertive" value="0">
                                 필수 입력란입니다.
                             </span>
                             <h3 class="join_title">
                                 <label for="email">이메일</label>
                             </h3>
                             <span class="ps_box int_email box_right_space">
-                                <input type="text" id="email" name="email" aria-label="이메일" class="int" maxlength="100" onfocus="isnullcheck(this,'3')" onkeypress="isnotnullcheck(3)" onchange="mail_repeat()">
+                                <input type="text" id="email" name="email" aria-label="이메일" class="int" value=""
+                                onchange="mail_repeat()">
                             </span>
-                            <span class="error_next_box" id="Msg4"style="display : none" aria-live="assertive" vlaue="0">
+                            <span class="error_next_box" id="Msg4"style="display : none" aria-live="assertive" value="0">
                                 필수 입력란입니다.
                             </span>
-                            <span class="error_next_box" id="Msg4_2"style="display : none" aria-live="assertive" vlaue="0">
+                            <span class="error_next_box" id="Msg4_2"style="display : none" aria-live="assertive" value="0">
                                 이미 가입이력이 있는 이메일입니다.
                             </span>
                         </div>
@@ -85,7 +98,8 @@
                     
                     <!-- 정보수정 버튼 -->
                     <div class="btn_area">
-                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="membership()">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary"
+                        onclick="membership()">
                             <span>정보수정 버튼</span>
                         </button>
                     </div>
@@ -97,6 +111,7 @@
     </div>
     <script type =  "text/javascript" src = "changeInfor.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <!-- <script src="jquery-1.6.1.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
 </body>
 </html>

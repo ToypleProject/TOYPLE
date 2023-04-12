@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input {
+            width : 50px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- 위의 내용을 input으로 구현 후 disabled을 이용해서 비활성화 시키기 -->
+    <form id="information">
+        <input type="usertext" id="userName" class="input" value="" disabled>
+        <input type="userEmail" id="userEmail" class="input" value="" disabled>
+        <input type="checkbox" id="public" class="public" checked>
+        <button class="btn btn-primary me-md-2 button" type="button" id="change" onclick="ch_click()">정보수정</button>
+    </form>
+
+</body>
+<script>
+
+    let Name = document.getElementById("userName");
+    let Email = document.getElementById("userEmail");
+    let btn = document.getElementById("change");
+
+    //DB에서 가져올 사용자 데이터
+    let uName = "용수진";
+    let uEmail = "sj@naver.com";
+
+    console.log(Name.value);
+    console.log(Email.value);
+
+    Name.value = uName;
+    Email.value = uEmail;
+
+    console.log(Name.value);
+    console.log(Email.value);
+
+    function ch_click() {
+        if(btn.innerHTML == "정보수정") {
+            Name.disabled = false;
+            Email.disabled = false;
+            btn.innerHTML = "수정완료"
+
+            // 변경된 정보
+            // console.log(Name.value);
+            // console.log(Email.value);
+
+            // console.log("끝1");
+
+        } else if(btn.innerHTML == "수정완료") {  
+            Name.disabled = true;
+            Email.disabled = true;
+            btn.innerHTML = "수정 완료"
+
+            // 변경된 정보
+            // console.log(Name.value);
+            // console.log(Email.value);
+            
+            // console.log("끝2");  
+
+        }
+    }
+    
+
+</script>
+</html>

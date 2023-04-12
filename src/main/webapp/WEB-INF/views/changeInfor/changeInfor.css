@@ -80,58 +80,27 @@ wrap을 벗어나지 않도록 */
     }
 }
 
-/* toyple 로고 */
-
+/* nav영역 */
 #header {
-    position: relative;
-    overflow: hidden;
-    padding : 60px 0 54px;
+    width: 100%;
+    height : 70px;
+    background-color: red;
 }
 
-#container, #header {
+#container {
     margin : 0 auto;
+    margin-top : 10px;
     max-width: 768px;
     min-width : 460px;
-}
-
-#header.logo {
-    padding-bottom: 20px;
 }
 
 /* Toypel을 감싸고 있는 div에 role을 주니까 아래
 2개의 코드가 작동됨..뭐지? */
 @media (max-width: 768px) {
-    #header, #container {
+    #container {
     min-width: 220px;
     margin: 0 15px;
     box-sizing: border-box;
-    }
-}
-
-/* width값이 768px보다 작아질 때 TOYPLE이라는
-글자의 윗부분에 공백 추가 */
-@media (max-width: 768px){
-    #header {
-        padding-top: 59px;
-    }
-}
-
-/* toyple을 감싸고 있는 태그 디자인 */
-#header .h_logo {
-    display : block;
-    margin : 0 auto;
-    width : 240px;
-    height : 44px;
-}
-
-/* Toyple을 감싸고 있는 a 태그
-이 코드를 위의 코드보다 먼적 작성하였더니
-아래의 코드가 width 768px 아래일 때 디자인이
-무시당함! 그러니까 코드 작상 시 유념합시다!! */
-@media (max-width : 768px) {
-    #header .h_logo {
-        width : 165px;
-        height: 32px;
     }
 }
 

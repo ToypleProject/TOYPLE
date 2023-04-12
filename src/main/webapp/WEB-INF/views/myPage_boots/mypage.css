@@ -31,7 +31,7 @@
     /* border : 1px solid yellow; */
 
     /* nav와 거리 띄우기 */
-    margin-top : 10vh;
+    margin-top : 7%;
 }
 
 /* image, information, introduce, button */
@@ -50,11 +50,11 @@
 
 /* image, information, introduce, button 한번 더 감쌈 */
 #userInfor {
-    width : 60vw;
-    height: 26vh;
+    width : 76%;
+    height: 120px;
     margin : 0 auto;
     position: relative;
-    /* background-color: aqua; */
+    background-color: aqua;
 }
 
 /* 이미지 */
@@ -157,11 +157,6 @@
 
 
 
-/* test */
-#test {
-    width : 60vw;
-    margin : 0 auto;
-}
 /* external css: flickity.css */
 
 * {
@@ -171,24 +166,29 @@
   
   body { font-family: sans-serif; }
   
-  .gallery {
-    background: #EEE;
-  }
-  
-  .gallery-cell {
-    width: 66%;
-    height: 200px;
-    margin-right: 10px;
-    background: #8C8;
-    counter-increment: gallery-cell;
-  }
-  
-  /* cell number */
-  .gallery-cell:before {
-    display: block;
-    text-align: center;
-    content: counter(gallery-cell);
-    line-height: 200px;
-    font-size: 80px;
-    color: white;
-  }
+
+
+
+
+
+/* width 가 1100px보다 작아질 경우 그냥 width를 px로 고정*/
+@media(max-width : 1100px) {
+    #wrap {
+        width : 915px;
+    }
+}
+
+
+/* project부분 관련 코드 */
+#carousel {
+    background-color: blueviolet;
+    width : 76%;
+    height: 300px;
+    margin : 0 auto;
+}
+
+#carousel * {
+    width : 100%;
+    height : 300px;
+}
+

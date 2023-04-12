@@ -1,17 +1,21 @@
-let id = document.getElementById('id').value;
-let pwd = document.getElementById('pswd1').value;
-let name = document.getElementById('name').value;
-let mail = document.getElementById('email').value;
+let id = document.getElementById('id');
+let pwd = document.getElementById('pswd1');
+let name = document.getElementById('name');
+let mail = document.getElementById('email');
 let check_comment = document.getElementById('pswd2Msg');
+// id - 필수 입력 값입니다.
 let msg1 = document.getElementById('Msg1');
+// pwd - 필수 입력 값입니다.
 let msg2 = document.getElementById('Msg2');
+// name - 필수 입력 값입니다.
 let msg3 = document.getElementById('Msg3');
+// mail - 필수 입력 값입니다.
 let msg4 = document.getElementById('Msg4');
 
 // 오류가 왜 날까....??????
 // 근데 작동에는 문제가 없음.......뭐지????
 //name을 나는 let으로 선언했는데 const가 됨...왜????
-let array = [id, pwd, mail, name];
+let array = [id.value, pwd.value, mail.value, name.value];
 let outvalue = [msg1, msg2, msg3, msg4];
 
 
@@ -102,16 +106,15 @@ function membership() {
     }
 }
 
-// 아이디 중복여부 검사
+// 아이디 중복여부 검사 & 공백 검사
 function id_repeat() {
     // 임시 변수 id_sample >> DB와 연동해서 값 가져오기??
     let id_sample = "aa";
-    let id = document.getElementById('id').value;
     let msg1_2 = document.getElementById('Msg1_2');
     // 아이디에는 영어와 숫자만 입력가능하게 조건 걸기
     const regex = /^[a-z|A-Z|0-9|]+$/;
-    if(regex.test(id)) {
-        if(id_sample != id) {
+    if(regex.test(id.value)) {
+        if(id_sample != id.value) {
             // console.log(id + sample);
             msg1_2.style.display = 'none';
             Swal.fire({
@@ -121,7 +124,7 @@ function id_repeat() {
                 timer : 1000,
                 // confirmButtonColor : '#F5EBE1',
             })
-        } else if(id != '') {
+        } else if(id.value != '') {
             msg1_2.style.display = 'block';
             // alert('사용 중인 아이디 입니다.');
             Swal.fire({
@@ -140,16 +143,20 @@ function id_repeat() {
             timer : 1000,
         })
     }
+
+    if(id.value == '') {
+        outvalue[0].value = "1";
+        // console.log('null');
+    }
 }
 
-// 이메일 중복여부 검사
+// 이메일 중복여부 검사 & 공백인지 체크
 function mail_repeat() {
         // 임시 변수 m_sample >> DB와 연동해서 값 가져오기??
     let m_sample = "soojin_0503@naver.com";
-    let mail = document.getElementById('email').value;
     let msg4_2 = document.getElementById('Msg4_2');
 
-    if(m_sample == mail) {
+    if(m_sample == mail.value) {
         // alert('가입 이력이 있는 이메일입니다.');
         Swal.fire({
             title : '가입 이력이 있는 이메일입니다.',
@@ -162,26 +169,62 @@ function mail_repeat() {
     } else if(mail != '') {
         msg4_2.style.display = 'none';
     }
-}
 
-
-
-
-
-// 비밀번호 확인란을 제외하고 focus 되면 바로 하단에 필수 입력이라는 것을 표시해준다.
-function isnullcheck(obj, str) {
-    let num = parseInt(str);
-    // console.log(obj.value);
-    if(obj.value == '') {
-        outvalue[num].value = "1";
-        outvalue[num].style.display = 'block';
+    // email의 input값이 비었을 때 필수입력~~~ 문구 출력될 수 있게
+    // console.log(mail.value);
+    if(mail.value === '') {
+        outvalue[3].value = "1";
+        // console.log('mail.value');
     }
 }
 
-// 비밀번호 확인란을 제외하고 출력될 수 있는 키보드 자판이 입력되면 필수 입력이라는 글씨가 사라진다.
+//이름 공백인지 체크
+function name_repeat() {
+    if(name.value == '') {
+        outvalue[2].value = "1";
+    }
+}
+
+
+
+
+
+
+
+// 비밀번호에 키보드로 입력되면 그걸 인식해서 "필수입력~~"이라는 문구를 출력안 시킴
 function isnotnullcheck(str) {
     let num = parseInt(str);
     // console.log(obj.value);
     outvalue[num].value = "0";
     outvalue[num].style.display = 'none';
 }
+
+
+
+// id, name, email 정보 채우기
+
+
+// DB에서 가져올 사용자 정보
+let originalId = "ssssjjjj";
+let originalEmail = "sssjjj@naver.com";
+let originalName = "용수진";
+
+function userInformation() {
+    console.log(id.value);
+    console.log(name.value);
+    console.log(mail.value);
+
+    id.value = originalId;
+    name.value = originalName;
+    mail.value = originalEmail;
+
+    console.log(originalEmail);
+    console.log(originalId);
+    console.log(originalName);
+
+    outvalue[0].value = "0";
+    outvalue[2].value = "0";
+    outvalue[3].value = "0";
+    
+}
+

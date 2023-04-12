@@ -17,50 +17,98 @@
                     <div id="first_row">
                         <div id="userInfor">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end buttonframe">
-                                <button class="btn btn-primary me-md-2 button" type="button">정보수정</button>
+                                <button class="btn btn-primary me-md-2 button" type="button" id="change" onclick="ch_click()">정보수정</button>
                             </div>
                             <div id="image">
                                 <img src="kf.png" class="rounded mx-auto d-block" alt="...">
                             </div>
                             <div id="users">
-                                <div class="users information">
+                                <!-- <div class="users information">
                                     <div id="name">이름</div>
                                     <div id="email">이메일</div>
                                     <div id="open">
                                         <label>
                                             <input type="checkbox" name="email" value="email" checked>
-                                            <span>공개</span>
+                                            <span>공개<userinforspan>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="users introduce">
+                                </div> -->
+
+                                <!-- 위의 내용을 input으로 구현 후 disabled을 이용해서 비활성화 시키기 -->
+                                <form id="information">
+                                    <input type="usertext" id="userName" class="input" value="" disabled>
+                                    <input type="userEmail" id="userEmail" class="input" value="" disabled>
+                                    <label for="public">공개</label>
+                                    <input type="checkbox" id="public" class="public" checked>
+                                    <textarea id="intro">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, perferendis!
+                                    </textarea>
+                                </form>
+
+                                <!-- <div class="users introduce">
                                     <div class="introducescroll">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, perferendis!
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+
+
+                            
+
+
+
                         </div>
                     </div>
 
-                    <!-- 아래의 코드를 가져온 사이트
-                    : https://css-tricks.com/css-only-carousel/ -->
-                    <div id="test">
-                        <!-- Flickity HTML init -->
-                        <div class="gallery js-flickity"
-                        data-flickity-options='{ "wrapAround": true }'>
-                        <div class="gallery-cell"></div>
-                        <div class="gallery-cell"></div>
-                        <div class="gallery-cell"></div>
-                        <div class="gallery-cell"></div>
-                        <div class="gallery-cell"></div>
-                        </div>
-                    </div>
-                
+                    <!-- project -->
+
+                    <!-- <div id="carousel">
+                        <div id="carouselExampleCaptions" class="carousel slide">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="kf.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <h5>First slide label</h5>
+                                  <p>Some representative placeholder content for the first slide.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img src="kf.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <h5>Second slide label</h5>
+                                  <p>Some representative placeholder content for the second slide.</p>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img src="kf.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <h5>Third slide label</h5>
+                                  <p>Some representative placeholder content for the third slide.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                    </div>      -->
+
+                    
                 </div>
             </div>
         </div>
     </body>
-    <script src="mypage.js"></script>
+    <script src="myPage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
     <!-- test-script -->
