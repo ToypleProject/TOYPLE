@@ -56,21 +56,21 @@ Intro.value = uIntro;
 //정보수정 버튼을 눌렀을 때 이름 & 이메일 & 자기소개 & 공개여부 정보를 수정할 수 있게 한다.
 function ch_click() {
     if(btn.innerHTML == "정보수정") {
-        Name.disabled = false;
-        Email.disabled = false;
+        // Name.disabled = false;
+        // Email.disabled = false;
         Intro.disabled = false;
         Pub.disabled = false;
         btn.innerHTML = "수정완료"
 
     } else if(btn.innerHTML == "수정완료") {  
         // DB에 변경된 내용 저장
-        uName = Name.value;
-        uEmail = Email.value;
+        // uName = Name.value;
+        // uEmail = Email.value;
         uIntro = Intro.value;
         uPub = Pub.checked;
 
-        Name.disabled = true;
-        Email.disabled = true;
+        // Name.disabled = true;
+        // Email.disabled = true;
         Intro.disabled = true;
         Pub.disabled = true;
         btn.innerHTML = "정보수정"
