@@ -24,13 +24,28 @@ public class ProjectController {
     //메인 페이지
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String mainForm(Model model,String area) {
-        System.out.println("area.get(i) 확인 : " + area);
+//        System.out.println("area.get(i) 확인 : " + area);
 //        for (int i =0; i<area.size(); i++){
 //            System.out.println("area.get(i) 확인 : " + area.get(i));
 //        }
         List<ProjectDto> p = new ArrayList<>();
         projectService.findbyProjectDtoALL(p);
         List<ProjectDto> projectDtoList = projectService.findAll();
+//        System.out.println("모든데이터확인:" + projectDtoList.get(1).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(1).getProjectNm());
+//
+//        System.out.println("모든데이터확인:" + projectDtoList.get(2).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(2).getProjectNm());
+//
+//        System.out.println("모든데이터확인:" + projectDtoList.get(3).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(3).getProjectNm());
+//
+//        System.out.println("모든데이터확인:" + projectDtoList.get(4).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(4).getProjectNm());
+//        System.out.println("모든데이터확인area:" + projectDtoList.get(4).getAreas());
+        AreaDto areaDto = new AreaDto();
+//        System.out.println("모든데이터확인:" + projectDtoList.get(2));
+//        System.out.println("모든데이터확인:" + projectDtoList.get(3));
         model.addAttribute("projectList", projectDtoList);
         return "main";
     }
@@ -39,6 +54,12 @@ public class ProjectController {
     @RequestMapping(value = "/project/add", method=RequestMethod.GET)
     public String add(){
         return "new";
+    }
+
+    //게시글 상세
+    @RequestMapping(value = "/project/detail", method=RequestMethod.GET)
+    public String addDetail(){
+        return "proj_info";
     }
 
     //게시글 저장
