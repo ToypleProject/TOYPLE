@@ -39,7 +39,7 @@ public class UserController {
     @RequestMapping(value="/user/join", method=RequestMethod.POST)
     public String join(UserDto userDto, Model model) {
         String randomKey = userService.makeRandomKey();
-        String errorMsg;
+        String errorMsg = null;
         if (randomKey == null) {
             model.addAttribute("error", true);
             model.addAttribute("exception", "회원가입을 실패했습니다.");
@@ -51,19 +51,16 @@ public class UserController {
             model.addAttribute("exception", errorMsg);
             return "join";
         }
-        userService.sendEmailLink(userDto, randomKey);
-
-
-
-//        //String url = userService.join(userDto);
-//        String randomKey = userService.join(userDto);
-//        userService.sendEmailLink(userDto, randomKey);
-//        // TODO: 아래 addAttribute()는 임시로 넣은것임. join, sendEmailLink 함수를 수행한 후 리턴값 받아 적절히 처리하기
+        errorMsg = userService.sendEmailLink(userDto, randomKey);
+        if (errorMsg != null) {
+            model.addAttribute("error", true);
+            model.addAttribute("exception", errorMsg);
+            return "join";
+        }
         model.addAttribute("error", false);
         model.addAttribute("exception", "exception!!!");
         model.addAttribute("message", "인증 이메일을 전송하였습니다. 확인해주세요.");
         return "join";
-        //return url;
     }
 
     @RequestMapping(value="/user/join/auth")
