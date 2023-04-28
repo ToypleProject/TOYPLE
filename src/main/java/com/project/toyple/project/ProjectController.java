@@ -31,18 +31,18 @@ public class ProjectController {
         List<ProjectDto> p = new ArrayList<>();
         projectService.findbyProjectDtoALL(p);
         List<ProjectDto> projectDtoList = projectService.findAll();
-//        System.out.println("모든데이터확인:" + projectDtoList.get(1).getContent());
-//        System.out.println("모든데이터확인:" + projectDtoList.get(1).getProjectNm());
-//
-//        System.out.println("모든데이터확인:" + projectDtoList.get(2).getContent());
-//        System.out.println("모든데이터확인:" + projectDtoList.get(2).getProjectNm());
-//
-//        System.out.println("모든데이터확인:" + projectDtoList.get(3).getContent());
-//        System.out.println("모든데이터확인:" + projectDtoList.get(3).getProjectNm());
-//
-//        System.out.println("모든데이터확인:" + projectDtoList.get(4).getContent());
-//        System.out.println("모든데이터확인:" + projectDtoList.get(4).getProjectNm());
-//        System.out.println("모든데이터확인area:" + projectDtoList.get(4).getAreas());
+        System.out.println("모든데이터확인:" + projectDtoList.get(1).getContent());
+        System.out.println("모든데이터확인:" + projectDtoList.get(1).getProjectNm());
+
+        System.out.println("모든데이터확인:" + projectDtoList.get(2).getContent());
+        System.out.println("모든데이터확인:" + projectDtoList.get(2).getProjectNm());
+
+        System.out.println("모든데이터확인:" + projectDtoList.get(3).getContent());
+        System.out.println("모든데이터확인:" + projectDtoList.get(3).getProjectNm());
+
+        System.out.println("모든데이터확인:" + projectDtoList.get(4).getContent());
+        System.out.println("모든데이터확인:" + projectDtoList.get(4).getProjectNm());
+        System.out.println("모든데이터확인area:" + projectDtoList.get(4).getAreas());
         AreaDto areaDto = new AreaDto();
 //        System.out.println("모든데이터확인:" + projectDtoList.get(2));
 //        System.out.println("모든데이터확인:" + projectDtoList.get(3));

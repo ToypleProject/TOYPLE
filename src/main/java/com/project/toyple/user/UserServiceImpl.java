@@ -48,11 +48,13 @@ public class UserServiceImpl implements UserService {
                 return "이미 가입된 아이디 입니다.";
 //                url = "redirect:/user/join?error=true&exception=";
 //                url += URLEncoder.encode("이미 가입된 아이디 입니다.", "UTF-8");
-            } else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
-                return "이미 가입된 이메일 입니다.";
-//                url = "redirect:/user/join?error=true&exception=";
-//                url += URLEncoder.encode("이미 가입된 이메일 입니다.", "UTF-8");
-            } else {  // DB에 새 유저 정보 저장
+            }
+//            else if (isEmailDuplicated(userDto)) {  // Email이 중복이라면
+//                return "이미 가입된 이메일 입니다.";
+////                url = "redirect:/user/join?error=true&exception=";
+////                url += URLEncoder.encode("이미 가입된 이메일 입니다.", "UTF-8");
+//            }
+            else {  // DB에 새 유저 정보 저장
                 String rawPassword = userDto.getPassword();
                 String encPassword = passwordEncoder.encode(rawPassword);
                 userDto.setPassword(encPassword);
