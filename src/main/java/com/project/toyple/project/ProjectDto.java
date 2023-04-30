@@ -76,24 +76,24 @@ public class ProjectDto implements Serializable {
         System.out.println("값 확인"+areaDto.getArea());
     }
 
-    public void putJob(JobDto jobDto){
-        jobs = new ArrayList<JobDto>();
-        this.jobs.add(jobDto);
-    }
+//    public void putJob(JobDto jobDto){
+//        jobs = new ArrayList<JobDto>();
+//        this.jobs.add(jobDto);
+//    }
+//
+//    public void putlanguage(LanguageDto languageDto){
+//        languages = new ArrayList<LanguageDto>();
+//        this.languages.add(languageDto);
+//    }
 
-    public void putlanguage(LanguageDto languageDto){
-        languages = new ArrayList<LanguageDto>();
-        this.languages.add(languageDto);
-    }
 
-
-    public static ProjectDto toSaveDto(ProjectDto dto){ //view에서 dao로 이동
-        ProjectDto projectDto = new ProjectDto();
-        projectDto.setProjectNm(dto.getProjectNm());
-        projectDto.setContent(dto.getContent());
-//        projectDto.setAreas(dto.areas);
-        return projectDto;
-    }
+//    public static ProjectDto toSaveDto(ProjectDto dto){ //view에서 dao로 이동
+//        ProjectDto projectDto = new ProjectDto();
+//        projectDto.setProjectNm(dto.getProjectNm());
+//        projectDto.setContent(dto.getContent());
+////        projectDto.setAreas(dto.areas);
+//        return projectDto;
+//    }
 }
 //비즈니스 로직
 //    @OneToMany
