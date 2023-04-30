@@ -73,6 +73,7 @@ public class ProjectDto implements Serializable {
         if (areaDto.getProjectDto() != this) { // 추가
             areaDto.setProjectDto(this);
         }
+        System.out.println("arae데이터 잘 들어오나 확인: " + areas);
         System.out.println("값 확인"+areaDto.getArea());
     }
 
