@@ -17,7 +17,7 @@
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
     <div class="nav">
-        <div id="nav_bar">        
+        <div id="nav_bar">
             <div id="nav_logo" onclick="location.href='/'">
                 <h2 id="nav_lg">TOYPLE</h2>
             </div>
@@ -34,7 +34,7 @@
                 <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
                     <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
                 </div>
-                
+
                 <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
                     <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
                 </div>
@@ -52,7 +52,7 @@
                         <div id="filter_place_reset" onclick="reset_place_filter()" type="reset">필터초기화</div>
                     </div>
                 </div>
-                
+
                 <div id="place_filter_area">
                     <div id="place_filter">
                         <label class="places p1" ><input onclick="placeFltr(this)" type="checkbox" class="p1" value="서울" name="slt_place" id="seoul">서울</label>
@@ -63,7 +63,7 @@
                         <label class="places p6" ><input onclick="placeFltr(this)" type="checkbox" class="p6" value="경북/대구" name="slt_place" id="gyeongbuk/Daegu">경북/대구</label>
                         <label class="places p7" ><input onclick="placeFltr(this)" type="checkbox" class="p7" value="경남/부산/울산" name="slt_place" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
                         <label class="places p8" ><input onclick="placeFltr(this)" type="checkbox" class="p8" value="제주" name="slt_place" id="jeju">제주</label>
-                        
+
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 </form>
-                
+
                 <script>
 
 
@@ -120,7 +120,7 @@
                     }
                 </script>
             </div>
-            <div id="currentPageNumber" >1</div> 
+            <div id="currentPageNumber" >1</div>
             <div class="ifrm">
                 <iframe src="proj_list.html" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: none" scrolling ="no"></iframe>
                 <nav aria-label="Page navigation example">
@@ -147,6 +147,6 @@
         <div id="ex2">
               </div>
     </div>
-    
+
 </body>
 </html>
