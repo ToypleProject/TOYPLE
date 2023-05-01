@@ -1,4 +1,103 @@
+body {
+    margin: 0;
+}
+.main {
+    position: relative;
+    top: 10%;
+    width: 100%;
+}
 
+#offers_area {
+    display: flex;
+    justify-content : center;
+    /* width: 90%; */
+}
+#offering_table{
+    padding: 0;
+    display: flex;
+    justify-content : center;
+    flex-wrap: wrap;
+}
+.offer {
+    display: flex;
+    list-style:none;
+    width: 250px;
+    height: 200px;
+    margin: 20px 20px;
+    background-color: tan;
+    text-align: center;
+    flex-direction: column;
+    padding: 5px;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.offer_header {
+    display: flex;
+    justify-content: space-between;
+}
+.project_status {
+    padding: 2px 3px;
+    margin: 5px;
+    /* border: 1px solid #555; */
+    width: 30%;
+    background-color: linen;
+    border-radius: 5px;
+}
+.project_title {
+    display: flex;
+    font-size: 25px;
+    font-weight: bold;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+.project_limitdate {
+    display: flex;
+    font-size: 14px ;
+    color: #555;
+    justify-content:flex-start;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.limdate_area {
+    display: flex;
+    padding: 3px;
+}
+#limdate {
+    border-left: 1px solid #555;
+}
+.langs {
+    display: inline-block;
+    background-color: linen;
+    border-radius: 5px;
+    margin: 2px 0px;
+    padding: 1px 7px;
+}
+.project_langs {
+    position:relative;
+    overflow: auto;
+    white-space: nowrap;
+}
+.project_langs::-webkit-scrollbar {
+    height: 10px;
+}
+.project_langs::-webkit-scrollbar-thumb {
+    /* background-color: #a99274; */
+    background-color: #8a775e;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.project_langs::-webkit-scrollbar-track {
+    background-color: #e9d3b7;
+    /* background-color: gr; */
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px linen;
+}
+
+/****************/
 .main {
     position: relative;
     top: 10%;

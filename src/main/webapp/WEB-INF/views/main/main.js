@@ -18,11 +18,11 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     } else if (window.innerWidth >= 900 ){
 //         // offering_table.innerHTML = '<table id="offering_table">'
 //         let a = offering.length/3
-            
+
 //         for(let j = 0;j<a;j++){
 //             const newTr = document.createElement('tr');
 //                 offering_table.appendChild(newTr);
@@ -32,11 +32,11 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     } else if (window.innerWidth >= 600 ){
 //         // offering_table.innerHTML = '<table id="offering_table">'
 //         let a = offering.length/2
-            
+
 //         for(let j = 0;j<a;j++){
 //             const newTr = document.createElement('tr');
 //                 offering_table.appendChild(newTr);
@@ -46,7 +46,7 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     }
 // }
 // window.onresize = function(event){
@@ -66,11 +66,11 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     } else if (window.innerWidth >= 900 ){
 //         // offering_table.innerHTML = '<table id="offering_table">'
 //         let a = offering.length/3
-            
+
 //         for(let j = 0;j<a;j++){
 //             const newTr = document.createElement('tr');
 //                 offering_table.appendChild(newTr);
@@ -80,11 +80,11 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     } else if (window.innerWidth >= 600 ){
 //         // offering_table.innerHTML = '<table id="offering_table">'
 //         let a = offering.length/2
-            
+
 //         for(let j = 0;j<a;j++){
 //             const newTr = document.createElement('tr');
 //                 offering_table.appendChild(newTr);
@@ -94,10 +94,10 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     } else if (window.innerWidth < 600) {
 //         let a = offering.length
-            
+
 //         for(let j = 0;j<a;j++){
 //             const newTr = document.createElement('tr');
 //                 offering_table.appendChild(newTr);
@@ -107,7 +107,7 @@ let offering = ['A','B','C','D','1','2','3','4','5','aa','bb']
 //                 newTd.classList.add('offer')
 //             }
 //             sort();
-//         } 
+//         }
 //     }
 // }
 
@@ -129,6 +129,3 @@ function sort() {
     }
 }
 
-function alert_currentPage() {
-    
-}
