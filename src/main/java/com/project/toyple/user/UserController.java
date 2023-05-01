@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -151,8 +152,6 @@ public class UserController {
     // 아이디 찾기 작업 수행
     @RequestMapping(value="/user/find/id")
     public String findId(UserDto userDto, Model model) {
-        System.out.println(userDto.getUserName());
-        System.out.println(userDto.getEmail());
         String userId = userService.findId(userDto);
         if (userId != null) {
             model.addAttribute("error", false);
@@ -168,5 +167,14 @@ public class UserController {
     @RequestMapping(value="/user/find/id/success")
     public String findIdSuccess() {
         return "successId";
+    }
+
+    @RequestMapping(value="/user/mypage/{userId}")
+    public String myPage(@PathVariable String userId, Model model) {
+        System.out.println("uesrId " + userId);
+        UserDto userDto = userService.getUserDtoById(userId);
+        model.addAttribute("userDto", userDto);
+
+        return "myPage";
     }
 }

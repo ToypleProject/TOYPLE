@@ -202,4 +202,8 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    public UserDto getUserDtoById(String userId) {
+        return userDao.findByUserId(userId);
+    }
 }
