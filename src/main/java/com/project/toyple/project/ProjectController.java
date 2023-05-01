@@ -70,8 +70,8 @@ public class ProjectController {
                       ,@RequestParam(value = "language",required = false) List<String> language
                        , Model model){
         System.out.println("글 추가 확인");
-            System.out.println("프로젝트 이름" + map.get("projectNm"));
-            System.out.println("프로젝트 내용" + map.get("content"));
+        System.out.println("프로젝트 이름" + map.get("projectNm"));
+        System.out.println("프로젝트 내용" + map.get("content"));
 
 
         projectDto.setProjectNm(map.get("projectNm"));
