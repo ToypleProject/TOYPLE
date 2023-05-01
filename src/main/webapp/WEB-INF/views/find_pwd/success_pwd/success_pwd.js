@@ -23,7 +23,7 @@ function button_click() {
             title: '비밀번호 변경 페이지로 이동'
         })
         setTimeout(function() {
-            location.href = "change_pwd/index.html";
+            location.href = "../../change_userInfor/changeUserInfor.html";
         }, 2000);
     } else if(code == '') {
         msg.style.display = 'block';
