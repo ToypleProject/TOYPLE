@@ -126,13 +126,70 @@
     justify-content: center;
     cursor: pointer;
 }
-.comments {
+#comment_submit {
+    width: 80px;
+    height: 100%;
+    background-color:transparent;
+    border: none;
+}
+.comments_area_div {
     background-color: white;
     height: 250px;
     border-top: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    overflow: auto;
+    /* padding: 10px; */
+    padding:0 10px 10px 10px;
 }
+.comments {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    color: #666;
+    display: flex;
+}
+.comment_profpho {
+    border: 1px solid tan;
+    background-color: linen;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.comment_profpho_img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.comment_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment_id{
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+}
+.comment_date {
+    font-size: 12px;
+    color: #bbb;
+}
+.comment {
+    font-size: 13px;
+}
+.comments_area_div::-webkit-scrollbar {
+    width: 15px;
+}
+.comments_area_div::-webkit-scrollbar-thumb {
+    background-color: #bda687;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+/* .comments_area::-webkit-scrollbar-track {
+    border-radius: 10px;
+} */
 .langs {
     float: left;
     border: 1px solid tan;
@@ -205,6 +262,11 @@
 .profpho {
     border: 1px solid tan;
     background-color: linen;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.profpho_img {
     border-radius: 50%;
     width: 60px;
     height: 60px;
