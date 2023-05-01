@@ -1,273 +1,152 @@
 <!DOCTYPE html>
-<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
-    <script type="text/javascript" th:src="@{/js/pagination.js}"></script>
-    <script type="text/javascript" th:src="@{/js/filter.js}"></script>
+    <script type="text/javascript" src="../main/main.js"></script>
+    <!-- <script type="text/javascript" src="../main/pagination.js"></script> -->
+    <script type="text/javascript" src="../main/filter.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--    <link rel="stylesheet" href="../static/css/main.css">-->
-    <link rel="stylesheet" th:href="@{/css/banner.css}">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-    <link rel="stylesheet" th:href="@{/css/filter.css}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../main/banner.css">
+    <link rel="stylesheet" href="../main/main.css">
+    <link rel="stylesheet" href="../main/filter.css">
     <title>TOYPLE</title>
-    <script th:src="@{/js/filter.js}"></script>
+    <script src="filter.js"></script>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-<div class="nav">
-    <div id="nav_bar">
-        <div id="nav_logo" onclick="location.href='/'">
-            <h2 id="nav_lg">TOYPLE</h2>
-        </div>
-        <div id ="nav_right">
-            <div id="nav_login" style="cursor:pointer" onclick="location.href='../login/index.html'"><div>LOGIN</div></div>
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/add'">
-                <img th:src="@{/img/plus.png}"  id="new_icon" alt="new">
+    <div class="nav">
+        <div id="nav_bar">
+            <div id="nav_logo" onclick="location.href='/'">
+                <h2 id="nav_lg">TOYPLE</h2>
             </div>
-            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
-                <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
-            </div>
+            <div id ="nav_right">
 
-            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
-                <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
+                <div id="nav_login_area" style="cursor:pointer">
+                    <div id="nav_login" onclick="location.href='../login/index.html'">로그인</div>
+                    <div id="nav_new_user" onclick="location.href='../membership/index.html'">회원가입</div>
+                </div>
+                <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                    <img src="../img/plus.png" id="new_icon" alt="new">
+
+                </div>
+                <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                    <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
+                </div>
+
+                <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                    <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="main">
-    <div id="contents">
-        <div id="filter_area">
-            <div id="work_filter">
-                <div id="lang_fornt_end" style="border-bottom: 3px solid tan;" class="filter_work" onclick="workFltr(this)">프론트엔드</div>
-                <div id="lang_back_end" class="filter_work" onclick="workFltr(this)">백엔드</div>
-                <div id="lang_mobile" class="filter_work" onclick="workFltr(this)">모바일</div>
-                <div id="lang_etc" class="filter_work" onclick="workFltr(this)">기타</div>
-            </div>
-            <div id="lang_filter_area">
-                <div id="lang_filter">
-                    <label class="langs front_lang f_lang1"><input class="front_lang f_lang1" id="JavaScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="JavaScript">JavaScript</label>
-                    <label class="langs front_lang f_lang2"><input class="front_lang f_lang2" id="TypeScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="TypeScript">TypeScript</label>
-                    <label class="langs front_lang f_lang3"><input class="front_lang f_lang3" id="React" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="React">React</label>
-                    <label class="langs front_lang f_lang4"><input class="front_lang f_lang4" id="Vue" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Vue">Vue</label>
-                    <label class="langs front_lang f_lang5"><input class="front_lang f_lang5" id="Svelte" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Svelte">Svelte</label>
-                    <label class="langs front_lang f_lang6"><input class="front_lang f_lang6" id="Nextjs" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Nextjs">Nextjs</label>
+    <div class="main">
+        <div id="contents">
+            <div id="filter_area">
+
+                <form>
+                <div id="place">
+                    <div id="place_filter_top">지역 선택</div>
+                    <div id="filter_place_reset_area">
+                        <div id="filter_place_reset" onclick="reset_place_filter()" type="reset">필터초기화</div>
+                    </div>
                 </div>
-            </div>
-            <form id="selected_lang_area">
-                <div id="selected_lang_list"></div>
-                <div id="filter_reset_area">
-                    <div id="filter_reset" onclick="reset_filter()">필터초기화</div>
+
+                <div id="place_filter_area">
+                    <div id="place_filter">
+                        <label class="places p1" ><input onclick="placeFltr(this)" type="checkbox" class="p1" value="서울" name="slt_place" id="seoul">서울</label>
+                        <label class="places p2" ><input onclick="placeFltr(this)" type="checkbox" class="p2" value="경기/인천" name="slt_place" id="gyeonggi/Inchon">경기/인천</label>
+                        <label class="places p3" ><input onclick="placeFltr(this)" type="checkbox" class="p3" value="강원" name="slt_place" id="gangwon">강원</label>
+                        <label class="places p4" ><input onclick="placeFltr(this)" type="checkbox" class="p4" value="충천/대전" name="slt_place" id="chungcheong/Daejeon">충천/대전</label>
+                        <label class="places p5" ><input onclick="placeFltr(this)" type="checkbox" class="p5" value="전라/광주" name="slt_place" id="jeolla/Gwangju">전라/광주</label>
+                        <label class="places p6" ><input onclick="placeFltr(this)" type="checkbox" class="p6" value="경북/대구" name="slt_place" id="gyeongbuk/Daegu">경북/대구</label>
+                        <label class="places p7" ><input onclick="placeFltr(this)" type="checkbox" class="p7" value="경남/부산/울산" name="slt_place" id="gyeongnam/Busan/Ulsan">경남/부산/울산</label>
+                        <label class="places p8" ><input onclick="placeFltr(this)" type="checkbox" class="p8" value="제주" name="slt_place" id="jeju">제주</label>
+
+                    </div>
                 </div>
-            </form>
-            <div id="search">
-                <div class="search_box">
-                    <input type="text" class="srch_field" id="srch_kywrd" onkeypress="if(event.keyCode == 13){search(); return false;}" placeholder="Search.." value=""  spellcheck="false">
-                    <a href="#" class="srch_icon_a" onclick="search(); return false;"><img th:src="@{img/search_icon_on.png}" alt="찾기" class="srch_icon"></a>
+
+                <div id="work_filter">
+                    <div id="lang_fornt_end" style="border-bottom: 3px solid tan;" class="filter_work" onclick="workFltr(this)">프론트엔드</div>
+                    <div id="lang_back_end" class="filter_work" onclick="workFltr(this)">백엔드</div>
+                    <div id="lang_mobile" class="filter_work" onclick="workFltr(this)">모바일</div>
+                    <div id="lang_etc" class="filter_work" onclick="workFltr(this)">기타</div>
                 </div>
-            </div>
-            <script>
-                function search() {
-                    if($('#srch_kywrd').val() == "") {
-                        alert("검색할 단어를 입력하세요")
-                        $('#srch_kywrd').select()
-                        return false
+                <div id="lang_filter_area">
+                    <div id="lang_filter">
+                        <div class="langs front_lang f_lang1" onclick="add_lang(this)" ><div class="front_lang f_lang1" id="JavaScript" name="slt_lang" value="JavaScript">JavaScript</div></div>
+                        <div class="langs front_lang f_lang2" onclick="add_lang(this)" ><div class="front_lang f_lang2" id="TypeScript"  name="slt_lang" value="TypeScript">TypeScript</div></div>
+                        <div class="langs front_lang f_lang3" onclick="add_lang(this)" ><div class="front_lang f_lang3" id="React"  name="slt_lang" value="React">React</div></div>
+                        <div class="langs front_lang f_lang4" onclick="add_lang(this)" ><div class="front_lang f_lang4" id="Vue"  name="slt_lang" value="Vue">Vue</div></div>
+                        <div class="langs front_lang f_lang5" onclick="add_lang(this)" ><div class="front_lang f_lang5" id="Svelte"  name="slt_lang" value="Svelte">Svelte</div></div>
+                        <div class="langs front_lang f_lang6" onclick="add_lang(this)" ><div class="front_lang f_lang6" id="Nextjs"  name="slt_lang" value="Nextjs">Nextjs</div></div>
+                    </div>
+                </div>
+                <div id="selected_lang_area">
+                    <div id="selected_lang_list"></div>
+                    <div id="filter_reset_area">
+                        <div id="filter_reset" onclick="reset_filter()">필터초기화</div>
+                    </div>
+                </div>
+                <div id="search">
+                    <div class="search_box">
+                        <input type="text" class="srch_field" id="srch_kywrd" onkeypress="if(event.keyCode == 13){search(); return false;}" placeholder="Search.." value=""  spellcheck="false">
+                        <a href="#" class="srch_icon_a" onclick="search()"><img src="../img/search_icon_on.png" alt="찾기" class="srch_icon"></a>
+                    </div>
+                </div>
+                <!-- <div id="submit_area">
+                    <input  id="submit" type="submit" value="찾기">
+                </div> -->
+                <div class="filter_situation_area">
+                    <div class="filter_situations">
+                        <div onclick="change_situ(this)" class="filter_situation" id="situation_all" style="background-color: rgb(244, 240, 236);">전체</div>
+                        <div onclick="change_situ(this)" class="filter_situation" id="situation_during">모집중</div>
+                        <div onclick="change_situ(this)" class="filter_situation" id="situation_done">마감</div>
+                    </div>
+                </div>
+                </form>
+
+                <script>
+
+
+                    function search() {
+                        if($('#srch_kywrd').val() == "") {
+                            alert("검색할 단어를 입력하세요")
+                            $('#srch_kywrd').select()
+                            return false
+                        }
+                        location.href = "" + encodeURIComponent( $('#srch_kywrd').val())
                     }
-                    location.href = "" + encodeURIComponent( $('#srch_kywrd').val())
-                }
-            </script>
-        </div>
-        <div id="currentPageNumber" >1</div>
-        <div class="ifrm">
-
-            <!--        <iframe th:src="@{proj_list.html}" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: 3px solid tan" scrolling ="no"></iframe>-->
-            <!--            <div id="offers_area">-->
-            <!--                <div id="alert_currentPage">-->
-
-            <!--                </div>-->
-            <!--                <div id="foo">-->
-            <!--                </div>-->
-            <!--                <div id="offers">-->
-            <!--                    <tr th:each="proj : ${projectList}">-->
-            <!--                        <td th:text="${proj.projectNm}"></td>-->
-            <!--                        <td th:text="${proj.content}"></td>-->
-            <!--                    </tr>-->
-            <!--                    <table id="offering_table">-->
-            <!--                        <tr>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                            <td><div class="offer"></div></td>-->
-
-            <!--                        </tr>-->
-            <!--                        <tr>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                            <td><div class="offer"></div></td>-->
-
-            <!--                        </tr>-->
-            <!--                        <tr>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                            <td><div class="offer"></div></td>-->
-            <!--                        </tr>-->
-            <!--                    </table>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--        <nav aria-label="Page navigation example">-->
-            <!--            <ul class="pagination" id="pagination">-->
-            <!--                <li class="page-item">-->
-            <!--                    <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">-->
-            <!--                        <span aria-hidden="true">&laquo;</span>-->
-            <!--                    </a>-->
-            <!--                </li>-->
-            <!--                <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" th:href="@{/templates/proj_list.html}"  target="pages">1</a></li>-->
-            <!--                <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">2</a></li>-->
-            <!--                <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">3</a></li>-->
-            <!--                <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">4</a></li>-->
-            <!--                <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" th:href="@{/templates/proj_list.html}" target="pages">5</a></li>-->
-            <!--                <li class="page-item">-->
-            <!--                    <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">-->
-            <!--                        <span aria-hidden="true">&raquo;</span>-->
-            <!--                    </a>-->
-            <!--                </li>-->
-            <!--            </ul>-->
-            <!--        </nav>-->
-        </div>
-        <div class="ifrm">
-            <!--            <iframe th:include="templates/proj_info.html" name="pages" height="750" width="1000"style="border: none" ></iframe>-->
-            <body>
-
-            <div id="offers_area">
-                <div id="alert_currentPage">
-                </div>
-
-                아니 여기 왜 작동이 안 되는 거지??
-                <div id="project_menu" style="cursor:pointer" onclick="location.href='/project/detail'"></div>
-                <div id="offers">
-                    <div id="info" style="cursor:pointer" onclick="location.href='/project/detail'"></div>
-                    <table class="tb_col">
-
-                        <tr th:each="product : ${projectList}">
-                            <div id="projectDetailButton" style="cursor:pointer" onclick="location.href='/project/detail'">
-                                ..
-                            </div>
-                            <td th:text="${product.projectNm}"></td>
-                            <td th:text="${product.content}"></td>
-                            <td th:text="${product.areas}"></td>
-                            <td th:text="${product.jobs}"></td>
-
-                        </tr>
-                    </table>
-                    <table id="offering_table">
-                        <tr>
-                            <td>
-                                <div class="offer" onclick="window.open('../proj_info/proj_info.html')">
-
-                                    <div class="offer_header">
-                                        <div class="project_status">모집중</div>
-                                        <div class="project_limitdate">
-                                            <div class="limdate_area">마감일</div>
-                                            <div class="limdate_area" id="limdate">2023.05.01</div>
-                                        </div>
-                                    </div>
-                                    <div class="project_title">프로젝트 제목</div>
-
-                                    <div class="project_langs">
-                                        <div class="langs" id="JavaScript" value="JavaScript">JavaScript</div>
-                                        <div class="langs" id="TypeScript" value="TypeScript">TypeScript</div>
-                                        <div class="langs" id="React">React</div>
-                                        <div class="langs" id="Java">Java</div>
-                                        <div class="langs" id="Go">Go</div>
-                                        <div class="langs" id="Unity">Unity</div>
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-
-                        </tr>
-                        <tr>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-
-                        </tr>
-                        <tr>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                        </tr>
-                    </table>
-                </div>
+                </script>
             </div>
-            </body>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination" id="pagination">
-                    <li class="page-item">
-                        <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">
+            <div id="currentPageNumber" >1</div>
+            <div class="ifrm">
+                <iframe src="proj_list.html" id="ifrm" name="pages" height="750" width="1000" frameborder="1" style="border: none" scrolling ="no"></iframe>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination" id="pagination">
+                        <li class="page-item">
+                            <a class="page-link" onclick="movePageGroup(this)" id="previous" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" th:href="@{/template/proj_list.html}" target="pages">1</a></li>
-                    <!--                    <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" onclick="location.href='./templates/proj_list.html'"target="pages">2</a></li>-->
-                    <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" href="./proj_list.html" target="pages">3</a></li>
-                    <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" href="./proj_list.html" target="pages">4</a></li>
-                    <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" href="./proj_list.html" target="pages">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" href="./proj_list.html" target="pages">1</a></li>
+                        <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" href="./proj_list.html" target="pages">2</a></li>
+                        <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" href="./proj_list.html" target="pages">3</a></li>
+                        <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" href="./proj_list.html" target="pages">4</a></li>
+                        <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" href="./proj_list.html" target="pages">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" onclick="movePageGroup(this)" id="next" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+           </div>
+        <div id="ex2">
+              </div>
     </div>
-    <div id="ex2">
-    </div>
-</div>
 
 </body>
-
 </html>
