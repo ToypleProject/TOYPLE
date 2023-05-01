@@ -62,6 +62,16 @@ public class ProjectController {
         return "proj_info";
     }
 
+    @GetMapping("/project/view")
+    public String boardView(Model model , Integer id){
+        System.out.println("상세페이지가 잘 가지고 와지는 건가?" +id );
+        ProjectDto dto = projectService.getProjectDetail(id);
+        System.out.println("상세페이지에서 가져온 데이터 확인 " + dto.getProjectNm());
+        System.out.println("상세페이지에서 가져온 데이터 확인 " + dto.getContent());
+        model.addAttribute("projectDetail",dto);
+        return "proj_info";
+    }
+
     //게시글 저장
         @RequestMapping(value = "/project/save", method=RequestMethod.POST)
     public String save(@ModelAttribute ProjectDto projectDto, @RequestParam Map<String,String> map,

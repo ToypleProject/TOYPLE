@@ -41,7 +41,7 @@
             <div class="proj_informents">
                 <div id="proj_info">
                     <div id="proj_info_name">
-                        <h2>백엔드 개발 구해요</h2>
+                        <h2 th:text="${projectDetail.projectNm}" >백엔드 개발 구해요</h2>
                         <div id="proj_regi">
                             <p id="proj_date">
                                 2023.03.02
@@ -63,12 +63,10 @@
                             <div class="langs" id="JavaScript" value="JavaScript">JavaScript</div>
                             <div class="langs" id="TypeScript" value="TypeScript">TypeScript</div>
                         </div>
-                        <div class="proj_info_topic"><div id="proj_details_explain">상세 설명</div></div>
+                        <div class="proj_info_topic"><div id="proj_details_explain" >상세 설명</div></div>
                         <div class="detail_explain_area">
-                            <div class="detail_explain">
-                                타 커뮤니티에서 괜찮은 IT 창업 관련 웨비나 소식이 있어 함께 듣고 IT 창업에 관한 네트워킹을 지속하고자 올립니다!  (팀빌딩을 하고 있는 입장에서 혜택 중 IT 창업 네트워킹 초대권이 가장 큰 메리트인 것 같습니다!)
-                                “IT 창업 성공 방정식, 분명히 있습니다.” 연매출 250억 성공 스토리부터 VC 투자 유치 전략 등  IT 창업에 필요한 성공 방정식을 얻어가세요!                            </div>
-                        </div>
+                            <div class="detail_explain" th:text="${projectDetail.content}">
+                                </div>
                     </div>
                 </div>
                 <div id="proj_teammates_area">
