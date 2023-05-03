@@ -127,3 +127,158 @@ Tpj3.innerText = uTpj3;
 Cpj3.innerText = uCpj3;
 
 
+
+
+
+// 후기 관련 js
+// 현재 슬라이드에서 보여지고 있는 프로젝트 번호 -> 프로젝트를 넘기면 후기도 자동으로 바뀔 수 있게...!
+// 슬라이드에 있는 프로젝트들과 연결하기
+let pj001 = "1";
+let pj002 = "2";
+let pj003 = "3";
+
+
+
+
+// 정리!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// value는 input 속성이기에 div의 value는 attribute로 가져와야 한다!
+// console.log(pj.getAttribute('value'));
+
+// div value의 type을 확인함 -> string
+// console.log(typeof pj.getAttribute('value'));
+// console.log(pj.value);
+
+
+// DB에서 값을 배열로 가져오기 -> 프로젝트별로 후기를 배열로 가져오기
+let pj001_ = [["1홍길동1", "1 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.5], ["홍길동12", "12 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동123", "123 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동1234", "1234 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동12345", "12345 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동123456", "123456 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1]];
+let pj002_ = [["2홍길동1", "1 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.5], ["홍길동12", "12 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동123", "123 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동1234", "1234 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동12345", "12345 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동123456", "123456 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1]];
+let pj003_ = [["3홍길동1", "1 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.5], ["홍길동12", "12 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동123", "123 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동1234", "1234 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동12345", "12345 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1], ["홍길동123456", "123456 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem", 4.1]];
+
+
+
+
+
+// 현재 보여지는 슬라이드가 어떤 프로젝트인지 확인하고
+// 프로젝트 별로 후기를 보여주기 -> table 태그 아래에 tr & th 생성해서!
+function change(obj) {
+
+    //연결하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // 현재 보여지고 있는 프로젝트 번호
+    let pj = document.getElementsByClassName("active")[0];
+
+
+    // 여러번 눌렀을 때 아래로 같은 내용이 추가되는 것이 아니라 기존의 데이터는
+    // 삭제하고 다시 만들기!
+    $("#li_table").empty();
+
+    // 현재 보여지는 프로젝트의 번호를 연결해주기
+    let pjnum = Number(pj.getAttribute("value"));
+    // let pjnum = pj.getAttribute("value");
+
+    // 슬라이드를 누르는 버튼이 왼쪽(pre)인지, 오른쪽(nex)인지에 따라 프로젝트 번호를 다르게 매겨야함.
+    if(obj == "pre") {
+        // console.log(obj);
+        pjnum = pjnum==1 ? 3 : --pjnum;
+        // console.log(obj + pjnum);
+
+    }else if(obj == "nex") {
+        // console.log(pjnum);
+        pjnum = pjnum==3 ? 1 : ++pjnum;
+        // console.log(obj + pjnum);
+
+    }
+    
+
+    if(pjnum == "1") {
+        // (5개의) tr 만들기 => 평가를 한 사람의 수만큼 tr 만들기
+        var tabId = document.getElementById('li_table');
+        for(var i = 0; i < pj001_.length; i++) {
+            // test
+            // eval(`var tr${i} = document.createElement('tr')`);
+            // eval(`var th${i} = document.createElement('th')`);
+            // eval(`th${i}.setAttribute('class', "lists__item js-load")`)
+            // eval(`console.log(tr${i})`);
+            // eval(`console.log(th${i})`);
+    
+            
+    
+            eval(`var tr${i} = document.createElement('tr')`);
+            eval(`tr${i}.setAttribute('class', "lists__item js-load")`);
+            // eval(`tabId.appendChild(tr${i})`);
+            document.querySelector('#li_table').append(eval(`tr${i}`));
+            // console.log('아래에 tabId 출력될거임' + tabId);
+            // console.log('#li_table');
+            // eval(`console.log(tabId)`);
+            for(var j = 0; j < pj001_[i].length; j++) { 
+                eval(`var th${j} = document.createElement('th')`);
+                eval(`th${j}.style.cssText = 'border:1px solid gray;'`);
+                eval(`th${j}.innerHTML = pj001_[${i}][${j}]`);
+                // js를 통해 만든 html 태그들을 화면에 보일 수 있게 함.
+                document.querySelector('.lists__item').append(eval(`th${j}`));
+                eval(`tr${i}.appendChild(th${j})`);
+            }
+        }
+    }
+    else if(pjnum == "2") {
+        // (5개의) tr 만들기 => 평가를 한 사람의 수만큼 tr 만들기
+        var tabId = document.getElementById('li_table');
+        for(var i = 0; i < pj002_.length; i++) {
+            // test
+            // eval(`var tr${i} = document.createElement('tr')`);
+            // eval(`var th${i} = document.createElement('th')`);
+            // eval(`th${i}.setAttribute('class', "lists__item js-load")`)
+            // eval(`console.log(tr${i})`);
+            // eval(`console.log(th${i})`);
+
+            
+
+            eval(`var tr${i} = document.createElement('tr')`);
+            eval(`tr${i}.setAttribute('class', "lists__item js-load")`);
+            // eval(`tabId.appendChild(tr${i})`);
+            document.querySelector('#li_table').append(eval(`tr${i}`));
+            // console.log('아래에 tabId 출력될거임' + tabId);
+            // console.log('#li_table');
+            // eval(`console.log(tabId)`);
+            for(var j = 0; j < pj002_[i].length; j++) { 
+                eval(`var th${j} = document.createElement('th')`);
+                eval(`th${j}.style.cssText = 'border:1px solid orange;'`);
+                eval(`th${j}.innerHTML = pj002_[${i}][${j}]`);
+                // js를 통해 만든 html 태그들을 화면에 보일 수 있게 함.
+                document.querySelector('.lists__item').append(eval(`th${j}`));
+                eval(`tr${i}.appendChild(th${j})`);
+            }
+        }
+    }
+    else if(pjnum == "3") {
+        // (5개의) tr 만들기 => 평가를 한 사람의 수만큼 tr 만들기
+        var tabId = document.getElementById('li_table');
+        for(var i = 0; i < pj003_.length; i++) {
+            // test
+            // eval(`var tr${i} = document.createElement('tr')`);
+            // eval(`var th${i} = document.createElement('th')`);
+            // eval(`th${i}.setAttribute('class', "lists__item js-load")`)
+            // eval(`console.log(tr${i})`);
+            // eval(`console.log(th${i})`);
+    
+            
+    
+            eval(`var tr${i} = document.createElement('tr')`);
+            eval(`tr${i}.setAttribute('class', "lists__item js-load")`);
+            // eval(`tabId.appendChild(tr${i})`);
+            document.querySelector('#li_table').append(eval(`tr${i}`));
+            // console.log('아래에 tabId 출력될거임' + tabId);
+            // console.log('#li_table');
+            // eval(`console.log(tabId)`);
+            for(var j = 0; j < pj003_[i].length; j++) { 
+                eval(`var th${j} = document.createElement('th')`);
+                eval(`th${j}.style.cssText = 'border:1px solid orange;'`);
+                eval(`th${j}.innerHTML = pj003_[${i}][${j}]`);
+                // js를 통해 만든 html 태그들을 화면에 보일 수 있게 함.
+                document.querySelector('.lists__item').append(eval(`th${j}`));
+                eval(`tr${i}.appendChild(th${j})`);
+            }
+        }
+
+    }
+}

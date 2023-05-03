@@ -1,0 +1,104 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 더보기할 요소들 */
+/* .js-load {
+    display: none;
+} */
+
+.js-load.active {
+    display: block;
+}
+
+/* 어떤 걸 가리키는 지 모르겠음.
+주석해도 문제가 없는 거 같음. */
+/* .is_comp.js-load:after {
+    display: none;
+} */
+
+/* test */
+/* .is_comp.js-load {
+    border : 5px solid red;
+} */
+
+.btn-wrap, .lists, .main {
+    display: block;
+}
+.main {
+    max-width: 640px;
+    margin: 0 auto;
+}
+.lists {
+    /* [더보기] 버튼과 표 사이의 간격 */
+    margin-bottom: 1.5rem;
+    /* background-color: orange; */
+}
+
+/* 버튼을 감싸고 있는 div */
+.btn-wrap {
+    text-align: center;
+}
+/* 버튼 */
+.button {
+    /* color: white; */
+    border: 1px solid green;
+    border-radius: 25px;
+    background-color: #dae6c1;
+}
+
+/* table */
+#li_table {
+    display: block;
+    /* background-color: aqua; */
+    /* border: 1px dotted red; */
+    width : 100%;
+    margin : 0 auto;
+}
+
+/* table > tr > th */
+#li_table tr th:nth-child(2) {
+    background-color: rgb(251, 252, 244);
+    min-width: 50%;
+    max-width: 80%;
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    /* max-width: 60%; */
+}
+
+/* th2번을 제외하고 글자를 가운데정렬 */
+#li_table tr th:not(:nth-child(2)) {
+    text-align: center;
+}
+
+/* test */
+/* -> th 2번째에서 글자수가 너무 길면 말줄임표(...)으로 표시
+1. 버튼을 1번 클릭하면 표의 길이나 늘어나서 전체 내용이 보임.
+2. 버튼을 1번 더 클릭하면 표의 길이가 원래대로 다시 줄어듦. */
+#li_table {
+    table-layout: fixed;
+}
+
+#li_table tr th:nth-child(2) {
+    /* 글이 해당 영역을 벗어나면 말줄임표(...)를 표시 */
+    text-overflow:ellipsis;
+    /* 영역을 넘어가면 안 보이기 */
+    overflow:hidden;
+    /* 줄 바꿈 금지 */
+    /* white-space:nowrap; */
+}
+
+#li_table tr th:nth-child(1) {
+    width : 100px;
+}
+
+#li_table tr th:nth-child(3) {
+    width : 50px;
+}
