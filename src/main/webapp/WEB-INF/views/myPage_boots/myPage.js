@@ -242,7 +242,7 @@ function change(obj) {
             // eval(`console.log(tabId)`);
             for(var j = 0; j < pj002_[i].length; j++) { 
                 eval(`var th${j} = document.createElement('th')`);
-                eval(`th${j}.style.cssText = 'border:1px solid orange;'`);
+                eval(`th${j}.style.cssText = 'border:1px solid gray;'`);
                 eval(`th${j}.innerHTML = pj002_[${i}][${j}]`);
                 // js를 통해 만든 html 태그들을 화면에 보일 수 있게 함.
                 document.querySelector('.lists__item').append(eval(`th${j}`));
@@ -272,7 +272,7 @@ function change(obj) {
             // eval(`console.log(tabId)`);
             for(var j = 0; j < pj003_[i].length; j++) { 
                 eval(`var th${j} = document.createElement('th')`);
-                eval(`th${j}.style.cssText = 'border:1px solid orange;'`);
+                eval(`th${j}.style.cssText = 'border:1px solid gray;'`);
                 eval(`th${j}.innerHTML = pj003_[${i}][${j}]`);
                 // js를 통해 만든 html 태그들을 화면에 보일 수 있게 함.
                 document.querySelector('.lists__item').append(eval(`th${j}`));
