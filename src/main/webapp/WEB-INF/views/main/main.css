@@ -59,7 +59,7 @@
     justify-content : center;
     flex-wrap: wrap;
 }
-.offer {
+/* .offer {
     display: inline-block;
     list-style:none;
     width: 250px;
@@ -68,4 +68,4 @@
     background-color: tan;
     text-align: center;
     font-size: 50px;
-}
+} */
