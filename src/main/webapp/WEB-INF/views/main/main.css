@@ -158,13 +158,13 @@ body {
     justify-content : center;
     flex-wrap: wrap;
 }
-.offer {
-    display: inline-block;
-    list-style:none;
-    width: 250px;
-    height: 200px;
-    margin: 20px 20px;
-    background-color: tan;
-    text-align: center;
-    font-size: 50px;
-}
+/*.offer {*/
+/*    display: inline-block;*/
+/*    list-style:none;*/
+/*    width: 250px;*/
+/*    height: 200px;*/
+/*    margin: 20px 20px;*/
+/*    background-color: tan;*/
+/*    text-align: center;*/
+/*    font-size: 50px;*/
+/*}*/

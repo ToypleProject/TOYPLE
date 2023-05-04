@@ -28,7 +28,6 @@ body {
     text-align: center;
     flex-direction: column;
     padding: 5px;
-    justify-content: space-between;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -158,13 +157,13 @@ body {
     justify-content : center;
     flex-wrap: wrap;
 }
-.offer {
-    display: inline-block;
-    list-style:none;
-    width: 250px;
-    height: 200px;
-    margin: 20px 20px;
-    background-color: tan;
-    text-align: center;
-    font-size: 50px;
-}
+/*.offer {*/
+/*    display: inline-block;*/
+/*    list-style:none;*/
+/*    width: 250px;*/
+/*    height: 200px;*/
+/*    margin: 20px 20px;*/
+/*    background-color: tan;*/
+/*    text-align: center;*/
+/*    font-size: 50px;*/
+/*}*/
