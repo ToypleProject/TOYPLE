@@ -35,17 +35,37 @@ h2{
     right: 0px;
     z-index: 9999;
 }
-#nav_login {
+#nav_login_area {
     visibility: hidden;
     display: flex;
-    background-color: tan;
     border-radius: 5px;
-    width: 80px;
+    border: 1px solid tan;
+    width: 150px;
     height: 40px;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 14px;
+    flex-direction: row;
+}
+#nav_login, #nav_new_user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 40px;
+}
+#nav_login:hover, #nav_new_user:hover{
+    background-color: rgb(224, 210, 195)
+}
+#nav_login {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: 1px solid tan;
+}
+#nav_new_user {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 #nav_bar{
     width: 1000px;
