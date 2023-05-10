@@ -72,6 +72,9 @@ label{
     text-align: left;
     padding: 2px;
 }
+#langs_front, #langs_back, #langs_kotlin, #langs_mob_nokot, #langs_etc {
+    display: none;
+}
 label, .place_list, .work_list ,.lang_list {
     float: left;
     border: 1px solid tan;

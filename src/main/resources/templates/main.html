@@ -10,10 +10,171 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--    <link rel="stylesheet" href="../static/css/main.css">-->
     <link rel="stylesheet" th:href="@{/css/banner.css}">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+<!--    <link rel="stylesheet" th:href="@{/css/main.css}">-->
     <link rel="stylesheet" th:href="@{/css/filter.css}">
     <title>TOYPLE</title>
     <script th:src="@{/js/filter.js}"></script>
+    <style>
+        .main {
+            position: relative;
+            top: 10%;
+            width: 100%;
+        }
+
+        #contents {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ifrm {
+            /* margin-top: 8px; */
+        }
+        #pagination{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .pagination>li>a, .pagination>li>span {
+            color: rgb(187, 162, 132);
+            border: 1px solid rgb(220, 204, 183);
+        }
+        .pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus {
+            color: rgb(187, 162, 132);
+            border: 1px solid tan;
+        }
+        .currentPage {
+            background-color: #eee;
+        }
+        #currentPageNumber{
+            visibility: hidden;
+            display: none;
+        }
+        .page-item {
+            cursor: pointer;
+        }
+        #ex2 {
+            background-color: yellow;
+            position: relative;
+
+        }
+        #offers_area {
+            display: flex;
+            justify-content : center;
+            /* width: 90%; */
+        }
+        #offers{
+            /* width: 80%; */
+        }
+        #offering_table{
+            padding: 0;
+            display: flex;
+            justify-content : center;
+            flex-wrap: wrap;
+        }
+        body {
+            margin: 0;
+        }
+        .main {
+            position: relative;
+            top: 10%;
+            width: 100%;
+        }
+
+        #offers_area {
+            display: flex;
+            justify-content : center;
+            /* width: 90%; */
+        }
+        #offering_table{
+            padding: 0;
+            display: flex;
+            justify-content : center;
+            flex-wrap: wrap;
+        }
+        .offer {
+            display: flex;
+            list-style:none;
+            width: 250px;
+            height: 200px;
+            margin: 20px 20px;
+            background-color: tan;
+            text-align: center;
+            flex-direction: column;
+            padding: 5px;
+            justify-content: space-between;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .offer_header {
+            display: flex;
+            justify-content: space-between;
+        }
+        .project_status {
+            padding: 2px 3px;
+            margin: 5px;
+            /* border: 1px solid #555; */
+            width: 30%;
+            background-color: linen;
+            border-radius: 5px;
+        }
+        .project_title {
+            display: flex;
+            font-size: 25px;
+            font-weight: bold;
+            justify-content: center;
+            height: 100px;
+            align-items: center;
+        }
+        .project_limitdate {
+            display: flex;
+            font-size: 14px ;
+            color: #555;
+            justify-content:flex-start;
+            padding-left: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .limdate_area {
+            display: flex;
+            padding: 3px;
+        }
+        #limdate {
+            border-left: 1px solid #555;
+        }
+        .project_langs > .langs {
+            display: inline-block;
+            background-color: linen;
+            border-radius: 5px;
+            margin: 2px 0px;
+            padding: 1px 7px;
+        }
+        .project_langs {
+            position:relative;
+            overflow: auto;
+            white-space: nowrap;
+            display: flex;
+        }
+        .project_langs::-webkit-scrollbar {
+            height: 10px;
+        }
+        .project_langs::-webkit-scrollbar-thumb {
+            /* background-color: #a99274; */
+            background-color: #8a775e;
+            border-radius: 10px;
+            background-clip: padding-box;
+            border: 2px solid transparent;
+        }
+        .project_langs::-webkit-scrollbar-track {
+            background-color: #e9d3b7;
+            /* background-color: gr; */
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px linen;
+        }
+    </style>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 <div class="nav">
@@ -196,7 +357,7 @@
                         </a>
                     </li>
                     <li class="page-item"><a class="page-link currentPage" style="background-color: #eee" id="page_1" onclick="movePage(this)" th:href="@{/template/proj_list.html}" target="pages">1</a></li>
-<!--                    <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" onclick="location.href='./templates/proj_list.html'"target="pages">2</a></li>-->
+                    <li class="page-item"><a class="page-link" id="page_2" onclick="movePage(this)" href="./proj_list.html" target="pages">2</a></li>
                     <li class="page-item"><a class="page-link" id="page_3" onclick="movePage(this)" href="./proj_list.html" target="pages">3</a></li>
                     <li class="page-item"><a class="page-link" id="page_4" onclick="movePage(this)" href="./proj_list.html" target="pages">4</a></li>
                     <li class="page-item"><a class="page-link" id="page_5" onclick="movePage(this)" href="./proj_list.html" target="pages">5</a></li>
