@@ -1,6 +1,6 @@
 body {
     background-color: rgb(255, 251, 247);
-}
+  }
 label{
     display: inherit;
     max-width: inherit;
@@ -167,6 +167,7 @@ label, .place_list, .work_list ,.lang_list {
 #proj_name{
     height: 43px;
 }
+  
 #response_area {
     color: red;
     visibility: hidden; 

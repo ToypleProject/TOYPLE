@@ -1,0 +1,84 @@
+.Calendar_start td, .Calendar_end td {
+    width: 50px;
+    height: 50px;
+}
+
+.Calendar_start, .Calendar_end { 
+    text-align: center;
+    margin: 0 auto; 
+}
+
+.Calendar_start>thead>tr:first-child>td, .Calendar_end>thead>tr:first-child>td { font-weight: bold; }
+
+.Calendar_start>thead>tr:last-child>td, .Calendar_end>thead>tr:last-child>td {
+    background-color: tan;
+    color: white;
+}        
+
+.pastDay_start, .pastDay_end{ background-color: rgb(244, 240, 236); }
+
+.today_start, .today_end{            
+    background-color: tan;            
+    cursor: pointer;
+}
+
+.futureDay_start, .futureDay_end{            
+    cursor: pointer;
+}
+
+.futureDay_start.choiceDay_start, .today_start.choiceDay_start, .futureDay_end.choiceDay_end, .today_end.choiceDay_end{            
+    background-color: rgb(180, 150, 110);            
+    color: #fff;
+    cursor: pointer;
+}
+.cal_table_area_tr2 {
+    height: 400px;
+    padding-top: 10px;
+}
+.cal_table_area_tr2 > td {
+    height: 400px;
+}
+
+.proj_cal_area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.proj_cal {
+    width: 80%;
+}
+
+.cal_table_area, .input_date_box {
+    width: 100%;   
+}
+
+.tilt{
+    width: 10px;
+    font-size: 20px;
+    margin: 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.proj_date {
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    border: 2px solid tan;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+}
+
+input,
+input:focus,
+textarea,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
