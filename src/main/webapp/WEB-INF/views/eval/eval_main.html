@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main/banner.css">
+    <link rel="stylesheet" href="./eval.css">
+    <title>TOYPLE_evaluate</title>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <div class="nav">
+        <div id="nav_bar">        
+            <div id="nav_logo" onclick="location.href='../main/main.html'">
+                <h2 id="nav_lg">TOYPLE</h2>
+            </div>
+            <div id ="nav_right">
+                <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                    <img src="../img/plus.png" id="new_icon" alt="new">
+                </div>
+                <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                    <img src="../img/envelope.png" id="nav_alarm_icon" alt="envelope">
+                </div>
+                
+                <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                    <img src="../img/login.png" id="personal_icon" alt="member">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contents_area">
+        <div class="title">
+            <div class="title"> 팀원평가 </div>
+        </div>
+        <div class="contents">
+            <form class="teammates_area" name="teammates_measurements" id="teammates_measurements" method="post">
+                <div class="teammate_area">
+                    <div class="teammates">
+                        <div class="profpho"><img class="profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="mb-3 myform" name="myform" id="teammate1" method="post">
+                                    <div class="teammate_measurements">
+                                        <span class="text-bold">성실성</span>
+                                        <fieldset class="teammate_measurement meaturement1" id="meaturementA1">
+                                            <input type="radio" name="A1" value="5" id="1Arate1"><label
+                                                for="1Arate1">★</label>
+                                            <input type="radio" name="A1" value="4" id="1Arate2"><label
+                                                for="1Arate2">★</label>
+                                            <input type="radio" name="A1" value="3" id="1Arate3"><label
+                                                for="1Arate3">★</label>
+                                            <input type="radio" name="A1" value="2" id="1Arate4"><label
+                                                for="1Arate4">★</label>
+                                            <input type="radio" name="A1" value="1" id="1Arate5"><label
+                                                for="1Arate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">적극성</span>
+                                        <fieldset class="teammate_measurement meaturement1" id="meaturementB1">
+                                            <input type="radio" name="B1" value="5" id="1Brate1"><label
+                                                for="1Brate1">★</label>
+                                            <input type="radio" name="B1" value="4" id="1Brate2"><label
+                                                for="1Brate2">★</label>
+                                            <input type="radio" name="B1" value="3" id="1Brate3"><label
+                                                for="1Brate3">★</label>
+                                            <input type="radio" name="B1" value="2" id="1Brate4"><label
+                                                for="1Brate4">★</label>
+                                            <input type="radio" name="B1" value="1" id="1Brate5"><label
+                                                for="1Brate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">직무능력</span>
+                                        <fieldset class="teammate_measurement meaturement1" id="meaturementC1">
+                                            <input type="radio" name="C1" value="5" id="1Crate1"><label
+                                                for="1Crate1">★</label>
+                                            <input type="radio" name="C1" value="4" id="1Crate2"><label
+                                                for="1Crate2">★</label>
+                                            <input type="radio" name="C1" value="3" id="1Crate3"><label
+                                                for="1Crate3">★</label>
+                                            <input type="radio" name="C1" value="2" id="1Crate4"><label
+                                                for="1Crate4">★</label>
+                                            <input type="radio" name="C1" value="1" id="1Crate5"><label
+                                                for="1Crate5">★</label>
+                                        </fieldset>
+                                        <div>
+                                            <textarea class="col-auto form-control reviewContents" type="text" id="teammate1_content"
+                                                    placeholder="후기를 남겨주세요." spellcheck="false"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teammate_area">
+                    <div class="teammates">
+                        <div class="profpho"><img class="profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="mb-3 myform" name="myform" id="teammate2" method="post">
+                                    <div class="teammate_measurements">
+                                        <span class="text-bold">성실성</span>
+                                        <fieldset class="teammate_measurement meaturement2" id="meaturementA2">
+                                            <input type="radio" name="A2" value="5" id="2Arate1"><label
+                                                for="2Arate1">★</label>
+                                            <input type="radio" name="A2" value="4" id="2Arate2"><label
+                                                for="2Arate2">★</label>
+                                            <input type="radio" name="A2" value="3" id="2Arate3"><label
+                                                for="2Arate3">★</label>
+                                            <input type="radio" name="A2" value="2" id="2Arate4"><label
+                                                for="2Arate4">★</label>
+                                            <input type="radio" name="A2" value="1" id="2Arate5"><label
+                                                for="2Arate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">적극성</span>
+                                        <fieldset class="teammate_measurement meaturement2" id="meaturementB2">
+                                            <input type="radio" name="B2" value="5" id="2Brate1"><label
+                                                for="2Brate1">★</label>
+                                            <input type="radio" name="B2" value="4" id="2Brate2"><label
+                                                for="2Brate2">★</label>
+                                            <input type="radio" name="B2" value="3" id="2Brate3"><label
+                                                for="2Brate3">★</label>
+                                            <input type="radio" name="B2" value="2" id="2Brate4"><label
+                                                for="2Brate4">★</label>
+                                            <input type="radio" name="B2" value="1" id="2Brate5"><label
+                                                for="2Brate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">직무능력</span>
+                                        <fieldset class="teammate_measurement meaturement3" id="meaturementC3">
+                                            <input type="radio" name="C2" value="5" id="2Crate1"><label
+                                                for="2Crate1">★</label>
+                                            <input type="radio" name="C2" value="4" id="2Crate2"><label
+                                                for="2Crate2">★</label>
+                                            <input type="radio" name="C2" value="3" id="2Crate3"><label
+                                                for="2Crate3">★</label>
+                                            <input type="radio" name="C2" value="2" id="2Crate4"><label
+                                                for="2Crate4">★</label>
+                                            <input type="radio" name="C2" value="1" id="2Crate5"><label
+                                                for="2Crate5">★</label>
+                                        </fieldset>
+                                        <div>
+                                            <textarea class="col-auto form-control reviewContents" type="text" id="teammate2_content"
+                                                    placeholder="후기를 남겨주세요." spellcheck="false"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teammate_area">
+                    <div class="teammates">
+                        <div class="profpho"><img class="profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="mb-3 myform" name="myform" id="teammate3" method="post">
+                                    <div class="teammate_measurements">
+                                        <span class="text-bold">성실성</span>
+                                        <fieldset class="teammate_measurement meaturement3" id="meaturementA3">
+                                            <input type="radio" name="A3" value="5" id="3Arate1"><label
+                                                for="3Arate1">★</label>
+                                            <input type="radio" name="A3" value="4" id="3Arate2"><label
+                                                for="3Arate2">★</label>
+                                            <input type="radio" name="A3" value="3" id="3Arate3"><label
+                                                for="3Arate3">★</label>
+                                            <input type="radio" name="A3" value="2" id="3Arate4"><label
+                                                for="3Arate4">★</label>
+                                            <input type="radio" name="A3" value="1" id="3Arate5"><label
+                                                for="3Arate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">적극성</span>
+                                        <fieldset class="teammate_measurement meaturement3" id="meaturementB3">
+                                            <input type="radio" name="B3" value="5" id="3Brate1"><label
+                                                for="3Brate1">★</label>
+                                            <input type="radio" name="B3" value="4" id="3Brate2"><label
+                                                for="3Brate2">★</label>
+                                            <input type="radio" name="B3" value="3" id="3Brate3"><label
+                                                for="3Brate3">★</label>
+                                            <input type="radio" name="B3" value="2" id="3Brate4"><label
+                                                for="3Brate4">★</label>
+                                            <input type="radio" name="B3" value="1" id="3Brate5"><label
+                                                for="3Brate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">직무능력</span>
+                                        <fieldset class="teammate_measurement meaturement3" id="meaturementC3">
+                                            <input type="radio" name="C3" value="5" id="3Crate1"><label
+                                                for="3Crate1">★</label>
+                                            <input type="radio" name="C3" value="4" id="3Crate2"><label
+                                                for="3Crate2">★</label>
+                                            <input type="radio" name="C3" value="3" id="3Crate3"><label
+                                                for="3Crate3">★</label>
+                                            <input type="radio" name="C3" value="2" id="3Crate4"><label
+                                                for="3Crate4">★</label>
+                                            <input type="radio" name="C3" value="1" id="3Crate5"><label
+                                                for="3Crate5">★</label>
+                                        </fieldset>
+                                        <div>
+                                            <textarea class="col-auto form-control reviewContents" type="text" id="teammate3_content"
+                                                    placeholder="후기를 남겨주세요." spellcheck="false"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teammate_area">
+                    <div class="teammates">
+                        <div class="profpho"><img class="profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="mb-3 myform" name="myform" id="teammate4" method="post">
+                                    <div class="teammate_measurements">
+                                        <span class="text-bold">성실성</span>
+                                        <fieldset class="teammate_measurement meaturement4" id="meaturementA4">
+                                            <input type="radio" name="A4" value="5" id="4Arate1"><label
+                                                for="4Arate1">★</label>
+                                            <input type="radio" name="A4" value="4" id="4Arate2"><label
+                                                for="4Arate2">★</label>
+                                            <input type="radio" name="A4" value="3" id="4Arate3"><label
+                                                for="4Arate3">★</label>
+                                            <input type="radio" name="A4" value="2" id="4Arate4"><label
+                                                for="4Arate4">★</label>
+                                            <input type="radio" name="A4" value="1" id="4Arate5"><label
+                                                for="4Arate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">적극성</span>
+                                        <fieldset class="teammate_measurement meaturement4" id="meaturementB4">
+                                            <input type="radio" name="B4" value="5" id="4Brate1"><label
+                                                for="4Brate1">★</label>
+                                            <input type="radio" name="B4" value="4" id="4Brate2"><label
+                                                for="4Brate2">★</label>
+                                            <input type="radio" name="B4" value="3" id="4Brate3"><label
+                                                for="4Brate3">★</label>
+                                            <input type="radio" name="B4" value="2" id="4Brate4"><label
+                                                for="4Brate4">★</label>
+                                            <input type="radio" name="B4" value="1" id="4Brate5"><label
+                                                for="4Brate5">★</label>
+                                        </fieldset>
+                                        <span class="text-bold">직무능력</span>
+                                        <fieldset class="teammate_measurement meaturement4" id="meaturementC4">
+                                            <input type="radio" name="C4" value="5" id="4Crate1"><label
+                                                for="4Crate1">★</label>
+                                            <input type="radio" name="C4" value="4" id="4Crate2"><label
+                                                for="4Crate2">★</label>
+                                            <input type="radio" name="C4" value="3" id="4Crate3"><label
+                                                for="4Crate3">★</label>
+                                            <input type="radio" name="C4" value="2" id="4Crate4"><label
+                                                for="4Crate4">★</label>
+                                            <input type="radio" name="C4" value="1" id="4Crate5"><label
+                                                for="4Crate5">★</label>
+                                        </fieldset>
+                                        <div>
+                                            <textarea class="col-auto form-control reviewContents" type="text" id="teammate1_content"
+                                                    placeholder="후기를 남겨주세요." spellcheck="false"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
