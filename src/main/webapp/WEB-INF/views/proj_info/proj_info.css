@@ -161,6 +161,9 @@
     width: 30px;
     height: 30px;
 }
+.txt {
+    width: 100%;
+}
 .comment_top {
     display: flex;
     justify-content: space-between;

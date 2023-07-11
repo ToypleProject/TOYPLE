@@ -458,3 +458,5 @@ function add_lang(a) {
     }
 }
 
+// document.querySelector("#start_date").value = new Date().toISOString().substring(0, 10);
+// document.querySelector("#finish_date").value = new Date().toISOString().substring(0, 10);
