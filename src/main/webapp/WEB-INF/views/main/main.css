@@ -1,4 +1,4 @@
-
+/****************/
 .main {
     position: relative;
     top: 10%;
@@ -58,14 +58,10 @@
     display: flex;
     justify-content : center;
     flex-wrap: wrap;
+<<<<<<< HEAD
 }
-.offer {
-    display: inline-block;
-    list-style:none;
-    width: 250px;
-    height: 200px;
-    margin: 20px 20px;
-    background-color: tan;
-    text-align: center;
-    font-size: 50px;
+
+
+=======
 }
+>>>>>>> 70cd0933fce35296ea3214b7f8c450af59d67a05

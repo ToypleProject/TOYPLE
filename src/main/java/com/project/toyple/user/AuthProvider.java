@@ -23,14 +23,14 @@ public class AuthProvider implements AuthenticationProvider {
         UserDto user = (UserDto)userService.loadUserByUsername(id);
         System.out.println("id: " + id + ",    AuthStatus: " + user.getAuthStatus());
 
-        if (user == null) {
+        if (user == null) { //아이디 없음
             System.out.println("UserNameNotFoundException");
             throw new UsernameNotFoundException(id);
-        } else if (!user.getPassword().equals(password)) {
+        } else if (!user.getPassword().equals(password)) { //password 실패시
             System.out.println("BadCredentialException");
-            throw new BadCredentialsException(id);
+            throw new BadCredentialsException(id);//보안정책상 id가 있어서
         }  else if (!user.isAccountNonLocked()) {
-            throw new LockedException("LockedException");
+            throw new LockedException("LockedException");//이메일 인증 안하고 로그인 했을 때
         } else if (user.getAuthStatus() == 0) {
             System.out.println("NotAuthenticatedException");
             throw new NotAuthenticatedException(id);

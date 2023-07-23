@@ -24,13 +24,28 @@ public class ProjectController {
     //메인 페이지
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String mainForm(Model model,String area) {
-        System.out.println("area.get(i) 확인 : " + area);
+//        System.out.println("area.get(i) 확인 : " + area);
 //        for (int i =0; i<area.size(); i++){
 //            System.out.println("area.get(i) 확인 : " + area.get(i));
 //        }
         List<ProjectDto> p = new ArrayList<>();
         projectService.findbyProjectDtoALL(p);
         List<ProjectDto> projectDtoList = projectService.findAll();
+//        System.out.println("모든데이터확인:" + projectDtoList.get(1).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(1).getProjectNm());
+//
+//        System.out.println("모든데이터확인:" + projectDtoList.get(2).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(2).getProjectNm());
+//
+//        System.out.println("모든데이터확인:" + projectDtoList.get(3).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(3).getProjectNm());
+//
+//        System.out.println("모든데이터확인:" + projectDtoList.get(4).getContent());
+//        System.out.println("모든데이터확인:" + projectDtoList.get(4).getProjectNm());
+//        System.out.println("모든데이터확인area:" + projectDtoList.get(4).getAreas());
+        AreaDto areaDto = new AreaDto();
+//        System.out.println("모든데이터확인:" + projectDtoList.get(2));
+//        System.out.println("모든데이터확인:" + projectDtoList.get(3));
         model.addAttribute("projectList", projectDtoList);
         return "main";
     }
@@ -41,24 +56,39 @@ public class ProjectController {
         return "new";
     }
 
+    //게시글 상세
+    @RequestMapping(value = "/project/detail", method=RequestMethod.GET)
+    public String addDetail(){
+        return "proj_info";
+    }
+
+    @GetMapping("/project/view")
+    public String boardView(Model model , Integer id){
+        System.out.println("상세페이지가 잘 가지고 와지는 건가?" +id );
+        ProjectDto dto = projectService.getProjectDetail(id);
+        System.out.println("상세페이지에서 가져온 데이터 확인 " + dto.getProjectNm());
+        System.out.println("상세페이지에서 가져온 데이터 확인 " + dto.getContent());
+        model.addAttribute("projectDetail",dto);
+        return "proj_info";
+    }
+
     //게시글 저장
-    @RequestMapping(value = "/project/save", method=RequestMethod.POST)
+        @RequestMapping(value = "/project/save", method=RequestMethod.POST)
     public String save(@ModelAttribute ProjectDto projectDto, @RequestParam Map<String,String> map,
                        @RequestParam(value = "area",required = false) List<String> area
                         ,@RequestParam(value = "job",required = false) List<String> job
                       ,@RequestParam(value = "language",required = false) List<String> language
                        , Model model){
         System.out.println("글 추가 확인");
-//        System.out.println("areaList확인 : " + area.size());
-//        System.out.println("jobList확인 : " + job.size());
-//        System.out.println("languagesList확인 : " + language.size());
+        System.out.println("프로젝트 이름" + map.get("projectNm"));
+        System.out.println("프로젝트 내용" + map.get("content"));
 
-        projectDto.setProjectNm(map.get("project_nm"));
+
+        projectDto.setProjectNm(map.get("projectNm"));
         projectDto.setContent(map.get("content"));
 
         ArrayList<AreaDto> areas = new ArrayList<>();
         for (int i =0; i<area.size(); i++){
-//            System.out.println("area.get(i) 확인 : " + area.get(i));
             AreaDto areaDto = new AreaDto();
             areaDto.setArea(area.get(i));
             areas.add(areaDto);
@@ -66,38 +96,24 @@ public class ProjectController {
         projectDto.setAreas(areas);
 
         ArrayList<JobDto> jobDtos = new ArrayList<>();
-//        if(job.isEmpty() ==  true) {
-//            break;
+
             for (int i = 0; i < job.size(); i++) {
-//            System.out.println("ViewjobList확인:" + job.get(i));
                 JobDto jobDto = new JobDto();
                 jobDto.setJob(job.get(i));
                 jobDtos.add(jobDto);
             }
 
-//        }
         projectDto.setJobs(jobDtos);
 
         ArrayList<LanguageDto> languageDtos = new ArrayList<>();
         for(int i=0; i<language.size(); i++){
-//            System.out.println("ViewLanguages확인:"+language.get(i));
             LanguageDto languageDto = new LanguageDto();
             languageDto.setLanguage(language.get(i));
             languageDtos.add(languageDto);
         }
         projectDto.setLanguages(languageDtos);
-
-        //참조받는 테이블에 값을 먼저 들어가서 에러가 발생
-
         //save() 사용해서 저장
         projectService.creaetProjectAndAreas(projectDto);
-//        projectService.save(projectDto);
-
-//        System.out.println("projectDto Project_id() 저장 후 확인 : " + projectDto.getProjectId());
-//        for (int i =0; i<projectDto.getAreas().size(); i++){
-//            System.out.println("projectDto.getAreas() 데이터 확인 : "
-//                    + areas.get(i).getArea().toString());
-//        }
 
         model.addAttribute("form", new ProjectForm());
         return "redirect:/";

@@ -9,6 +9,9 @@
     <link rel="stylesheet" th:href="@{/css/banner.css}">
     <link rel="stylesheet" th:href="@{/css/new.css}">
     <script type="text/javascript" th:src="@{/js/new.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/css/calstyle.css}">
+    <script type="text/javascript" th:src="@{/js/cal.js}"></script>
     <title>TOYPLE_new</title>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
@@ -143,14 +146,88 @@
 
             <li>
                 <div id="proj_name_div">
-                    <input type="text" id="proj_name" class = "focused" placeholder="입력하세요." spellcheck="false" required>
+                    <input type="text" id="projectNm" name = "projectNm" class = "focused" placeholder="입력하세요." spellcheck="false" required>
                 </div>
             </li>
             <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
+            <li class="topic"><div>팀원 모집 기간</div></li>
+            <li>
+                <div id="proj_date_div" class="input_date_box">
+                    <table class="cal_table_area">
+                        <tr>
+                            <td><input type="date" class="proj_date" id="proj_req_start" required ></td>
+                            <td><div class="tilt">~</div></td>
+                            <td><input type="date" class="proj_date" id="proj_req_end" required></td>
+                        </tr>
+                        <tr class="cal_table_area_tr2">
+                            <td>
+                                <div class="proj_cal_area">
+                                    <div class="proj_cal">
+                                        <table class="Calendar_start">
+                                            <thead>
+                                            <tr>
+                                                <td onClick="prevCalendar_start();" style="cursor:pointer;">&#60;</td>
+                                                <td colspan="5">
+                                                    <span id="calYear_start"></span>년
+                                                    <span id="calMonth_start"></span>월
+                                                </td>
+                                                <td onClick="nextCalendar_start();" style="cursor:pointer;">&#62;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>일</td>
+                                                <td>월</td>
+                                                <td>화</td>
+                                                <td>수</td>
+                                                <td>목</td>
+                                                <td>금</td>
+                                                <td>토</td>
+                                            </tr>
+                                            </thead>
 
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>
+                                <div class="proj_cal_area">
+                                    <div class="proj_cal">
+                                        <table class="Calendar_end">
+                                            <thead>
+                                            <tr>
+                                                <td onClick="prevCalendar_end();" style="cursor:pointer;">&#60;</td>
+                                                <td colspan="5">
+                                                    <span id="calYear_end"></span>년
+                                                    <span id="calMonth_end"></span>월
+                                                </td>
+                                                <td onClick="nextCalendar_end();" style="cursor:pointer;">&#62;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>일</td>
+                                                <td>월</td>
+                                                <td>화</td>
+                                                <td>수</td>
+                                                <td>목</td>
+                                                <td>금</td>
+                                                <td>토</td>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
             <li class="topic"><div>프로젝트 설명</div></li>
             <li>
-                <div id="proj_explain_div"><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" value ="" spellcheck="false"></textarea></div></li>
+                <div id="proj_explain_div"><textarea type="text" id="content" name = "content" placeholder="입력하세요." rows="20" value ="" spellcheck="false"></textarea></div></li>
 
             <li>
                 <!-- <div id="new_button"  onclick="newproject()" onmouseover="buttonover(this)" onmouseout="buttonout(this)">등록하기</div> -->

@@ -4,6 +4,7 @@ body {
     background-color: rgb(255, 251, 247);
     font-size: 14px;
     line-height: inherit;
+    cursor: default;
 }
 html, body {
     height: 100%;

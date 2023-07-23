@@ -20,6 +20,12 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectDao projectDao;
 
     @Override
+    public ProjectDto getProjectDetail(Integer id) {
+        return projectDao.findById(id).get();
+    }
+
+
+    @Override
     public void creaetProjectAndAreas(ProjectDto projectDto) {
         ProjectDto dto = ProjectDto.createProject(
                 projectDto.getProjectNm(),
@@ -54,7 +60,6 @@ public class ProjectServiceImpl implements ProjectService {
     public void findbyProjectDtoALL(List<ProjectDto> projectDtoList) {
 
     }
-
     @Override
     public List<ProjectDto> findAll() {
         //entity에서 dto로 옮겨담기

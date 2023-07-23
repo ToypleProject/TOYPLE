@@ -11,6 +11,8 @@ public interface ProjectService {
 
     void findbyProjectDtoALL(List<ProjectDto> projectDtoList);
 
+    ProjectDto getProjectDetail(Integer id);
+
 //    void areaSave(AreaDto area);
     public List<ProjectDto> findAll();
 }

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/banner.css}">
+    <link rel="stylesheet" th:href="@{/css/proj_info.css}">
+
+    <title>TOYPLE</title>
+    <style>
+        .txt {
+            width: 100%;
+        }
+        #comment_submit {
+            width: 80px;
+            height: 100%;
+            background-color:transparent;
+            border: none;
+        }
+        .comments_area_div {
+            background-color: white;
+            height: 250px;
+            border-top: none;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            overflow: auto;
+            /* padding: 10px; */
+            padding:0 10px 10px 10px;
+        }
+        .comments {
+            border-bottom: 1px solid #ccc;
+            height: auto;
+            padding: 10px;
+            color: #666;
+            display: flex;
+        }
+        .comment_profpho {
+            border: 1px solid tan;
+            background-color: linen;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .comment_profpho_img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+        .comment_top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment_id{
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+        }
+        .comment_date {
+            font-size: 12px;
+            color: #bbb;
+        }
+        .comment {
+            font-size: 13px;
+        }
+        .comments_area_div::-webkit-scrollbar {
+            width: 15px;
+        }
+        .comments_area_div::-webkit-scrollbar-thumb {
+            background-color: #bda687;
+            border-radius: 10px;
+            background-clip: padding-box;
+            border: 3px solid transparent;
+        }
+        /* .comments_area::-webkit-scrollbar-track {
+            border-radius: 10px;
+        } */
+        .langs {
+            float: left;
+            border: 1px solid tan;
+            border-radius: 3px;
+            margin: 5px;
+            font-size: 15px;
+            padding: 6px 15px;
+            background-color: white;
+            height: 20px;
+            font-family: 고딕,arial;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<div class="nav">
+    <div id="nav_bar">
+        <div id="nav_logo" onclick="location.href='../main/main.html'">
+            <h2 id="nav_lg">TOYPLE</h2>
+        </div>
+        <div id ="nav_right">
+            <div id="nav_login_area" style="cursor:pointer">
+                <div id="nav_login" onclick="location.href='../login/index.html'">로그인</div>
+                <div id="nav_new_user" onclick="location.href='../membership/index.html'">회원가입</div>
+            </div>
+            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
+                <img src="../img/plus.png" id="new_icon" alt="new">
+            </div>
+            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                <img src="../img/envelope.png" id="nav_alarm_icon" alt="envelope">
+            </div>
+
+            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
+                <img src="../img/login.png" id="personal_icon" alt="member">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div id="top_area"></div>
+    <div class="proj_info_area">
+        <div class="proj_informents">
+            <div id="proj_info">
+                <div id="proj_info_name">
+                    <h2 th:text="${projectDetail.projectNm}" ></h2>
+                    <div id="proj_regi">
+                        <p id="proj_date">
+                            2023.03.02
+                        </p>
+                    </div>
+                </div>
+                <div id="proj_details">
+                    <div class="proj_info_topic" id="proj_perioud"><div id="perioud_topic">모집 기간</div></div>
+                    <div id="perioud">
+                        2023.03.05 ~ 2023.05.01
+                    </div>
+                    <div class="proj_info_topic" id="proj_info_place"><div id="area">모집 지역</div></div>
+                    <div id="detail_place_area">
+                        <div class="proj_detail_place" id="seoul">서울</div>
+                        <div class="proj_detail_place" id="gyeonggi/Inchon">경기/인천</div>
+                        <div class="proj_detail_place" id="gangwon">강원</div>
+                        <div class="proj_detail_place" id="chungcheong/Daejeon">충천/대전</div>
+                        <div class="proj_detail_place" id="jeolla/Gwangju">전라/광주</div>
+                        <div class="proj_detail_place" id="gyeongbuk/Daegu">경북/대구</div>
+                        <div class="proj_detail_place" id="gyeongnam/Busan/Ulsan">경남/부산/울산</div>
+                        <div class="proj_detail_place" id="jeju">제주</div>
+                    </div>
+                    <div class="proj_info_topic" id="proj_info_lang"><div id="proj_lang">모집 언어</div></div>
+                    <div class="detail_langs_area">
+                        <div class="langs" id="JavaScript" value="JavaScript">JavaScript</div>
+                        <div class="langs" id="TypeScript" value="TypeScript">TypeScript</div>
+                        <div class="langs" id="React">React</div>
+                        <div class="langs" id="Java">Java</div>
+                        <div class="langs" id="Go">Go</div>
+                        <div class="langs" id="Unity">Unity</div>
+                    </div>
+                    <div class="proj_info_topic"><div id="proj_details_explain">상세 설명</div></div>
+                    <div class="detail_explain_area">
+                        <div class="detail_explain" th:text="${projectDetail.content}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="proj_teammates_area">
+                <div id="proj_teammates">
+                    <div class="teammates team_leader" onclick="location.href='../my_page/index.html'">
+                        <div class="profpho"><img class="profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="teammate_position_lang">JavaScript</div>
+                                <div class="teammate_position_lang">React</div>
+                                <div class="teammate_position_lang">Unity</div>
+                                <div class="teammate_position_lang">TypeScript</div>
+                                <div class="teammate_position_lang">Go</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="teammate_position_lang">JavaScript</div>
+                                <div class="teammate_position_lang">React</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info">
+                            <div class="teammate_name_area">
+                                <div class="teammate_name">홍길동</div>
+                            </div>
+                            <div class="teammate_position">
+                                <div class="teammate_position_lang">Unity</div>
+                                <div class="teammate_position_lang">TypeScript</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info"></div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info"></div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info"></div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info"></div>
+                    </div>
+                    <div class="teammates">
+                        <div class="profpho"></div>
+                        <div class="user_info"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="comment_area">
+            <div class="comment_area_div">
+                <div class="comment_field_area">
+                    <!-- <div > -->
+                    <form action="./proj_info.html" id="comment_field_divide_area">
+                        <div id="comment_field_div">
+                            <textarea type="text" id="comment_field_text" placeholder="댓글 입력하기" value=""  spellcheck="false"></textarea>
+                        </div>
+                        <div class="commend_append">
+                            <input id="comment_submit" type="submit" value="등록">
+                        </div>
+                    </form>
+                    <!-- </div> -->
+                </div>
+
+                <div class="comments_area_div">
+                    <div class="comments_area">
+                        <div class="comments">
+                            <div class="comment_profpho"><img class="comment_profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                            <div class="txt">
+                                <div class="comment_top">
+                                    <div class="comment_id">홍길동</div>
+                                    <div class="comment_date">2023.05.01 18:53</div>
+                                </div>
+                                <div class="comment">안녕하세요 </div>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment_profpho"><img class="comment_profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                            <div class="txt">
+                                <div class="comment_top">
+                                    <div class="comment_id">홍길동</div>
+                                    <div class="comment_date">2023.05.01 18:51</div>
+                                </div>
+                                <div class="comment">잘 부탁드립니다 </div>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment_profpho"><img class="comment_profpho_img" src="../img/prof_img.jpg" alt=""></div>
+                            <div class="txt">
+                                <div class="comment_top">
+                                    <div class="comment_id">홍길동</div>
+                                    <div class="comment_date">2023.04.23 03:23</div>
+                                </div>
+                                <div class="comment">안녕하세요 안녕하세요  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</div>
+
+</body>
+</html>

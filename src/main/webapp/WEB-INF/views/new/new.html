@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../new/new.js"></script>
     <link rel="stylesheet" href="../main/banner.css">
     <link rel="stylesheet" href="./new.css">
-    <!-- <link rel="stylesheet" href="../main/main.css"> -->
-    <script type="text/javascript" src="./new.js"></script>
-    <!-- <script src="./test.js"></script> -->
+    <link rel="stylesheet" href="../new/calstyle.css">
+    <script src="../new/cal.js"></script>
+    <script>
+        window.onload = function () { buildCalendar_start(); buildCalendar_end(); } // 웹 페이지가 로드되면 buildCalendar 실행
+    </script>
     <title>TOYPLE_new</title>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
@@ -37,7 +41,11 @@
     </div>
 
     <div class="new_page">
+<<<<<<< HEAD
         <form autocomplete="off" action="/project/save" method="post">
+=======
+        <form autocomplete="off" action="../main/main.html" method="post">
+>>>>>>> de7f9b36978e327f4dc5cb8805427caa1c1407c0
             <ul>
                 <li class="topic"><div>지역</div></li>
                 <li>
@@ -86,47 +94,28 @@
                 <li class="topic"><div>language</div></li>
                 <li>
                     <div id="choose_langs">
-                        <div id="langs_front"></div>
-                        <div id="langs_back"></div>
-                        <div id="langs_mob"></div>
-                        <div id="langs_etc"></div>
-                        <!-- <label class="langs front_lang f_lang1 lang1"><input class="f_lang1" id="JS" onclick="add_lang(this)" type="checkbox" name="JavaScript">JavaScript</label>
-                        <label class="langs front_lang f_lang2 lang2"><input class="f_lang2" id="TS" onclick="add_lang(this)" type="checkbox" name="TypeScript">TypeScript</label>
-                        <label class="langs front_lang f_lang3 lang3"><input class="f_lang3" id="React" onclick="add_lang(this)" type="checkbox" name="React">React</label>
-                        <label class="langs front_lang f_lang4 lang4"><input class="f_lang4" id="Vue" onclick="add_lang(this)" type="checkbox" name="Vue">Vue</label>
-                        <label class="langs front_lang f_lang5 lang5"><input class="f_lang5" id="Svelte" onclick="add_lang(this)" type="checkbox" name="Svelte">Svelte</label>
-                        <label class="langs front_lang f_lang6 lang6"><input class="f_lang6" id="Nextjs" onclick="add_lang(this)" type="checkbox" name="Nextjs">Nextjs</label> -->
-                        
-                        <!-- <label class="langs back_lang b_lang1 lang7"><input class="lang b_lang1" id="Java" onclick="add_lang(this)" type="checkbox" name="Java">Java</label>
-                        <label class="langs back_lang b_lang2 lang8"><input class="lang b_lang2" id="Spring" onclick="add_lang(this)" type="checkbox" name="Spring">Spring</label>
-                        <label class="langs back_lang b_lang3 lang9"><input class="lang b_lang3" id="Nodejs" onclick="add_lang(this)" type="checkbox" name="Nodejs">Nodejs</label>
-                        <label class="langs back_lang b_lang4 lang10"><input class="lang b_lang4" id="Nestjs" onclick="add_lang(this)" type="checkbox" name="Nestjs">Nestjs</label>
-                        <label class="langs back_lang b_lang5 lang11"><input class="lang b_lang5" id="Go" onclick="add_lang(this)" type="checkbox" name="Go">Go</label>
-                        <label class="langs back_lang b_lang6 lang12"><input class="lang b_lang6" id="Kotlin" onclick="add_lang(this)" type="checkbox" name="Kotlin">Kotlin</label>
-                        <label class="langs back_lang b_lang4 lang13"><input class="lang b_lang7" id="Express" onclick="add_lang(this)" type="checkbox" name="Express">Express</label>
-                        <label class="langs back_lang b_lang5 lang14"><input class="lang b_lang8" id="MySQL" onclick="add_lang(this)" type="checkbox" name="MySQL">MySQL</label>
-                        <label class="langs back_lang b_lang6 lang15"><input class="lang b_lang9" id="MongoDB" onclick="add_lang(this)" type="checkbox" name="MongoDB">MongoDB</label>
-                        <label class="langs back_lang b_lang5 lang16"><input class="lang b_lang10" id="Python" onclick="add_lang(this)" type="checkbox" name="Python">Python</label>
-                        <label class="langs back_lang b_lang6 lang17"><input class="lang b_lang11" id="Django" onclick="add_lang(this)" type="checkbox" name="Django">Django</label>
-                        <label class="langs back_lang b_lang4 lang18"><input class="lang b_lang12" id="php" onclick="add_lang(this)" type="checkbox" name="php">php</label>
-                        <label class="langs back_lang b_lang5 lang19"><input class="lang b_lang13" id="GraphQL" onclick="add_lang(this)" type="checkbox" name="GraphQL">GraphQL</label>
-                        <label class="langs back_lang b_lang6 lang20"><input class="lang b_lang14" id="Firebase" onclick="add_lang(this)" type="checkbox" name="Firebase">Firebase</label> -->
-                        
-                        <!-- <label class="langs mob_lang m_lang1 lang21"><input class="lang m_lang1" id="Flutter" onclick="add_lang(this)" type="checkbox" name="Flutter">Flutter</label>
-                        <label class="langs mob_lang m_lang2 lang22"><input class="lang m_lang2" id="Swift" onclick="add_lang(this)" type="checkbox" name="Swift">Swift</label>
-                        <label class="langs mob_lang m_lang3 lang23"><input class="lang m_lang3" id="Kotlin" onclick="add_lang(this)" type="checkbox" name="Kotlin">Kotlin</label>
-                        <label class="langs mob_lang m_lang4 lang24"><input class="lang m_lang4" id="ReactNative" onclick="add_lang(this)" type="checkbox" name="ReactNative">ReactNative</label>
-                        <label class="langs mob_lang m_lang5 lang25"><input class="lang m_lang5" id="Unity" onclick="add_lang(this)" type="checkbox" name="Unity">Unity</label> -->
-                        
-                        <!-- <label class="langs etc_lang e_lang1 lang26"><input class="lang e_lang1" id="AWS" onclick="add_lang(this)" type="checkbox" name="AWS">AWS</label>
-                        <label class="langs etc_lang e_lang2 lang27"><input class="lang e_lang2" id="Kubernetes" onclick="add_lang(this)" type="checkbox" name="Kubernetes">Kubernetes</label>
-                        <label class="langs etc_lang e_lang3 lang28"><input class="lang e_lang3" id="Docker" onclick="add_lang(this)" type="checkbox" name="Docker">Docker</label>
-                        <label class="langs etc_lang e_lang4 lang29"><input class="lang e_lang4" id="Git" onclick="add_lang(this)" type="checkbox" name="Git">Git</label>
-                        <label class="langs etc_lang e_lang5 lang30"><input class="lang e_lang5" id="Figma" onclick="add_lang(this)" type="checkbox" name="Figma">Figma</label>
-                        <label class="langs etc_lang e_lang6 lang31"><input class="lang e_lang3" id="Zeplin" onclick="add_lang(this)" type="checkbox" name="Zeplin">Zeplin</label>
-                        <label class="langs etc_lang e_lang7 lang32"><input class="lang e_lang4" id="Jest" onclick="add_lang(this)" type="checkbox" name="Jest">Jest</label>
-                        <label class="langs etc_lang e_lang8 lang33"><input class="lang e_lang5" id="C" onclick="add_lang(this)" type="C" name="C">C</label> -->
-                        
+                        <div id="langs_front" class="langsDiv">
+                            <label class="langs front_lang f_lang1"><input class="front_lang f_lang1" id="JavaScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="JavaScript">JavaScript</label><label class="langs front_lang f_lang2"><input class="front_lang f_lang2" id="TypeScript" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="TypeScript">TypeScript</label><label class="langs front_lang f_lang3"><input class="front_lang f_lang3" id="React" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="React">React</label><label class="langs front_lang f_lang4"><input class="front_lang f_lang4" id="Vue" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Vue">Vue</label><label class="langs front_lang f_lang5"><input class="front_lang f_lang5" id="Svelte" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Svelte">Svelte</label><label class="langs front_lang f_lang6"><input class="front_lang f_lang6" id="Nextjs" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Nextjs">Nextjs</label>
+                        </div>
+                        <div id="langs_back" class="langsDiv">
+                            <label class="langs back_lang b_lang1"><input class="back_lang b_lang1" id="Java" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Java">Java</label><label class="langs back_lang b_lang2"><input class="back_lang b_lang2" id="Spring" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Spring">Spring</label><label class="langs back_lang b_lang3"><input class="back_lang b_lang3" id="Nodejs" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Nodejs">Nodejs</label><label class="langs back_lang b_lang4"><input class="back_lang b_lang4" id="Nestjs" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Nestjs">Nestjs</label><label class="langs back_lang b_lang5"><input class="back_lang b_lang5" id="Go" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Go">Go</label><label class="langs back_lang b_lang7"><input class="back_lang b_lang7" id="Express" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Express">Express</label><label class="langs back_lang b_lang8"><input class="back_lang b_lang8" id="MySQL" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="MySQL">MySQL</label><label class="langs back_lang b_lang9"><input class="back_lang b_lang9" id="MongoDB" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="MongoDB">MongoDB</label><label class="langs back_lang b_lang10"><input class="back_lang b_lang10" id="Python" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Python">Python</label><label class="langs back_lang b_lang11"><input class="back_lang b_lang11" id="Django" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Django">Django</label><label class="langs back_lang b_lang12"><input class="back_lang b_lang12" id="php" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="php">php</label><label class="langs back_lang b_lang13"><input class="back_lang b_lang13" id="GraphQL" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="GraphQL">GraphQL</label><label class="langs back_lang b_lang14"><input class="back_lang b_lang14" id="Firebase" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Firebase">Firebase</label>
+                        </div>
+                        <div id="langs_kotlin" class="langsDiv">
+                            <label class="langs kotlin"><input class="kotlin" id="Kotlin" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Kotlin">Kotlin</label>
+                        </div>
+                        <div id="langs_mob_nokot" class="langsDiv">
+                            <label class="langs mob_lang m_lang1"><input class="mob_lang m_lang1" id="Flutter" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Flutter">Flutter</label><label class="langs mob_lang m_lang2"><input class="mob_lang m_lang2" id="Swift" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Swift">Swift</label><label class="langs mob_lang m_lang4"><input class="mob_lang m_lang4" id="ReactNative" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="ReactNative">ReactNative</label><label class="langs mob_lang m_lang5"><input class="mob_lang m_lang5" id="Unity" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Unity">Unity</label>
+                        </div>
+                        <div id="langs_etc" class="langsDiv">
+                            <label class="langs etc_lang e_lang1"><input class="etc_lang e_lang1" id="AWS" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="AWS">AWS</label>
+                            <label class="langs etc_lang e_lang2"><input class="etc_lang e_lang2" id="Kubernetes" onclick="add_lang(this)" type="checkbox" value="Kubernetes">Kubernetes</label>
+                            <label class="langs etc_lang e_lang3"><input class="etc_lang e_lang3" id="Docker" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Docker">Docker</label>
+                            <label class="langs etc_lang e_lang4"><input class="etc_lang e_lang4" id="Git" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Git">Git</label>
+                            <label class="langs etc_lang e_lang5"><input class="etc_lang e_lang5" id="Figma" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Figma">Figma</label>
+                            <label class="langs etc_lang e_lang6"><input class="etc_lang e_lang6" id="Zeplin" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Zeplin">Zeplin</label>
+                            <label class="langs etc_lang e_lang7"><input class="etc_lang e_lang7" id="Jest" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="Jest">Jest</label>
+                            <label class="langs etc_lang e_lang8"><input class="etc_lang e_lang8" id="C" onclick="add_lang(this)" type="checkbox" name="slt_lang" value="C">C</label>
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -149,6 +138,81 @@
                 </li>
                 <li id="new_alert"><div id="response_area">필수 입력 사항입니다.</div></li>
 
+                <li class="topic"><div>팀원 모집 기간</div></li>
+                <li>
+                    <div id="proj_date_div" class="input_date_box">
+                        <table class="cal_table_area">
+                            <tr>
+                                <td><input type="date" class="proj_date" id="proj_req_start" required ></td>
+                                <td><div class="tilt">~</div></td>
+                                <td><input type="date" class="proj_date" id="proj_req_end" required></td>
+                            </tr>
+                            <tr class="cal_table_area_tr2">
+                                <td>
+                                    <div class="proj_cal_area">
+                                        <div class="proj_cal">
+                                            <table class="Calendar_start">
+                                                <thead>
+                                                    <tr>
+                                                        <td onClick="prevCalendar_start();" style="cursor:pointer;">&#60;</td>
+                                                        <td colspan="5">
+                                                            <span id="calYear_start"></span>년
+                                                            <span id="calMonth_start"></span>월
+                                                        </td>
+                                                        <td onClick="nextCalendar_start();" style="cursor:pointer;">&#62;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>일</td>
+                                                        <td>월</td>
+                                                        <td>화</td>
+                                                        <td>수</td>
+                                                        <td>목</td>
+                                                        <td>금</td>
+                                                        <td>토</td>
+                                                    </tr>
+                                                </thead>
+                                        
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div class="proj_cal_area">
+                                        <div class="proj_cal">
+                                            <table class="Calendar_end">
+                                                <thead>
+                                                    <tr>
+                                                        <td onClick="prevCalendar_end();" style="cursor:pointer;">&#60;</td>
+                                                        <td colspan="5">
+                                                            <span id="calYear_end"></span>년
+                                                            <span id="calMonth_end"></span>월
+                                                        </td>
+                                                        <td onClick="nextCalendar_end();" style="cursor:pointer;">&#62;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>일</td>
+                                                        <td>월</td>
+                                                        <td>화</td>
+                                                        <td>수</td>
+                                                        <td>목</td>
+                                                        <td>금</td>
+                                                        <td>토</td>
+                                                    </tr>
+                                                </thead>
+                                        
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
                 <li class="topic"><div>프로젝트 설명</div></li>
                 <li>
                     <div id="proj_explain_div"><textarea type="text" id="proj_explain" placeholder="입력하세요." rows="20" value ="" spellcheck="false"></textarea></div></li>
