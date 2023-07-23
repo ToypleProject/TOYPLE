@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -17,7 +15,7 @@ public class UserController {
     private BCryptPasswordEncoder passwordEncoder;
 
     // 로그인 창으로 이동
-    @RequestMapping(value="/user/login", method=RequestMethod.GET)
+    @GetMapping(value="/login")
     public String loginForm(@RequestParam(value="error", required=false) String error,
                             @RequestParam(value="exception", required=false) String exception,
                             Model model) {
@@ -27,7 +25,7 @@ public class UserController {
     }
 
     // 회원가입 창으로 이동
-    @RequestMapping(value="/user/join", method=RequestMethod.GET)
+    @GetMapping(value="/join")
     public String joinForm(/*@RequestParam(value="error", required=false) String error,
                            @RequestParam(value="exception", required=false) String exception,
                            Model model*/) {
@@ -37,7 +35,7 @@ public class UserController {
     }
 
     // 회원가입 작업 수행
-    @RequestMapping(value="/user/join", method=RequestMethod.POST)
+    @PostMapping(value="/join")
     public String join(UserDto userDto, Model model) {
         String randomKey = userService.makeRandomKey();
         String errorMsg = null;
@@ -64,7 +62,7 @@ public class UserController {
         return "join";
     }
 
-    @RequestMapping(value="/user/join/auth")
+    @GetMapping(value="/join/auth")
     public String joinAuth(@RequestParam(value="userId") String userId,
                            @RequestParam(value="randomKey") String randomKey) {
         userService.updateAuthStatus(userId, randomKey);
@@ -72,13 +70,13 @@ public class UserController {
     }
 
     // 비밀번호 찾기 창으로 이동
-    @RequestMapping(value="/user/find/password/form")
+    @GetMapping(value="/find/password/form")
     public String findPasswordForm() {
         return "findpwd";
     }
 
     // 입력받은 정보가 회원정보와 일치하는지 확인하고 메일 전송
-    @RequestMapping(value="/user/find/password")
+    @GetMapping(value="/find/password")
     public String findPassword(UserDto userDto, Model model) {
         if (userService.checkUserInfo(userDto)) {
             String randomKey = userService.sendEmailKey(userDto);
@@ -96,13 +94,13 @@ public class UserController {
     }
 
     // 인증번호 입력 페이지로 이동
-    @RequestMapping(value="/user/find/password/auth/form")
+    @RequestMapping(value="/find/password/auth/form")
     public String findPasswordAuthForm() {
         return "success_pwd";
     }
 
     // 입력받은 코드가 인증코드와 일치하는지 확인하고 비밀번호 변경 페이지로 이동
-    @RequestMapping(value="/user/find/password/auth")
+    @RequestMapping(value="/find/password/auth")
     public String findPasswordAuth(UserDto userDto, Model model, String randomKey, String code) {
 //        System.out.println(userDto.getUserId());
 //        System.out.println(userDto.getUserName());
@@ -119,7 +117,7 @@ public class UserController {
     }
 
     // 인증 코드 재전송
-    @RequestMapping(value="/user/find/password/resend")
+    @RequestMapping(value="/find/password/resend")
     public String resendEmail(UserDto userDto, Model model) {
         System.out.println(userDto.getUserName());
         System.out.println(userDto.getEmail());
@@ -130,13 +128,13 @@ public class UserController {
     }
 
     // 비밀번호 변경 페이지로 이동
-    @RequestMapping(value="/user/find/password/change/form")
+    @RequestMapping(value="/find/password/change/form")
     public String findPasswordChangeForm() {
         return "change_pwd";
     }
 
     // 비밀번호 변경 작업 수행
-    @RequestMapping(value="/user/find/password/change")
+    @RequestMapping(value="/find/password/change")
     public String findPasswordChange(String userId, String pswd1) {
         userService.changePassword(userId, pswd1);
 
@@ -144,13 +142,13 @@ public class UserController {
     }
 
     // 아이디 찾기 페이지로 이동
-    @RequestMapping(value="/user/find/id/form")
+    @RequestMapping(value="/find/id/form")
     public String findIdForm() {
         return "findId";
     }
 
     // 아이디 찾기 작업 수행
-    @RequestMapping(value="/user/find/id")
+    @RequestMapping(value="/find/id")
     public String findId(UserDto userDto, Model model) {
         String userId = userService.findId(userDto);
         if (userId != null) {
@@ -164,12 +162,12 @@ public class UserController {
         return "findId";
     }
 
-    @RequestMapping(value="/user/find/id/success")
+    @RequestMapping(value="/find/id/success")
     public String findIdSuccess() {
         return "successId";
     }
 
-    @RequestMapping(value="/user/mypage/{userId}")
+    @RequestMapping(value="/mypage/{userId}")
     public String myPage(@PathVariable String userId, Model model) {
         System.out.println("uesrId " + userId);
         UserDto userDto = userService.getUserDtoById(userId);
