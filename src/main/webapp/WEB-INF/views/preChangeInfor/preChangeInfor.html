@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="preChangeInfor.css">
+    <title>preChangeInfor</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header" class="logo">
+            <h1><a href='#' class='h_logo' role="banner">정보수정</a></h1>
+        </div>
+        <form id="join_form">
+            <div id="container">
+                <div id="banner"></div>
+                <div id="content">
+                    <!-- 아이디 비밀번호  -->
+                    <div class="row_group">
+                        <div class ="join_row">
+                            <h3 class="join_title">
+                                <label for="id">아이디</lebel>
+                            </h3>
+                            <span class="ps_box int_id">
+                                <input type="text" maxlength="20" class="int" title="ID" id="id" name="id" onchange="id_repeat()">
+                            </span>
+                            <span class="error_next_box" id="Msg1"style="display : none" aria-live="assertive">
+                                필수 입력란입니다.
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="join_row">
+                            <h3 class="join_title">
+                                <label for="pswd1">비밀번호</label>
+                            </h3>
+                            <span class="ps_box int_pass" id="psw1Img">
+                                <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20">
+                            </span>
+                            <span class="error_next_box" id="Msg2"style="display : none" aria-live="assertive">
+                                필수 입력란입니다.
+                            </span>
+                        </div>
+                    </div>
+                    <!-- //아이디 비밀번호 -->
+                    
+                    <!-- 로그인 버튼 -->
+                    <div class="btn_area">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary" onclick="button_click()">
+                            <span>정보수정 버튼</span>
+                        </button>
+                    </div>
+                    <!-- //로그인 버튼 -->
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type =  "text/javascript" src = "preChangeInfor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+</body>
+</html>

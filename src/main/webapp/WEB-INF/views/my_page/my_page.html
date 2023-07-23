@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myPage.css">
+    <link rel="stylesheet" href="on_off_button.css">
+    <title>my_page</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header_bg" class="banner">
+            <div id="header">배너</div>
+        </div>
+        <div id="container">
+            <div id="content">
+                <!-- grid로 만들기 -->
+                <div id="grid">
+                    <div class="row_group user">
+                        <div class="item changeInfor"><a href="#">정보수정</a></div>
+                        <div class="item userbundle">
+                            <div class ="item userImg">사진<img id="img" src="test.png"></div>
+                            <div class="item userInformation">
+                                <div class="item userprivate">
+                                    <div class="item userName information">이름<div id="name" class="dataout"></div></div>
+                                    <div class="item userMail information">이메일<div id="mail" class="dataout"></div></div>
+                                    <div class="item userInformation_button">
+                                      <label for="toggle" class="toggleSwitch">
+                                          <span class="toggleButton"></span>
+                                     </label>
+                                     공개/비공개
+                                    </div>
+                                </div>
+                                <div class="item usershow information">자기소개
+                                    <div class="textcontain">
+                                        <div id="iam" class="dataout"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row_group project">
+                        <!-- grid로 만들기 또는 표 -->
+                        <div class="item userProject">프로젝트1</div>
+                        <div class="item userProject">프로젝트2</div>
+                        <div class="item userProject">프로젝트3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type =  "text/javascript" src = "myPage.js"></script>
+    <script type =  "text/javascript" src = "on_off_button.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"></script>
+</body>
+</html>

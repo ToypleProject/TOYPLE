@@ -17,4 +17,6 @@ public interface UserService extends UserDetailsService {
     void updateAuthStatus(String userId, String randomKey);
     void changePassword(String userId, String password);
     String findId(UserDto userDto);
+    UserDto getUserDtoById(String userId);
+//    ArrayList<ProjectDto> getProjectDtoBYUserId(); // mypage에 있는 projectList 때문에 필요함
 }

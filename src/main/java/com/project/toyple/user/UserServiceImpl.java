@@ -170,7 +170,7 @@ public class UserServiceImpl implements UserService {
             javaMailSender.send(message);
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return "인증 메일 전송에 실패했습니다.";
         }
         return null;
     }
@@ -203,5 +203,9 @@ public class UserServiceImpl implements UserService {
             return findUser.getUserId();
         }
         return null;
+    }
+
+    public UserDto getUserDtoById(String userId) {
+        return userDao.findByUserId(userId);
     }
 }
