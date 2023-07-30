@@ -97,23 +97,31 @@
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 <div class="nav">
     <div id="nav_bar">
-        <div id="nav_logo" onclick="location.href='../main/main.html'">
+        <div id="nav_logo" onclick="location.href='/'">
             <h2 id="nav_lg">TOYPLE</h2>
         </div>
         <div id ="nav_right">
-            <div id="nav_login_area" style="cursor:pointer">
-                <div id="nav_login" onclick="location.href='../login/index.html'">로그인</div>
-                <div id="nav_new_user" onclick="location.href='../membership/index.html'">회원가입</div>
-            </div>
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href='../new/new.html'">
-                <img src="../img/plus.png" id="new_icon" alt="new">
-            </div>
-            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
-                <img src="../img/envelope.png" id="nav_alarm_icon" alt="envelope">
+            <!-- 로그인을 했다면 보이는 항목 -->
+            <div sec:authorize="isAuthenticated()">
+                <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/add'">
+                    <img th:src="@{/img/plus.png}"  id="new_icon" alt="new">
+                </div>
+                <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
+                    <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
+                </div>
+                <div id="nav_personal" style="cursor:pointer">
+                    <a th:href="@{|/user/mypage/${#authentication.name}|}" class="text-left">
+                        <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
+                    </a>
+                </div>
             </div>
 
-            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
-                <img src="../img/login.png" id="personal_icon" alt="member">
+            <!-- 로그인을 하지 않았다면 보이는 항목 -->
+            <div sec:authorize="!isAuthenticated()">
+                <div id="nav_login_area" style="cursor:pointer">
+                    <div id="nav_login" onclick="location.href='/user/login'">로그인</div>
+                    <div id="nav_new_user" onclick="location.href='/user/join'">회원가입</div>
+                </div>
             </div>
         </div>
     </div>

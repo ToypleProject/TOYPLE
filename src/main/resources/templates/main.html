@@ -98,14 +98,14 @@
                             <td th:text="${product.projectNm}"></td>
 <!--                            <td th:text="${product.content}" th:href="@{/project/view(id=${product.id})}"></td>-->
                             <td><a th:text="${product.content}" th:href="@{/project/view(id=${product.id})}"></a></td>
-                            <td th:text="${product.areas}"></td>
+                            <td th:text="${product.getAreas()}"></td>
                             <td th:text="${product.jobs}"></td>
 
                         </tr>
                     </table>
                     <table id="offering_table">
-                        <tr>
-                            <td>
+                        <tr th:each="product : ${projectList}" >
+                            <td th:href="@{/project/view(id=${product.id})}">
                                 <div class="offer" onclick="window.open('../proj_info/proj_info.html')">
 
                                 <div class="offer_header">
@@ -115,7 +115,8 @@
                                         <div class="limdate_area" id="limdate">2023.05.01</div>
                                     </div>
                                 </div>
-                                <div class="project_title">프로젝트 제목</div>
+                                <div class="project_title" th:text="${product.projectNm}">
+                                </div>
 
                                 <div class="project_langs">
                                     <div class="langs" id="JavaScript" value="JavaScript">JavaScript</div>
@@ -126,9 +127,8 @@
                                     <div class="langs" id="Unity">Unity</div>
                                 </div>
                                 </div>
-
                             </td>
-                            <td><div class="offer">
+                           <!-- <td><div class="offer">
                                 <div class="project_title"></div>
                                 <div class="project_limitdate"></div>
                                 <div class="project_loc"></div>
@@ -139,50 +139,50 @@
                                 <div class="project_limitdate"></div>
                                 <div class="project_loc"></div>
                                 <div class="project_langs"></div>
-                            </div></td>
+                            </div></td>-->
 
                         </tr>
-                        <tr>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
+<!--                        <tr>-->
+<!--                            <td><div class="offer">-->
+<!--                                <div class="project_title"></div>-->
+<!--                                <div class="project_limitdate"></div>-->
+<!--                                <div class="project_loc"></div>-->
+<!--                                <div class="project_langs"></div>-->
+<!--                            </div></td>-->
+<!--                            <td><div class="offer">-->
+<!--                                <div class="project_title"></div>-->
+<!--                                <div class="project_limitdate"></div>-->
+<!--                                <div class="project_loc"></div>-->
+<!--                                <div class="project_langs"></div>-->
+<!--                            </div></td>-->
+<!--                            <td><div class="offer">-->
+<!--                                <div class="project_title"></div>-->
+<!--                                <div class="project_limitdate"></div>-->
+<!--                                <div class="project_loc"></div>-->
+<!--                                <div class="project_langs"></div>-->
+<!--                            </div></td>-->
 
-                        </tr>
-                        <tr>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                            <td><div class="offer">
-                                <div class="project_title"></div>
-                                <div class="project_limitdate"></div>
-                                <div class="project_loc"></div>
-                                <div class="project_langs"></div>
-                            </div></td>
-                        </tr>
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><div class="offer">-->
+<!--                                <div class="project_title"></div>-->
+<!--                                <div class="project_limitdate"></div>-->
+<!--                                <div class="project_loc"></div>-->
+<!--                                <div class="project_langs"></div>-->
+<!--                            </div></td>-->
+<!--                            <td><div class="offer">-->
+<!--                                <div class="project_title"></div>-->
+<!--                                <div class="project_limitdate"></div>-->
+<!--                                <div class="project_loc"></div>-->
+<!--                                <div class="project_langs"></div>-->
+<!--                            </div></td>-->
+<!--                            <td><div class="offer">-->
+<!--                                <div class="project_title"></div>-->
+<!--                                <div class="project_limitdate"></div>-->
+<!--                                <div class="project_loc"></div>-->
+<!--                                <div class="project_langs"></div>-->
+<!--                            </div></td>-->
+<!--                        </tr>-->
                     </table>
                 </div>
             </div>
