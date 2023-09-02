@@ -3,10 +3,7 @@ package com.project.toyple.review;
 import com.project.toyple.project.ProjectDto;
 import com.project.toyple.user.UserDto;
 import com.project.toyple.project.ProjectDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -16,6 +13,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class ReviewDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
