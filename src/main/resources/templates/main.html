@@ -15,26 +15,9 @@
     <script th:src="@{/js/filter.js}"></script>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-<div class="nav">
-    <div id="nav_bar">
-        <div id="nav_logo" onclick="location.href='/'">
-            <h2 id="nav_lg">TOYPLE</h2>
-        </div>
-        <div id ="nav_right">
-            <div id="nav_login" style="cursor:pointer" onclick="location.href='../login/index.html'"><div>LOGIN</div></div>
-            <div id="nav_neww" style="cursor:pointer" onclick="location.href='/project/add'">
-                <img th:src="@{/img/plus.png}"  id="new_icon" alt="new">
-            </div>
-            <div id="nav_alarm" style="cursor:pointer" onclick="location.href=''" >
-                <img th:src="@{/img/envelope.png}" id="nav_alarm_icon" alt="envelope">
-            </div>
+<head th:replace="top_menu.html :: head"></head>
 
-            <div id="nav_personal" style="cursor:pointer" onclick="location.href='../login/index.html'">
-                <img th:src="@{/img/login.png}" id="personal_icon" alt="member">
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="main">
     <div id="contents">
         <div id="filter_area">
@@ -133,7 +116,7 @@
                                 <div class="project_limitdate"></div>
                                 <div class="project_loc"></div>
                                 <div class="project_langs"></div>
-                            </div></td>
+                            </div></td><div class="nav">
                             <td><div class="offer">
                                 <div class="project_title"></div>
                                 <div class="project_limitdate"></div>
